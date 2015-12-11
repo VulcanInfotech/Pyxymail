@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor Sample</title>
+	<script src="ckeditor.js"></script>
+	<script src="samples/js/sample.js"></script>
+	<link rel="stylesheet" href="css/samples.css">
+	<link rel="stylesheet" href="toolbarconfigurator/lib/codemirror/neo.css">
+	<script>
+	function addSpace()
+	{
+	var space="Start here...",i;
+		for(i=1; i<=500; i++)
+		{
+			space += "&nbsp;";
+		}
+		CKEDITOR.instances.editor.setData(space);
+	}
+	</script>
+</head>
+<body onload="addSpace()">
+<br>
+<center><h2>Pyxymail Updated editor</h2></center>
+<hr>
+<center>
+<header class="header-a">
+	<div class="grid-container">
+		<h1 class="header-a-logo grid-width-30">
+			<img src="samples/pyxy_promotion.jpg" alt="CKEditor Sample" height="100px" width="150px">
+			<img src="samples/Screenshot.png" alt="CKEditor Sample" height="100px" width="150px">
+			<img src="samples/pyxy_promotion.jpg" alt="CKEditor Sample" height="100px" width="150px">
+			<img src="samples/Screenshot.png" alt="CKEditor Sample" height="100px" width="150px">
+			<img src="samples/pyxy_promotion.jpg" alt="CKEditor Sample" height="100px" width="150px">
+		</h1>
+	</div>
+</header>
+<hr>
+<br>
+<br><br>
+</center>
+<div class="col-md-12">
+	 <div class="container">
+		<div id="editor" contenteditable="true" style="border:1; border-style:solid; resize:vertical; width:62%;">
+		
+		Lets start here...
+		</div>
+		</div>
+	
+</div>
+
+<script>
+    // Turn off automatic editor creation first.
+    CKEDITOR.disableAutoInline = true;
+    CKEDITOR.inline('editor');
+	initSample();
+</script>
+
+</body>
+</html>

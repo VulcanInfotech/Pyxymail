@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+function foo() {
+
+    var selObj = window.getSelection(); 
+	var value=selObj.toString();
+	var m=value.bold() ;
+    alert(m);
+    var selRange = selObj.getRangeAt(0);
+    // do stuff with the range
+}
+</script>
+</head>
+<body>
+navjayo
+<form>
+<div contenteditable="true">hello</div>
+<input type="text" value="navv" onselect="foo()">
+</form>
+</body>
