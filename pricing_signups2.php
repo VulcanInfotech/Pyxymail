@@ -14,10 +14,9 @@
     <!-- Custom styles for this template -->
    
     
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-
+   
 <link rel="stylesheet" href="css/templatemo-style.css">
+
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <link href="css1/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -63,7 +62,7 @@ function showPrice(str) {
 	list-style: none;
 	text-align: center;
 	border-bottom: 1px solid #909090;
-font-size:16px;font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#3f5348;
+font-size:16px;//font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#3f5348;
 }
 .plans_head{
 	display: block;
@@ -305,9 +304,9 @@ color:#2ecc71;
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-       <li style="margin-top:20px;"><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></li>
+       <li style="margin-top:20px;"><center><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></center></li>
 
-        <li style="margin-top:10px;"><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></li>
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
       </ul>
     </div>
   </div>
@@ -315,13 +314,13 @@ color:#2ecc71;
 		<!-- end navigation -->
 		<!-- start home -->
 		
-		<section id="home" style="background:#efefef; margin-top:60px;" >
+		<section id="home" style="background:#efefef; margin-top:60px; font-family: Arial,Helvetica,Verdana,sans-serif;" >
 		<div id="headerwrap">
 	    <div class="container">
 	    	<div class="wrap"  >
- 	<div class="plans">
+ 	<div class="plans" >
         <div class="col-md1" >
-			 <div class="pricing-table-grid">
+			 <div class="pricing-table-grid" >
 				<div class="plans_head" style="background: rgba(61, 61, 61, 0.81);">
 						<h3 style="font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#2ecc71;">Basic</h3>
 								<h6 style="color:white;">Individual</h6>
@@ -360,8 +359,10 @@ color:#2ecc71;
 				</div>
 				<ul style="background: white;">
 
+					
+<li><div id="txtHint" style="color: black;"><h4 class="m_4"  style="color: rgba(61, 61, 61, 0.81);font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;">$14</h4></div></li>
 					<li> <span ><form action="paidsession.php" method="GET" style="  ">
-<h5 style="margin-left:70px; margin-top:-15px;color:black; ">Others Plans <select name="numcontact" onchange="showPrice(this.value)" style="box-sizing:content-box; border-radius:5px; height:32px;color:black;">
+<h5 style="margin-left:70px; margin-top:-15px;color:black;font-family: Arial,Helvetica,Verdana,sans-serif; ">Others Plans <select name="numcontact" onchange="showPrice(this.value)" style="box-sizing:content-box; border-radius:5px; height:32px;color:black;">
 <option value="2">1,000 contacts</option>
 <option value="3">2,000 contacts</option>
 <option value="4">3,000 contacts</option>
@@ -374,8 +375,6 @@ color:#2ecc71;
 
 </select> </h5>  
 </form></span></li>
-<li><span><div id="txtHint" style="color: black;"><b>The Price For 1000 Contact is $14</b></div></span></li>
-					<li><span style="color: black;">Premier support</span></li>
 					<!--li><span style="color: black;">More options</span></li-->
 					<li><span style="color: black;"> Customize features</span></li>
 <li style="border-bottom: none;"><span style="color: black;" > ∞ emails</span></li>
@@ -416,8 +415,8 @@ color:#2ecc71;
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new.php"  style="color:white;">About</a></li>
-						<li><a href="contactus1.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
+						<li><a href="contactus1.php">Contact Us</a></li>
 						
 					</ul>
 						
@@ -426,16 +425,16 @@ color:#2ecc71;
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

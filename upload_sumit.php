@@ -1,5 +1,4 @@
 <?php
-//session_start();
 include 'session1.php';
 include 'connect.php';
   
@@ -50,15 +49,12 @@ $UserId = mysqli_real_escape_string($conn,$userId);
 <link href="version4_editor/css/style-responsive.css" rel="stylesheet">	
 <link href="popup/css/style2.css" rel='stylesheet' type='text/css' />
 <link href="css/imgtab.css" rel="stylesheet">
-<!--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">-->
-<!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">-->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/dashboard.css">
 <link href="edi/jquery-te-1.4.0.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/uploadify.css">
 <link rel="stylesheet" type="text/css" href="css/spectrum.css">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/simple-sidebar.css" rel="stylesheet">
-
 
 <style>
 .active {
@@ -67,8 +63,6 @@ background-color: #0073e6;
 .inactive {
 background-color: #FFFFFF;
 } 
-</style>
-<style>
 .fadebox { position:relative; }
 .fadebox p { position:absolute; left:0; top:0; width: 300px; display:none;}
 
@@ -78,9 +72,8 @@ background-color: #FFFFFF;
 
 <!--JS Start-->
 <!--<script src="popup/js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script type="text/javascript" src="popup/js/modernizr.custom.53451.js"></script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-
+<script type="text/javascript" src="popup/js/modernizr.custom.53451.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Paritosh templates code start-->
 <script type="text/javascript">
 function template(templateID)
@@ -205,21 +198,47 @@ e.target.classList.remove(status ? 'active' : 'inactive');
 <script src="js/html2canvas.js"></script>
 
 <script type='text/javascript'>
-  $(document).ready(function(){
-        $('#error').hide();
-   $('#prv').on('click', function(e){
+$(document).ready(function(){
+        $('#error,#err').hide();
 
-      $('.toolbar').hide();
-     $('#error').hide();
-  	
-        var name = $("input#pro_title").val();
-     
-     if (name == "") {
+ $('#prv').on('click', function(e){
+$('.toolbar').hide();
+     $('#error,#err').hide();
+
+   var name = $("input#pro_title").val();
+   if (name == "") {
         $("label#error").show();
         $("input#pro_title").focus();
         return false;
-        
-      }
+        }
+else if($("#txtEditor1").val() == "")
+{
+     $('#err').show();
+return false;
+}
+else if($("#txtEditor2").val() == "")
+{
+     $('#err').show();
+return false;
+}
+else if($("#txtEditor3").val() == "")
+{
+     $('#err').show();
+return false;
+}
+else if($("#txtEditor4").val() == "")
+{
+     $('#err').show();
+return false;
+}
+else if($("#txtEditor5").val() == "")
+{
+     $('#err').show();
+return false;
+}
+
+
+
       else
       {
  $('.fadebox p').hide().fadeIn(2000);
@@ -303,131 +322,146 @@ e.target.classList.remove(status ? 'active' : 'inactive');
             });
         });
 </script>
-
-
-
-
-
-
-
-
 <!--JS End-->
+
 </head>
-<body >
-
-
-
-<!--sidebar-->
-<div id="wrapper">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper" style="margin-top:20px;">
-            
-            <ul class="sidebar-nav">
-                <!-- sidebar menu start-->
-
-                  
-                 
-<li class="mt">
-                      <div class="btn-group">
-      <button type="button"  class="btn btn-default" onclick="indent();" style="height:34px; color:white; background-color:#34495e;" title="Indent"><i class="fa fa-indent"></i></button>                  
-  <button type="button"  class="btn btn-default" onclick="outdent();" style="height:34px; color:white; background-color:#34495e;" title="Outdent"><i class="fa fa-outdent"></i></button></div>
-  
-                  </li>
-                 <li class="mt">
-                      <div class="btn-group">
-                          <button type="button" class="btn btn-default " onclick="orderedList();" style="height:34px; color:white; background-color:#34495e;" title="OrderedList"><i class="fa fa-list-ol"></i></button>
-  <button type="button"  class="btn btn-default" onclick="UnorderedList()" style="height:34px; color:white; background-color:#34495e;" title="UnorderedList" ><i class="fa fa-list-ul"></i></button></div>
-                  </li>
-
-                  <li class="mt">
-                      <div class="btn-group" >
-                        
-                               <button type="button"  class="btn btn-default" onclick="right();" style="height:34px; color:white; background-color:#34495e;" title="Right"><i class="fa fa-align-right"></i></button>
-   <button type="button" class="btn btn-default" onclick="left();" style="height:34px; color:white; background-color:#34495e;" title="Left"><i class="fa fa-align-left"></i></button></div>
- 
-                  </li>
-
-                 <li class="mt">
-                      <div class="btn-group">
-                  
-  <button type="button"  class="btn btn-default" onclick="center();" style="height:34px; color:white; background-color:#34495e;" title="Center"><i class="fa fa-align-center"></i></button></div>
-  
-                  </li>
-
-		
-                      
-                                  
-<li class="mt">
-<button type="button" class="btn btn-default " style="width:77px;height:34px; color:white; background-color:#34495e;" id="banner" title="Banner-Image">Banner</button>
- 
-
-</li>
-<li class="mt">
-<button type="button" class="btn btn-default " style=" width:77px;color:white; background-color:#34495e;" id="divider1" style="height:34px; color:white; background-color:#34495e;" title="Divider"><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i></button>
-</li>
-       <li class="mt">
-    <div class="btn-group">
- <button type="button" class="btn btn-default " id="textimg" style="height:34px; background-color:#34495e; color:white;" title="Text&Image"><i class="fa fa-text-width"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o"></i> </button>
- 
-</div>
-</li>
- <li class="mt">
-    <div class="btn-group">
- <button type="button" class="btn btn-default " id="imgtext" style="height:34px; background-color:#34495e; color:white;" title="Image&Text"><i class="fa fa-picture-o"></i>&nbsp; & &nbsp;<i class="fa fa-text-width"></i></button>
-</div>
-</li>
-<li class="mt">
-<div class="btn-group">
- <button type="button" class="btn btn-default " style=" height:34px; background-color:#34495e; color:white;" id="imgonly" title="Image"><i class="fa fa-picture-o"></i></button>
- <button type="button" class="btn btn-default " style=" height:34px; background-color:#34495e; color:white;" id="textonly" title="Text"><i class="fa fa-text-width"></i></button>
-</div>
-</li>
-              </ul>
-              <!-- sidebar menu end-->
-        </div>
-        <!-- /#sidebar-wrapper -->
-	 
-   
-           
-            
+<body style="background:#424a5d;">
+<header class="header black-bg">
+<a href="" class="logo"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
           
-           
+            <div class="nav notify-row" id="top_menu">
+			    
+              
+                <ul class="nav top-menu ">
+                 
+
+                 <li class="dropdown" > <div class="col-md-12">
+                            <input type="text" name="pro_title" id="pro_title" size="40" class="form-control" placeholder=" Save The Promotion As.." style="background:#f2f2f2; height:45px;" required >
+                       <label id="error" style="color:#e60000;">Enter Promotion Name </label>
+<label id="err" style="color:#e60000;">Fill All Fields</label>
+                       </div>
+</li>
+
+            <li class="dropdown">
+              
+                <div style="margin-left:2px;background:#f2f2f2;" class="btn btn-default"><input id="full" title="Background" / ></div>
+            </li>
+                </ul>
+               
+            </div>
+            <div class="top-menu">
+            	<ul class="nav pull-right top-menu">
+ <li><a class="logout btn btn-warning" href="login.html"><i class="fa fa-floppy-o">&nbsp;LOGOUT</i></a></li>
+                    <li><a id="prv" class="logout btn btn-success" ><i class="fa fa-floppy-o">&nbsp;&nbsp;SAVE</i></a></li>
+                   
+            	</ul>
+
 <div id="display"><div class='fadebox'>
 <p class='alert alert-success'>
   <strong>Saved Successfully!</strong> For Preview Click on Campaign
 </p>
     
 </div>
-</div>
-           <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                
-                    <div class="col-md-12">
+            </div>
+        </header>
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion" style="list-style: none;">
+              
+                 <!--  <li class="mt">
+                      <div class="btn-group" >
+                          <button type="button" class="btn btn-default " style="background:#f2f2f2; height:34px;" onclick="SetToBold();" title="Bold"><i class="fa fa-bold"></i></button>
+  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="SetToItalic()" title="Italic">&nbsp;&nbsp;<i class="fa fa-italic"></i></button></div>
+                  </li>-->
 
-                                <div class="container-fluid">
-                       
-                              <div class="col-md-8  ">
+                <!-- <li class="mt">
+                      <div class="btn-group" >
+                         <!--<button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="SetToUnderline();" title="Underline"><i class="fa fa-underline"></i></button>
+ </div>
+ 
+                  </li>-->
 
+                 
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-        <div class="container-fluid">
-           <div class="row">
-              <div class="col-md-1"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="height:35px;" title="Toggle Sidebar"><i class="fa fa-arrows-h" style="margin-top:5px;"></i></a></div>
-            <div class="col-md-2"><button type="button" title="Set Background Color" class="btn btn-default"><input id="full" / ></button></div>
-            <div class="col-md-8"><input type="text" name="pro_title" id="pro_title" class="form-control col-xs-4" placeholder="Enter Promotion Name" style="text-align:center;"></div>
-            <div class="col-md-1"><button type="submit" id="prv" class="btn btn-default" style="height:35px;" title="Save Promotion"><i class="fa fa-floppy-o"></i></button></div>
-           </div><!--row-->
+<li class="mt">
+                      <div class="btn-group">
+      <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="indent();" title="Indent"><i class="fa fa-indent"></i></button>                  
+  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="outdent();" title="Outdent"><i class="fa fa-outdent"></i></button></div>
+  
+                  </li>
+                 <li class="mt">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-default " style="background:#f2f2f2;" onclick="orderedList();" title="OrderedList"><i class="fa fa-list-ol"></i></button>
+  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="UnorderedList()"title="UnorderedList" ><i class="fa fa-list-ul"></i></button></div>
+                  </li>
 
-        </div><!--container -->
- </div><!--panel body-->
-</div><!--panel default-->
+		<li class="mt" >
+                     
+                     <!--  <div style="margin-left:2px;background:#f2f2f2;" class="btn btn-default"><input id="full" title="Background" / ></div>-->
+                      
+                  </li>
+		<li class="mt">
+                     <!-- <div class="btn-group">
+                         <button type="button"  class="btn btn-default" style="background:#f2f2f2;"><i class="fa fa-text-height"></i></button>
+  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="fontname()"><i class="fa fa-font"></i></button></div>-->
+                  </li>
 
+<li class="mt">
+                      <div class="btn-group">
+ <button type="button" class="btn btn-default " style="background:#f2f2f2;" onclick="left();" title="Left"><i class="fa fa-align-left"></i></button>
+      <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="right();" title="Right"><i class="fa fa-align-right"></i></button>                  
+ </div>
+  
+                  </li>
+<li class="mt">
 
+ <button type="button"  class="btn btn-default" style="background:#f2f2f2; width:75px;" onclick="center();" title="Center" ><i class="fa fa-align-center"></i></button>
+</li>
+
+<li class="mt">
+<button type="button" class="btn btn-default " style="background:#f2f2f2; width:77px;" id="banner" title="Banner-Image">Banner</button>
  
 
+</li>
+
+<li class="mt">
+<button type="button" class="btn btn-default " style="background:#f2f2f2; width:77px;" id="textonly" title="Text"><i class="fa fa-text-width"></i></button>
+
+</li>
+<li class="mt">
+
+ <button type="button" class="btn btn-default " style="background:#f2f2f2; width:77px;" id="imgonly" title="Image"><i class="fa fa-picture-o"></i></button>
+ </li>
+
+
+<li class="mt">
+<button type="button" class="btn btn-default " style="background:#f2f2f2; width:77px;" id="divider1" title="Divider"><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i></button>
+</li>
+       <li class="mt">
+    <div class="btn-group">
+ <button type="button" class="btn btn-default " style="background:#f2f2f2;" id="textimg" title="Text&Image"><i class="fa fa-text-width"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o"></i> </button>
+ 
+</div>
+</li>
+ <li class="mt">
+    <div class="btn-group">
+ <button type="button" class="btn btn-default " style="background:#f2f2f2;" id="imgtext" title="Image&Text"><i class="fa fa-picture-o"></i>&nbsp; & &nbsp;<i class="fa fa-text-width"></i></button>
+</div>
+</li>
+
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+	  <section id="main-content"  >
+         <section class="wrapper">
+
+             <!-- <div class="row">-->
+                  <div class="col-md-8 main-chart ">
+				  
 <div class="mt">				   
 <div id="editor" style="height:auto; width:auto; border:2px solid #989898;background:#f2f2f2;">	  
 <div id="save_div" class="pro_body">
@@ -437,35 +471,42 @@ e.target.classList.remove(status ? 'active' : 'inactive');
 		<span><button type="button" class="saveme" name="save1" onclick="myFunction(this.id)" style="float:right;" ><a href="#" >SAVE</a></button></span>
 		<span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span>
 		<div class="row" style="  width: 100%;margin: 5px;"><div class="edi" style="width: 56%;cursor: pointer;">
-			<div class="col-lg-12 nopadding"><div id="txtEditor1" class="editor"></div></div>
+			<div class="col-lg-12 nopadding" style="margin-left:22px; margin-top:-18px;"><div id="txtEditor1" class="editor"></div></div>
 			</div><div class="drop"><span class="tool" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div>
 		</div>
 	</div>
+
+<div  id="textonly" class="textdiv" style="cursor:auto;margin: 20px 0px 20px 0px; margin-bottom: 40px;">
+          <div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style=" width: 100%;margin: 5px;"><div class="edi3" style="margin-left: 150px;width: 98%;cursor: pointer"><div class="col-lg-12 nopadding" id="col-md-12edi" style="margin-left:-146px;margin-top:-18px;"><div id="txtEditor3" class="editor" style="height:10px;"></div></div></div></div>
+		
+</div>
+
+
+
+
 </div>
 </div> 
         </div> 
 		<!--pro body ends here -->
-				</div><!--editor div-->
-		     </div><!--mt-->
-      </div><!--col-md-8-->
-
-  <div class="col-md-4">
-                           <div class="panel panel-default" style="height:500px;">
-                             <div class="panel-body">
-                                      <ul class="nav  nav-pills">
-    <li class="active"><a data-toggle="tab" href="#home" style="width:118px;"><center>Images</center></a></li>
-   <li><a data-toggle="tab" href="#menu1" style="width:118x;" ><center>Banners</center></a></li>
-	 <li><a data-toggle="tab" href="#menu2" style="width:118px;" ><center>Templates</center></a></li>
+				</div><!--editor div-->  
+		     </div>
+			 </div>
+			 
+			 
+			 <div class="col-md-4 ds" style="background:#424a5d;" >
+                              
+                      <ul class="nav  nav-pills">
+    <li class="active"><a data-toggle="tab" href="#home" style="width:120px;"><center>Images</center></a></li>
+   <li><a data-toggle="tab" href="#menu1" style="width:120px;" ><center>Banners</center></a></li>
+	 <li><a data-toggle="tab" href="#menu2" style="width:100px;" ><center>Templates</center></a></li>
   
    
   </ul>
-   <div class="tab-content">
-    <div id="home" class="tab-pane fade in active"><br>
-     
-
-   <div class="panel panel-default" style="height:290px; overflow-y:scroll;">
-       <div class="panel-body">	
-<div id="frm">
+   <div class="tab-content" >
+    <div id="home" class="tab-pane fade in active"  style=" height:425px; background:#f2f2f2;">
+	
+	
+<div id="frm" style="margin-left:25px; overflow-y:scroll; overflow-x:hidden; height:325px;">
 <center>
  
 <?php
@@ -491,16 +532,11 @@ $supported_file = array(
 $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 if (in_array($ext, $supported_file))
 {
-echo "
-<form>
-<img class='file-preview-image img-thumbnail' src='".$image."'>
+echo "<form><img class='file-preview-image' src='".$image."'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgNames."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_types."' style='display:none;'>
-  <a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
-
-</form>
-";
+<a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a></form>";
 }
 else
 {
@@ -509,14 +545,13 @@ else
 }
 ?>	   
 </center>
-</div></div></div>
-<hr>
-<div class="panel panel-default" style="height:50px;">
-       <div class="panel-body">
-    
+</div><hr>
+	
+<div style="background-color:#B8B8B8 ; ">
+<form>
 <div id="queue"></div>
 <input id="file_upload" name="file_upload" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
-	<br>
+	</form><br>
 	<script type="text/javascript">
 		<?php $timestamp = time();?>
 		$(document).ready(function() {
@@ -530,20 +565,12 @@ else
 			});
 		});
 	</script>
-	
-       </div><!--end panel-body-->
-     </div><!--end panel-default-->
-</div>
-	
+	</div>
+ </div>
 
+<div id="menu1" class="tab-pane fade" style=" height:425px; background:#f2f2f2;">
  
-
-<div id="menu1" class="tab-pane fade">
- <br>
-
-<div class="panel panel-default" style="height:290px; overflow-y:scroll;">
-   <div class="panel-body">
-<div id="frm2">
+<div id="frm2" style="margin-left:25px; overflow-y:scroll; overflow-x:hidden; height:325px; ">
 <center>
  
 <?php
@@ -575,28 +602,20 @@ $supported_file = array(
 
 $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 if (in_array($ext, $supported_file)) {
-    echo "
-<form>
-
-<img class='file-preview-image img-thumbnail' src='".$image."'>
+    echo "<form><img class='file-preview-image' src='".$image."'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgName."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_type."' style='display:none;'>
-<a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
-
-</form>
-";
+<a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a></form>";
 } else {
     continue;
  }
 }
 ?>	   
 </center>
-</div></div></div>
-<hr>
-<div class="panel panel-default" style="height:50px;">
-   <div class="panel-body">
-      <form>
+</div><hr>
+<div style="background-color:#B8B8B8 ; ">
+<form>
 <div id="queue"></div>
 <input id="file_upload2" name="file_upload2" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
 	</form><br>
@@ -612,37 +631,33 @@ if (in_array($ext, $supported_file)) {
 				'uploader' : 'uploadify_banner.php'
 			});
 		});
-	</script>
-   </div>
-</div>
-
+	</script>	
+	</div>
  </div>
-    <div id="menu2" class="tab-pane fade">
-	<br>
-<div class="panel panel-default" style="height:390px; overflow-y:scroll;">
-  <div class="panel-body">
+    <div id="menu2" class="tab-pane fade"  style=" margin-left:25px; overflow-y:scroll; overflow-x:hidden; height:425px; margin-left:-2px; background:#f2f2f2;">
 	
-	<div class="col-md-12">
+	
+	<div class="col-md-10">
 
-<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<img src="images/compose.png" width="100px" height="100px">
 <div class="btn-group">
   <a id="1" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
   <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal1">View</button></a>
 </div>
-<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<img src="images/compose.png" width="100px" height="100px">
 <div class="btn-group">
   <a id="2" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
   <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal2">View</button></a>
 </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-10">
 
-<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<img src="images/compose.png" width="100px" height="100px">
 <div class="btn-group">
 	<a id="3" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
 	<a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal3">View</button></a>
 </div>
-	<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+	<img src="images/compose.png" width="100px" height="100px">
 <div class="btn-group">
         <a id="4" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
          <a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal4">View</button></a>
@@ -650,32 +665,20 @@ if (in_array($ext, $supported_file)) {
 </div>
     
   </div>
-</div>
-</div>
 
-	</div>	
-                         </div><!--end panel-body-->
-                         </div><!--end panel-default-->
-                        </div><!--end col-md-4-->
-                        </div><!-- end row -->
-                    </div><!-- end col-md-12 -->
-                        
-
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-<!--end sidebar-->
-
- 
-           						
+	</div>				   
+			</section>
+			 </section>
 						
+						<!--footer start-->
+      <footer class="site-footer" style="margin-top:-20px;">
+          <div class="text-center" style="margin-top:23px;">
+              &copy;2015 - PyxyMail
+              <!--<a href="index.php" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>-->
+          </div>
+      </footer>
 <script>
 function sendPromotion() {
 //var edit = encodeURIComponent(CKEDITOR.instances.editor.getData());
@@ -694,7 +697,7 @@ var edi=encodeURIComponent(edit);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("Editor="+edi);
 } 
-</script>
+</script>]
 <script type="text/javascript">
 
 
@@ -767,7 +770,7 @@ $(".jqte_editor").focus();
 				 helper: 'clone',
                                   
                                   
-				$("#sortable").append('<div class="imgtextdiv" style="cursor:auto;margin: 30px 0px 40px 0px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="width: 100%;margin: 5px;"><div class="drop" style="margin-top: 43px;float:left;margin-left: 0px;"><span class="tool1" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash1"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div><div class="edi1" style="width: 56%;margin: 24px 0px 0px 58px;cursor: pointer" ><div class="col-md-12 nopadding"  style="margin-left:-60px;"><div id="txtEditor2" class="editor" contenteditable="true"></div></div></div></div></div>');
+				$("#sortable").append('<div class="imgtextdiv" style="cursor:auto;margin: 30px 0px 40px 0px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="width: 100%;margin: 5px; margin-left:40px;"><div class="drop" style="margin-top: 13px;float:left;margin-left: 0px;"><span class="tool1" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash1"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div><div class="edi1" style="width: 56%;margin: 24px 0px 0px 58px;cursor: pointer" ><div class="col-md-12 nopadding"  style="margin-left:-60px;margin-top: -38px;"><div id="txtEditor2" class="editor" contenteditable="true"></div></div></div></div></div>');
 				
                                 $(".jqte_editor").focus(); 
                                 
@@ -800,7 +803,7 @@ $(".jqte_editor").focus();
         	$("#textonly").click(function(){
 				 helper: 'clone',
 				//$('.textimgdiv').appendTo('#sortable').show('slow');
-				$("#sortable").append('<div class="textdiv" style="cursor:auto;margin: 20px 0px 20px 0px; margin-bottom: 45px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style=" width: 100%;margin: 5px;"><div class="edi3" style="margin-left: 150px;width: 98%;cursor: pointer"><div class="col-lg-12 nopadding" id="col-md-12edi" style="margin-left:-170px;"><div id="txtEditor3" class="editor" style="height:10px;"></div></div></div></div></div>').show('slow');
+				$("#sortable").append('<div class="textdiv" style="cursor:auto;margin: 20px 0px 20px 0px; margin-bottom: 45px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style=" width: 100%;margin: 5px;"><div class="edi3" style="margin-left: 150px;width: 98%;cursor: pointer"><div class="col-lg-12 nopadding" id="col-md-12edi" style="margin-left:-146px;"><div id="txtEditor3" class="editor" style="height:10px;"></div></div></div></div></div>').show('slow');
 				
                                 
                                  $(".jqte_editor").focus(); 
@@ -823,7 +826,7 @@ $(".jqte_editor").focus();
                         });
 						
         	$("#imgonly").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 100px;width: 66%;height: 240px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
+				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 100px;width: 72%;height: 240px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
 			
                                  
                                  $('.tool2').click(function(){
@@ -849,7 +852,7 @@ $(".jqte_editor").focus();
 						//banner image
 						
 						$("#banner").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 20px;width: 90%;height: 160px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
+				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 33px;width: 90%;height: 160px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
 			
                                  
                                  $('.tool2').click(function(){

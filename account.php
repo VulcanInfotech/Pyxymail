@@ -142,8 +142,11 @@ if(isset($login_session))
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:10px;"><a href="logout.php"> <b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
- <i class="fa fa-sign-out fa-1x"></i></a></li>
+         <li style="margin-top:10px;"><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:green;">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         
       </ul>
     </div>
@@ -270,7 +273,7 @@ if(isset($login_session))
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">

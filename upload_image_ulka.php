@@ -43,7 +43,7 @@ $UserId = mysqli_real_escape_string($conn,$userId);
 <!--CSS start-->
 <link href="version4_editor/css/bootstrap.css" rel="stylesheet">
 <link href="css/imgtab.css" rel="stylesheet">
-<link href="version4_editor/css/bootstrap.css" rel="stylesheet">
+<!--link href="version4_editor/css/bootstrap.css" rel="stylesheet"-->
 <link href="version4_editor/css/style.css" rel="stylesheet">
 <link href="version4_editor/css/style1.css" rel="stylesheet">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -57,6 +57,8 @@ $UserId = mysqli_real_escape_string($conn,$userId);
 <link rel="stylesheet" type="text/css" href="css/uploadify.css">
 <link rel="stylesheet" type="text/css" href="css/spectrum.css">
 <link href="css/simple-sidebar.css" rel="stylesheet">
+<link rel="stylesheet" href="css/templatemo-style.css">
+<!--link href="css/bootstrap1.css" rel="stylesheet"-->
 <!--link rel="stylesheet" type="text/css" href="css/default.css" />
 <link rel="stylesheet" type="text/css" href="css/component.css" />
 <script src="js/modernizr.custom1.js"></script-->
@@ -301,94 +303,98 @@ e.target.classList.remove(status ? 'active' : 'inactive');
         });
 </script>
 
-
-
-
-<!--JS End-->
 </head>
 <body style="background-color:#f2f2f2;">
-	 
-
-<!--start header--> 
-<nav class="navbar navbar-default" role="navigation" style="background-color:#ffffff;">
+	 <nav class="navbar navbar-default navbar-fixed-top" style="background-color:white; height:70px; padding:5px; border-color:white;">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-        <span class="sr-only">Toggle navigation</span>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#"></a>
+      <a href="index.php" class="navbar-brand" style=" padding:5px;"><img src="images/pyxymail31.png"></a>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs"><br>
+    <div class="collapse navbar-collapse" id="myNavbar" style="background-color:white;">
+      <ul class="nav navbar-nav">
+        <li><a href="dashboard.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><b>Dashbord</b></a></li>
        
-          
-        <ul class="nav navbar-nav navbar-right">
-            <!--li><a href="#">Link</a></li-->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-sign-out"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">My Account</a></li>
-                <li class="divider"></li>
-                <li><a href="login.html">Logout</a></li>
-              </ul>
-            </li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+        <li><a href="audience1.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> <b>Audience</b></a></li>
+
+        <li><a href="campaign_dash.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> <b>Campaign</b></a></li>
+<?php
+include 'session1.php';
+if(isset($paid_session))
+{
+         echo "                  <li><a href='pricing_signups.php' style='font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;'><b>Pricing</b></a>   </li>";
+}
+?>
+<?php
+include 'session1.php';
+if(isset($login_session))
+{
+         echo "                  <li><a href='pricing_signups.php'  style='font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;'><b>Pricing Plans</b></a>   </li>";
+}
+?> 
+
+<li><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><b>My Account</b></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:#2ecc71;">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
+<br><br><br>
 <!--sidebar-->
 <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper" style="margin-top:20px;">
+        <div id="sidebar-wrapper">
             
             <ul class="sidebar-nav">
                 <!-- sidebar menu start-->
-
+                   <li>&nbsp;</li>
                    <!--li>
                       <div class="btn-group" >
-                          <button type="button" class="btn btn-default " style="height:34px; color:white; background-color:#34495e;" onclick="SetToBold();" title="Bold"><i class="fa fa-bold"></i></button>
-  <button type="button"  class="btn btn-default" onclick="SetToItalic()" style="height:34px; color:white; background-color:#34495e;" title="Italic">&nbsp;&nbsp;<i class="fa fa-italic"></i></button></div>
-                  </li-->
+                          <button type="button" class="btn btn-default " style="height:34px;" onclick="SetToBold();" title="Bold"><i class="fa fa-bold"></i></button>
+  <button type="button"  class="btn btn-default" onclick="SetToItalic()" style="height:34px;" title="Italic">&nbsp;&nbsp;<i class="fa fa-italic"></i></button></div>
+                  </li>
 
-                 
+                                  <li class="mt">
+                      <div class="btn-group">
+                  <button type="button"  class="btn btn-default" onclick="SetToUnderline();" style="height:34px;" title="Underline"><i class="fa fa-underline"></i></button>
+  <button type="button"  class="btn btn-default" onclick="center();" style="height:34px;" title="Center"><i class="fa fa-align-center"></i></button></div>
+               </li>
 <li class="mt">
                       <div class="btn-group">
-      <button type="button"  class="btn btn-default" onclick="indent();" style="height:34px; color:white; background-color:#34495e;" title="Indent"><i class="fa fa-indent"></i></button>                  
-  <button type="button"  class="btn btn-default" onclick="outdent();" style="height:34px; color:white; background-color:#34495e;" title="Outdent"><i class="fa fa-outdent"></i></button></div>
+      <button type="button"  class="btn btn-default" onclick="indent();" style="height:34px;" title="Indent"><i class="fa fa-indent"></i></button>                  
+  <button type="button"  class="btn btn-default" onclick="outdent();" style="height:34px;" title="Outdent"><i class="fa fa-outdent"></i></button></div>
   
                   </li>
                  <li class="mt">
                       <div class="btn-group">
-                          <button type="button" class="btn btn-default " onclick="orderedList();" style="height:34px; color:white; background-color:#34495e;" title="OrderedList"><i class="fa fa-list-ol"></i></button>
-  <button type="button"  class="btn btn-default" onclick="UnorderedList()" style="height:34px; color:white; background-color:#34495e;" title="UnorderedList" ><i class="fa fa-list-ul"></i></button></div>
+                          <button type="button" class="btn btn-default " onclick="orderedList();" style="height:34px;" title="OrderedList"><i class="fa fa-list-ol"></i></button>
+  <button type="button"  class="btn btn-default" onclick="UnorderedList()" style="height:34px;" title="UnorderedList" ><i class="fa fa-list-ul"></i></button></div>
                   </li>
 
                   <li class="mt">
                       <div class="btn-group" >
-                         <!--button type="button"  class="btn btn-default" onclick="SetToUnderline();" style="height:34px; color:white; background-color:#34495e;" title="Underline"><i class="fa fa-underline"></i></button-->
-                               <button type="button"  class="btn btn-default" onclick="right();" style="height:34px; color:white; background-color:#34495e;" title="Right"><i class="fa fa-align-right"></i></button>
-   <button type="button" class="btn btn-default" onclick="left();" style="height:34px; color:white; background-color:#34495e;" title="Left"><i class="fa fa-align-left"></i></button></div>
+                         
+                               <button type="button"  class="btn btn-default" onclick="right();" style="height:34px;" title="Right"><i class="fa fa-align-right"></i></button>
+   <button type="button" class="btn btn-default" onclick="left();" style="height:34px;" title="Left"><i class="fa fa-align-left"></i></button></div>
  
-                  </li>
-
-                 <li class="mt">
-                      <div class="btn-group">
-                  
-  <button type="button"  class="btn btn-default" onclick="center();" style="height:34px; color:white; background-color:#34495e;" title="Center"><i class="fa fa-align-center"></i></button></div>
-  
-                  </li>
+                  </li-->
 
 		<!--li class="mt" >
                     <div class="btn-group">
-                     <button type="button" class="btn btn-default " style="height:40px; color:white; background-color:#34495e;"><input id="full" title="Background" / ></button></div>
+                     <button type="button" class="btn btn-default " style="height:40px;"><input id="full" title="Background" / ></button></div>
                        <!--div style="width:77px;" class="btn btn-default"></div-->
                       
                   <!--/li>
@@ -399,54 +405,57 @@ e.target.classList.remove(status ? 'active' : 'inactive');
                   </li-->
                   
 <li class="mt">
-<button type="button" class="btn btn-default " style="width:77px;height:34px; color:white; background-color:#34495e;" id="banner" title="Banner-Image">Banner</button>
+<button type="button" class="btn btn-default " id="banner" style="width:110px;" title="Banner-Image"><i class="fa fa-credit-card fa-2x"></i><br>Banner</button>
  
 
 </li>
+<li class="Divider"></li>
 <li class="mt">
-<button type="button" class="btn btn-default " style=" width:77px;color:white; background-color:#34495e;" id="divider1" style="height:34px; color:white; background-color:#34495e;" title="Divider"><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i></button>
+<button type="button" class="btn btn-default" id="divider1" style="width:110px;" title="Divider"><b>-------</b><br>Divider</button>
 </li>
+<li class="Divider"></li>
        <li class="mt">
     <div class="btn-group">
- <button type="button" class="btn btn-default " id="textimg" style="height:34px; background-color:#34495e; color:white;" title="Text&Image"><i class="fa fa-text-width"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o"></i> </button>
+ <button type="button" class="btn btn-default " id="textimg" title="Text&Image"><i class="fa fa-text-width fa-2x"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o fa-2x"></i><br>Text &nbsp;&nbsp;&nbsp;Image</button>
  
 </div>
 </li>
+<li class="Divider"></li>
  <li class="mt">
     <div class="btn-group">
- <button type="button" class="btn btn-default " id="imgtext" style="height:34px; background-color:#34495e; color:white;" title="Image&Text"><i class="fa fa-picture-o"></i>&nbsp; & &nbsp;<i class="fa fa-text-width"></i></button>
+ <button type="button" class="btn btn-default " id="imgtext" title="Image&Text"><i class="fa fa-picture-o fa-2x"></i>&nbsp; & &nbsp;<i class="fa fa-text-width fa-2x"></i><br>Image &nbsp;&nbsp;&nbsp;Text</button>
 </div>
 </li>
+<li class="Divider"></li>
 <li class="mt">
-<div class="btn-group">
- <button type="button" class="btn btn-default " style=" height:34px; background-color:#34495e; color:white;" id="imgonly" title="Image"><i class="fa fa-picture-o"></i></button>
- <button type="button" class="btn btn-default " style=" height:34px; background-color:#34495e; color:white;" id="textonly" title="Text"><i class="fa fa-text-width"></i></button>
-</div>
+ <button type="button" class="btn btn-default " id="imgonly" style="width:110px;" title="Image"><i class="fa fa-picture-o fa-2x"></i><br>Image</button>
+</li>
+<li class="Divider"></li>
+<li class="mt">
+<button type="button" class="btn btn-default " id="textonly" style="width:110px;" title="Text"><i class="fa fa-text-width fa-2x"></i><br>Text</button>
 </li>
               </ul>
               <!-- sidebar menu end-->
         </div>
         <!-- /#sidebar-wrapper -->
 
+
+
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <!--div class="row"-->
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                       
-                        <div class="container-fluid">
-                        <!--div class="row"-->
-                         <div class="col-md-8">
-
 
   <div class="panel panel-default">
     <div class="panel-body">
         <div class="container-fluid">
            <div class="row">
-            <div class="col-md-1"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="height:35px;" title="Toggle Sidebar"><i class="fa fa-arrows-h" style="margin-top:5px;"></i></a></div>
-            <div class="col-md-2"><button type="button" title="Set Background Color" class="btn btn-default"><input id="full" / ></button></div>
+            <div class="col-md-1"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle" title="Toggle Sidebar"><i class="fa fa-arrows-h"></i></a></div>
+            <div class="col-sm-2"><input title="Set Background Color" id="full" / ></div>
             <div class="col-md-8"><input type="text" name="pro_title" id="pro_title" class="form-control col-xs-4" placeholder="Enter Promotion Name" style="text-align:center;"></div>
-            <div class="col-md-1"><button type="submit" id="prv" class="btn btn-default" style="height:35px;" title="Save Promotion"><i class="fa fa-floppy-o"></i></button></div>
+            <div class="col-md-1"><button type="submit" id="prv" class="btn btn-default" title="Save Promotion"><i class="fa fa-floppy-o"></i></button></div>
            </div>
         </div>
   </div>
@@ -472,20 +481,20 @@ e.target.classList.remove(status ? 'active' : 'inactive');
   </div><!--mt div-->  
 </div><!-- col-md-8 -->
                          <div class="col-md-4">
-                           <div class="panel panel-default" style="height:500px;">
+                           <div class="panel panel-default" style="height:550px;position:fixed;">
                              <div class="panel-body">
-                                      <ul class="nav  nav-pills">
-    <li class="active"><a data-toggle="tab" href="#home" style="width:110px;"><center>Images</center></a></li>
-   <li><a data-toggle="tab" href="#menu1" style="width:110x;" ><center>Banners</center></a></li>
-	 <li><a data-toggle="tab" href="#menu2" style="width:110px;" ><center>Templates</center></a></li>
+                                      <ul class="nav  nav-pills" style="background-color:#f2f2f2;">
+    <li class="active"><a data-toggle="tab" href="#home" style="width:100px;"><center><i class="fa fa-picture-o"></i><br>Images</center></a></li>
+   <li><a data-toggle="tab" href="#menu1" style="width:110px;" ><center><i class="fa fa-credit-card"></i><br>Banners</center></a></li>
+	 <li><a data-toggle="tab" href="#menu2" style="width:110px;" ><center><i class="fa fa-file-text-o"></i><br>Templates</center></a></li>
   
    
   </ul>
    <div class="tab-content">
-    <div id="home" class="tab-pane fade in active"><br>
+    <div id="home" class="tab-pane fade in active" style="background-color:white;"><br>
      
 
-   <div class="panel panel-default" style="height:290px; overflow-y:scroll;">
+   <div class="panel panel-default" style="height:350px;overflow-y:scroll;">
        <div class="panel-body">	
 <div id="frm">
 <center>
@@ -515,13 +524,14 @@ if (in_array($ext, $supported_file))
 {
 echo "
 <form>
-<img class='file-preview-image img-thumbnail' src='".$image."'>
+<img class='file-preview-image' src='".$image."' style='margin-top:-1%;'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgNames."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_types."' style='display:none;'>
-  <a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
 
-</form>
+     <a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
+
+</form><hr style='margin-top:-3%;'>
 ";
 }
 else
@@ -533,10 +543,11 @@ else
 </center>
 </div></div></div>
 <hr>
-<div class="panel panel-default" style="height:50px;">
+<div class="panel panel-default" style="height:60px;">
        <div class="panel-body">
     
 <div id="queue"></div>
+<center>
 <input id="file_upload" name="file_upload" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
 	<br>
 	<script type="text/javascript">
@@ -552,7 +563,8 @@ else
 			});
 		});
 	</script>
-	
+	</center>
+
        </div><!--end panel-body-->
      </div><!--end panel-default-->
 </div>
@@ -563,7 +575,7 @@ else
 <div id="menu1" class="tab-pane fade">
  <br>
 
-<div class="panel panel-default" style="height:290px; overflow-y:scroll;">
+<div class="panel panel-default" style="height:350px;overflow-y:scroll;">
    <div class="panel-body">
 <div id="frm2">
 <center>
@@ -591,7 +603,7 @@ else
 $supported_file = array(
     'gif',
     'jpg',
-    'jpeg',
+    'zjpeg',
     'png'
 );
 
@@ -600,13 +612,13 @@ if (in_array($ext, $supported_file)) {
     echo "
 <form>
 
-<img class='file-preview-image img-thumbnail' src='".$image."'>
+<img class='file-preview-image ' src='".$image."'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgName."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_type."' style='display:none;'>
 <a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
 
-</form>
+</form><hr>
 ";
 } else {
     continue;
@@ -616,10 +628,10 @@ if (in_array($ext, $supported_file)) {
 </center>
 </div></div></div>
 <hr>
-<div class="panel panel-default" style="height:50px;">
+<div class="panel panel-default" style="height:60px;">
    <div class="panel-body">
       <form>
-<div id="queue"></div>
+<div id="queue"></div><center>
 <input id="file_upload2" name="file_upload2" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
 	</form><br>
 	<script type="text/javascript">
@@ -634,39 +646,39 @@ if (in_array($ext, $supported_file)) {
 				'uploader' : 'uploadify_banner.php'
 			});
 		});
-	</script>
+	</script></center>
    </div>
 </div>
 
  </div>
     <div id="menu2" class="tab-pane fade">
 	<br>
-<div class="panel panel-default" style="height:390px; overflow-y:scroll;">
+<div class="panel panel-default" style="height:452px;overflow-y:scroll;">
   <div class="panel-body">
 	
 	<div class="col-md-12">
 
 <img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-  <a id="1" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+  <a id="1" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
   <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal1">View</button></a>
-</div>
+</div><hr>
 <img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-  <a id="2" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+  <a id="2" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
   <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal2">View</button></a>
-</div>
+</div><hr>
 </div>
 <div class="col-md-12">
 
 <img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-	<a id="3" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+	<a id="3" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
 	<a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal3">View</button></a>
-</div>
+</div><hr>
 	<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-        <a id="4" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+        <a id="4" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
          <a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal4">View</button></a>
 </div>
 </div>
@@ -1073,6 +1085,10 @@ $('.editor').focus();
 		            
 	</script>
               <!--  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script> -->
+
+
+
+		
         
   <div class="container">
 
@@ -1163,10 +1179,11 @@ $('.editor').focus();
     </div>
   </div>
 </div>
-</body>
 
+			
+<!--UVW JS-->
 
-
+<!---->
 <script src="js/jquery.uploadify.min.js" type="text/javascript"></script>
 <script src="js/jquery.uploadify.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/spectrum.js"></script>
@@ -1180,6 +1197,6 @@ $('.editor').focus();
     });
     </script>
 
-
+</body>
 
 </html>

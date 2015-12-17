@@ -264,7 +264,7 @@ font-family:initial ;
 }
 </style>
 	</head>
-	<body data-spy="scroll" data-offset="0" data-target="#navigation">
+	<body data-spy="scroll" data-offset="0" data-target="#navigation" >
 
     <!-- Fixed navbar -->
 	  <nav class="navbar navbar-inverse navbar-fixed-top" >
@@ -296,16 +296,19 @@ if(isset($paid_session))
 include 'session1.php';
 if(isset($login_session))
 {
-         echo "                  <li style='margin-top:10px;'><a href='pricing_signups.php'  style='font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;'><b>Pricing Plans</b></a>   </li>";
+         echo "                  <li style='margin-top:10px;'><a href='pricing_signups.php'  style='font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; height: 62px;line-height: 62px;padding: 0 28px;'><b>Pricing Plans</b></a>   </li>";
 }
 ?> 
 
-<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
+<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>My Account</b></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:10px;"><a href="logout.php"> <b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
- <i class="fa fa-sign-out fa-1x"></i></a></li>
+         <li style="margin-top:10px;"><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:green;">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         
       </ul>
     </div>
@@ -365,8 +368,10 @@ if(isset($login_session))
 				</div>
 				<ul style="background: white;">
 
-					<li> <span ><form action="paidsession.php" method="GET">
-<h5 style="margin-left:70px; margin-top:-15px;color:black; ">Others Plans <select name="numcontact" onchange="showPrice(this.value)" style="box-sizing:content-box; border-radius:5px; height:32px;color:black;">
+					
+<li><div id="txtHint" style="color: black;"><h4 class="m_4"  style="color: rgba(61, 61, 61, 0.81);font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;">$14</h4></div></li>
+					<li> <span ><form action="paidsession.php" method="GET" style="  ">
+<h5 style="margin-left:70px; margin-top:-15px;color:black;font-family: Arial,Helvetica,Verdana,sans-serif; ">Others Plans <select name="numcontact" onchange="showPrice(this.value)" style="box-sizing:content-box; border-radius:5px; height:32px;color:black;">
 <option value="2">1,000 contacts</option>
 <option value="3">2,000 contacts</option>
 <option value="4">3,000 contacts</option>
@@ -378,9 +383,7 @@ if(isset($login_session))
 <option value="10">9,000 contacts</option>
 
 </select> </h5>  
-</span></li>
-<li><span><div id="txtHint" style="color: black;"><b>The Price For 1000 Contact is $14</b></div></span></li>
-					<li><span style="color: black;">Premier support</span></li>
+</form></span></li>
 					<!--li><span style="color: black;">More options</span></li-->
 					<li><span style="color: black;">Customize Features</span></li>
 <li ><span style="color: black;" > ∞ emails</span></li>
@@ -424,8 +427,8 @@ if(isset($login_session))
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new1.php"  style="color:white;">About</a></li>
-						<li><a href="contactus2.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
+						<li><a href="contactus2.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -434,16 +437,16 @@ if(isset($login_session))
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

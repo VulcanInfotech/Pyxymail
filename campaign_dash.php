@@ -16,6 +16,7 @@ include 'session1.php';
 		<meta name="keywords" content="">
 		<meta name="description" content="">
                 <!--sunny css-->
+<link href="css/bootstrap1.css" rel="stylesheet">
                 <!--link rel="stylesheet" href="sunny/bootstrap/css/bootstrap.min.css"-->
                 <link rel="stylesheet" href="sunny/plugins/datatables/dataTables.bootstrap.css">
                 <link rel="stylesheet" href="sunny/dist/css/skins/_all-skins.min.css">
@@ -26,7 +27,7 @@ include 'session1.php';
                 <link href="popup/css/style2.css" rel='stylesheet' type='text/css' />
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
                 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-                <link href="css/bootstrap1.css" rel="stylesheet">
+                
 <!--<script>
 						$(document).ready(function() {
 						$('.popup-with-zoom-anim').magnificPopup({
@@ -101,12 +102,15 @@ if(isset($login_session))
 }
 ?> 
 
-<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
+<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>My Account</b></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:10px;"><a href="logout.php"> <b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
- <i class="fa fa-sign-out fa-1x"></i></a></li>
+         <li style="margin-top:10px;"><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:green;">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         
       </ul>
     </div>
@@ -118,7 +122,7 @@ if(isset($login_session))
 <div >
 <p>&nbsp;</p>
 </div>
-<div class="panel panel-default" style="margin-left:3%; width:95%;  margin-top:100px;">
+<div class="panel panel-default" style="margin-left:3%; width:95%; margin-top:100px; ">
   <div class="panel-body">
   
        <div class="container">
@@ -197,6 +201,37 @@ if(isset($login_session))
 
                              $ids = $row['id'];
 			     $title = $row['promo_title'];
+
+
+
+
+echo '<div class="container">
+  
+
+  <div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:830px;">
+      <div class="modal-content" >
+        
+        <div class="modal-body" style="height:auto; ">';
+             
+              //echo "<center>".$row["Img"]."</center>";
+               echo " <img src='".$image."' >
+            <div class='modal-footer' style='width:780px;'>
+          <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+        </div>";
+
+      echo "  </div>
+
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+";
+	
                                                             
 			    
 			     }  
@@ -269,14 +304,14 @@ echo '<div class="container">
   
 
   <div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
-    <div class="modal-dialog modal-lg" style="width:830px;">
+    <div class="modal-dialog modal-lg" style="width:882px;">
       <div class="modal-content" >
         
         <div class="modal-body" style="height:auto; ">';
              
               //echo "<center>".$row["Img"]."</center>";
                echo " <img src='".$image."' >
-            <div class='modal-footer' style='width:780px;'>
+            <div class='modal-footer' style='width:820px;'>
           <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
         </div>";
 
@@ -303,43 +338,8 @@ echo '<div class="container">
               </div><!-- /.box -->
 </div>
 </div>
-		<!-- Footer Starts Here -->
-	<div class="footer" id="footer"  style="margin-top:50px; width:100%;height:110px;bottom:0;left:0; " >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
-			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
-			
-				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
-                                               
-						<li style="margin-top:25px;"><a href="about_new1.php"  style="color:white;">About</a></li>
-						<li><a href="contactus2.php" style="color:white;">Contact Us</a></li>
-						
-					</ul>
-						
-						
 
-				 </div>
-				
-				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
-				</div>
-				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
-                                               <!--div class="text1">
-                                                <P style="color:#3bc492"><B>FOLLOWS :<B></p>
-                                                 </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			
-                                           
-		</div>
-	</div>
-	<!-- Footer Ends Here -->
+
  <script type="text/javascript">
 
 

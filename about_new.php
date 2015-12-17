@@ -93,7 +93,7 @@ color:green;
       <ul class="nav navbar-nav navbar-right">
        <li style="margin-top:20px;"><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></li>
 
-        <li style="margin-top:10px;"><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></li>
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
       </ul>
     </div>
   </div>
@@ -276,8 +276,8 @@ color:green;
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<p><a href="about_new.php"  style="color:white;">About</a></p>
-						<p><a href="contactus1.php" style="color:white;">Contact Us</a></p>
+						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
+						<li><a href="contactus1.php">Contact Us</a></li>
 						
 					</ul>
 						
@@ -286,18 +286,16 @@ color:green;
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-<p>&nbsp;</p>
-					 <p  style="margin-top:10px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<p><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></p>
-						<p><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></p>
-                                                <p> <i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></p>
-						
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

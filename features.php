@@ -9,12 +9,14 @@
 		<meta name="keywords" content="">
 		<meta name="description" content="">
                <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-	       <!--link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"-->
+	       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
                <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
                <link href="css/bootstrap1.css" rel="stylesheet">
                <link rel="stylesheet" href="css/templatemo-style.css">
+
 <style>
+
 .nav-tabs { border-bottom: 2px solid #DDD; }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
     .nav-tabs > li > a { border: none; color: #666; }
@@ -33,7 +35,7 @@
 	</head>
 	<body style="background-color:#f2f2f2;">
 <!-- start navigation -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" >
+		<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:white; border-color:1px solid white;">
   <div class="container-fluid">
     <div class="navbar-header" style="border-radius:none;">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -73,17 +75,17 @@
       <ul class="nav navbar-nav navbar-right">
        <li style="margin-top:20px;"><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></li>
 
-        <li style="margin-top:10px;"><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></li>
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
       </ul>
     </div>
   </div>
 </nav>
 		<!-- end navigation -->
-
+<br><br><br><br><br>
 
 
 	<div class="container">
-<img class="img-responsive" src="images/Banner2.png" alt="Banner" width="1300" height="300" style="box-shadow:1px 5px 7px #999999;"> <br>
+<img class="img-responsive" src="images/Banner2.png" alt="Banner" width="1300" height="250" style="box-shadow:1px 5px 7px #999999;"> <br>
                                     <!-- Nav tabs --><div class="card">
                                     <ul class="nav nav-tabs " role="tablist">
                                         <li role="presentation" class="active col-md-3" style="text-align:center;"><a href="#basic" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-desktop"></i><br>Basic</a></li>
@@ -106,7 +108,7 @@
         
         <div class="row text-center">
 
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -117,7 +119,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -128,7 +130,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -152,29 +154,29 @@
  
         <div class="row text-center">
 
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="thumbnail">
                     
                     <div class="caption">
                         <h3>Free Promotions</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        
+                        <br>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
                         <h3>Ready Templates</h3>
                         <p>Get ready email templates for any occasion, no matter your market.</p>
-                        
+                        <br>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -193,18 +195,18 @@
         
         <div class="row text-center">
 
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="thumbnail">
                     
                     <div class="caption">
                         <h3>Combinations</h3>
                         <p>Use combinations of Banners, Text-Image, Image-Text, Banner-Text_Image to create promotions.</p>
-                        
+                        <br>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -215,7 +217,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -240,7 +242,7 @@
 <!-- Projects Row -->
         <div class="row text-center">
 
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -250,18 +252,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
                         <h3>Lists Management</h3>
                         <p>Create your audience network by grouping contacts.</p>
-                        
+                        <br>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -287,7 +289,7 @@
 <!-- Projects Row -->
         <div class="row text-center">
 
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <div class="thumbnail">
                     
                     <div class="caption">
@@ -298,24 +300,24 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
                         <h3>Email Delivery</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        
+                        <br><br>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="thumbnail">
                     
                     <div class="caption">
                         <h3>Powerful Automation</h3>
                         <p>Application makes sure your emails get to the right people at the right time. </p>
-                        
+                        <br>
                     </div>
                 </div>
             </div>
@@ -344,8 +346,8 @@
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new.php"  style="color:white;">About</a></li>
-						<li><a href="contactus1.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new.php">About</a></li>
+						<li><a href="contactus1.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -354,16 +356,16 @@
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x"  ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -373,7 +375,18 @@
 		</div>
 	</div>
 	<!-- Footer Ends Here -->
+<style>
+a
+{
 
+ color:white;
+}
+a:hover
+{ 
+text-decoration:none;
+ color:#2ecc71;
+}
+</style>
 
 
   

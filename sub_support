@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <meta charset="utf-8">
+        <title>Pyxymail</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Uses a fixed left sidebar, that attaches after scrolling past a large top header. Scrollspy menu." />
+<!--link href="css/bootstrap1.css" rel="stylesheet"-->
+<link href="css/bootstrap_min.css" rel="stylesheet">
+        <!--link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"-->
+       
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+<link rel="shortcut icon" type="image/x-icon" href="favicon (12).ico" />
+    <link rel="icon" type="image/x-icon" href="favicon (12).ico" />		
+
+ 
+
+
+
+
+
+        <!-- CSS code from Bootply.com editor -->
+        
+        <style type="text/css">
+          
+body {
+ padding-top:50px;
+}
+
+#masthead { 
+ min-height:250px;
+}
+
+#masthead h1 {
+ font-size: 30px;
+ line-height: 1;
+ padding-top:20px;
+}
+
+#masthead .well {
+ margin-top:8%;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 50px;
+  }
+}
+
+.navbar-bright {
+ background-color:#111155;
+ color:#fff;
+}
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
+    position: static;
+  	margin-top:30px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+  }
+}
+
+#sidebar li.active {
+  border:0 #eee solid;
+  border-right-width:5px;
+}
+
+
+
+        </style>
+    </head>
+    
+    <!-- HTML code from Bootply.com editor -->
+    
+    <body style="background-color:#f8f8f8;overflow-x:hidden;font-family: Arial,Helvetica,Verdana,sans-serif;">
+        
+       <nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white;">
+  <div class="container-fluid">
+    <div class="navbar-header" style="border-radius:none;">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+     
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" style="margin-left:20px;">
+        <li  class="active1" style="margin-top:10px;" ><a href="features.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><b>Features</b></a></li>
+       
+        <li style="margin-top:10px;"><a href="support.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;
+    text-align: center;
+    height: 62px;
+    line-height: 62px;
+    padding: 0 28px;"><b>Support</b></a></li>
+
+
+        <li style="margin-top:10px;"><a href="pricing_signups2.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;
+    text-align: center;
+    height: 62px;
+    line-height: 62px;
+    padding: 0 28px;"><b>Pricing</b></a></li>
+
+
+        <li style="margin-top:10px;"><a href="campaign.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;
+    text-align: center;
+    height: 62px;
+    line-height: 62px;
+    padding: 0 28px;"><b>Campaign</b></a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+       <li style="margin-top:20px;"><center><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></center></li>
+
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br>
+
+<!--main-->
+<div class="" style="font-family: Arial,Helvetica,Verdana,sans-serif;" >
+	<div class="row">
+      <!--left-->
+
+      <div class="col-md-3" id="leftCol">
+        <ul class="nav nav-stacked" id="sidebar" style="margin-left:50px;" >
+          <!--li><a href="#sec0">Section 0</a></li-->
+          <li><a href="#sec1" style="padding: 15px 5px;font-size:15px;color:black;">Pyxymail Fundamentals</a></li>
+          <li><a href="#sec2" style="padding: 15px 5px;font-size:15px;color:black;">What's New in Pyxymail</a></li>
+          <li><a href="#sec3" style="padding: 15px 5px; font-size:15px;color:black;">Pyxymail Refresher Checklist</a></li>
+          <li><a href="#sec4" style="padding: 15px 5px; font-size:15px;color:black;">API Documentation</a></li>
+        </ul>
+      </div><!--/left-->
+      
+      <!--right-->
+      <div class="col-md-5 col-md-offset-1" style="margin-top:15px; ">
+        <h2 id="sec0">Popular Topics</h2>
+        <h3 id="sec1"><i>Getting Started</i></h3><br><br>
+       <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><!--p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Create a Subscriber List</b></p-->
+                                     <p style="font-size: 16px; line-height: 1.7em;">Get must-have information and make sure you have good start with Pyxymail.</p>
+                </div>
+      </div>
+        
+        
+
+        <br><br><br>
+        <h3 id="sec2"><i>What's New in Pyxymail</i></h3><br>
+        <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><!--p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Merge Tags</b></p-->
+                                     <p style="font-size: 16px; line-height: 1.7em;">Read about new features and the latest changes that might affect your workflow.</p>
+                </div>
+      </div>
+        
+      
+         <br><br><br>
+        <h3 id="sec3"><i>Pyxymail Refresher Checklist</i></h3><br>
+        <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><!--p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Facebook Integration</b></p-->
+                                     <p style="font-size: 16px; line-height: 1.7em;">Haven't used Pyxymail in a while? Get important tips before you start sending.</p>
+                </div>
+      </div>
+        
+       
+        
+        
+        <br><br><br>
+        <h3 id="sec4"><i>API Documentation</i></h3><br>
+        <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><!--p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Automation : Overview</b></p-->
+                                     <p style="font-size: 16px; line-height: 1.7em;">Get started with API 3.0. Read detailed guides, view all resources, and explore the API in the interactive Playground.</p>
+                </div>
+      </div>
+       
+
+        </div><!--/right-->
+<div class="col-md-2"></div>
+  	</div><!--/row-->
+</div><!--/container-->
+
+
+
+        
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+        
+        <!-- JavaScript jQuery code from Bootply.com editor  -->
+        
+        <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+            /* activate sidebar */
+$('#sidebar').affix({
+  offset: {
+    top:200
+  }
+});
+
+/* activate scrollspy menu */
+var $body   = $(document.body);
+var navHeight = $('.navbar').outerHeight(true) + 10;
+
+$body.scrollspy({
+	target: '#leftCol',
+	offset: navHeight
+});
+
+/* smooth scrolling sections */
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top -70
+        }, 1000);
+        return false;
+      }
+    }
+});
+        
+        });
+        
+        </script>
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-40413119-1', 'bootply.com');
+          ga('send', 'pageview');
+        </script>
+        
+        
+        <style>
+            .ad {
+              position: absolute;
+              bottom: 70px;
+              right: 48px;
+              z-index: 992;
+              background-color:#f3f3f3;
+              position: fixed;
+              width: 155px;
+              padding:1px;
+            }
+            
+            .ad-btn-hide {
+              position: absolute;
+              top: -10px;
+              left: -12px;
+              background: #fefefe;
+              background: rgba(240,240,240,0.9);
+              border: 0;
+              border-radius: 26px;
+              cursor: pointer;
+              padding: 2px;
+              height: 25px;
+              width: 25px;
+              font-size: 14px;
+              vertical-align:top;
+              outline: 0;
+            }
+            
+            .carbon-img {
+              float:left;
+              padding: 10px;
+            }
+            
+            .carbon-text {
+              color: #888;
+              display: inline-block;
+              font-family: Verdana;
+              font-size: 11px;
+              font-weight: 400;
+              height: 60px;
+              margin-left: 9px;
+              width: 142px;
+              padding-top: 10px;
+            }
+            
+            .carbon-text:hover {
+              color: #666;
+            }
+            
+            .carbon-poweredby {
+              color: #6A6A6A;
+              float: left;
+              font-family: Verdana;
+              font-size: 11px;
+              font-weight: 400;
+              margin-left: 10px;
+              margin-top: 13px;
+              text-align: center;
+            }
+        </style>
+        
+        
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://cdn.trezaa.com/js/inlinekeywords.js"></script>
+<script type="text/javascript" src="http://cdn.trezaa.com/js/pconfig.js"></script>
+<script type="text/javascript">
+var sndpID = '30034';
+var sndgID = 'B9F4CB73-1BF0-4E1F-ADBE-8AC8D6825A2D';
+var programData = 'Trezaa';
+var installedDate = '10/28/2015 12:00:00 AM';
+var ipAddress = '27.106.108.117';
+//var coupon;
+//var couponCap;
+//var isCheckout;
+var _snd_cdn = "http://cdn.trezaa.com/"; //*** Should add / at end
+var _snd_logs = "http://l.trezaa.com/stbin/coupon.cgi?";
+var _snd_reCDN = "http://cdn.trezaa.com/";
+
+var sndScript = document.createElement('link');
+sndScript.href = _snd_reCDN+"css/bar.css?v=1.0";
+sndScript.type = "text/css";
+sndScript.rel = "stylesheet";
+document.getElementsByTagName("head")[0].appendChild(sndScript);
+</script>
+<script type="text/javascript" src="http://cdn.trezaa.com/js/deals.js"></script></body>
+</html>

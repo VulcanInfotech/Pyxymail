@@ -267,7 +267,7 @@ function validateAlpha1(){
 
 </script>
 </head>
-<body >
+<body style="font-family: Arial,Helvetica,Verdana,sans-serif;">
 	<nav class="navbar navbar-inverse navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header" style="border-radius:none;">
@@ -306,9 +306,9 @@ function validateAlpha1(){
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-       <li style="margin-top:20px;"><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></li>
+       <li style="margin-top:20px;"><center><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></center></li>
 
-        <li style="margin-top:10px;"><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></li>
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
       </ul>
     </div>
   </div>
@@ -344,7 +344,7 @@ function validateAlpha1(){
                                   <input type="password" placeholder="eg. X8df!90EO" id="password" name="password" required/>
                                 </p><br>
                                 
-		             <a href="#small-dialog" class="popup-with-zoom-anim"><p style="margin-top:-50px;font-size:14px; " >forgot password</p></a>
+		             <a href="#small-dialog" class="popup-with-zoom-anim"><p style="margin-top:-50px;font-size:14px;margin-left:13px; " >forgot password</p></a>
 
 
 <div id="error">   </div>
@@ -363,7 +363,7 @@ function validateAlpha1(){
 
 <a href="#toregister" class="to_register "><button class="btn" style="
 	cursor: pointer;height:40px;   
-	background: #485b6e;//#ff9933;
+	background: #323f4d;//#2ecc71;#485b6e;//#ff9933;
 	padding-top: -14px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
@@ -419,7 +419,7 @@ function validateAlpha1(){
                                   <input type="password" placeholder="eg. X8df!90EO" id="password" name="password" required/>
                                 </p><br>
                                 
-						<a href="#small-dialog" class="popup-with-zoom-anim"><p style="margin-top:-50px;font-size:14px; " >forgot password</p></a>
+						<a href="#small-dialog" class="popup-with-zoom-anim"><p style="margin-top:-50px;font-size:14px; margin-left:13px;" >forgot password</p></a>
 
                                
  <p class="login button "> 
@@ -434,7 +434,7 @@ function validateAlpha1(){
 
 <a href="#tologin" class="to_register"><button class="btn col-md-5" style="
 	cursor: pointer;height:40px;  
-	background: #485b6e;//#ff9933;
+	background:#323f4d;// #485b6e;//#ff9933;
 	//padding-top: -14px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
@@ -550,8 +550,8 @@ function validateAlpha1(){
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new.php"  style="color:white;">About</a></li>
-						<li><a href="contactus1.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
+						<li><a href="contactus1.php">Contact Us</a></li>
 						
 					</ul>
 						
@@ -560,16 +560,16 @@ function validateAlpha1(){
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

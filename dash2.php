@@ -22,17 +22,17 @@ include 'session1.php';
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="css/templatemo-style.css">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link href="css1/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style1.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="js/jquery.js"></script>
-                <script type="text/javascript" src="js/login.js"></script>
-     <link href="css/main.css" rel="stylesheet">
+    <link href="css1/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style1.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script src="js/smoothscroll.js"></script>
-<link rel="shortcut icon" type="image/x-icon" href="favicon (12).ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon (12).ico" />
     <link rel="icon" type="image/x-icon" href="favicon (12).ico" />
                
 <style>
@@ -203,9 +203,12 @@ if(isset($login_session))
 <li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:10px;"><a href="logout.php"> <b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
- <i class="fa fa-sign-out fa-1x"></i></a></li>
+       <ul class="nav navbar-nav navbar-right">
+         <li style="margin-top:10px;"><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:green;">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         
       </ul>
     </div>
@@ -214,43 +217,26 @@ if(isset($login_session))
 
 		<!-- end navigation -->
 
-<div class="container-fluid" style="margin-left:5%; ;">
-  <div class="row">
+
     
-<div class="col-md-5 " style="height:600px; ;">
-	
-		           <img src="images/audi7.png" class="img-responsive" >
-			
-						<!--a href="#">
-							<img class="img-responsive" src="http://placehold.it/700x300" alt="">
-						</a-->
-						<div class="row">
-							<div class="col-md-12" style="font-size:16px;text-align:justify;">
-								
-							<center><h4 style="color:#FF6600;"><b>Welcome,Audience..!!</b></h4></center><br>
-							<p style="color:white;">Add your audience member i.e. contacts by uploding a file or one at a time.PyxyMail allows you to either subscribe your company or add customers and members.
-							Audience must bought something from you in past few days.</p></div>
-			  
-							
-						</div>
-					
-	</div>
 
-<div class="col-md-6">
-<div class="container" style="margin-top:20% ;">
+
+<div class="row"  style="font-family: Arial,Helvetica,Verdana,sans-serif;"">
+<div class="container" >
+  <div class="col-md-10 col-md-offset-1 " >
+  <div class="panel panel-success"style="margin-top:15%">
+   <div class="panel-heading" style="font-size:22px;"><center><B>Add contacts to <?php echo $listnm=$_GET['listname'];?></B></center></div>
+    <div class="panel-body" style="background:#f2f2f2;"">
   
-  <div class="panel panel-default">
-    <div class="panel-body">
 
 
-<div class="col-md-12" style="font-size:20px;color:#34495e; "><b style="color:#34495e;">Add contacts to <?php echo $listnm=$_GET['listname'];?></b></div><br>
 
 					
-<div class="row" >
 
-  <div class="col-md-4 col-md-offset-1"> 
 
-<input type='checkbox' name='check' id='check'  onclick='selectLB()' ><b style="font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select All</b><br>
+  <div class="col-md-4 col-md-offset-1" style="margin-top:-10px;"> 
+
+<input type='checkbox' name='check' id='check'  onclick='selectLB()' ><b style="font-size:16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select All</b>
 <form name="content" action="sample.php" method="POST" >
 		
     <?php
@@ -265,11 +251,19 @@ elseif(isset($login_session))
 
 								$result=mysqli_query($conn,$sql);
 
-				echo "<select size=10 id='FromLB' name='FromLB[]' multiple style=' height:auto;' class='form-control'>";
-								echo "<option value=''  disabled='' style='color:blue;'><b>Contacts</b></option>";
+				echo "<select size=16 id='FromLB' name='FromLB[]' multiple style=' height:auto;' class='form-control'>";
+								echo "<option value=''  disabled=''  style='color:red;font-weight:bold;'>
+
+<B>Contacts</B></option>";
+
+echo"<option disabled>────────────────────</option>";
+                                                               // echo "<option value=''  disabled='' >&nbsp;</option>";
+
+
 if(isset($paid_session))
 {
 								$sql11=("select * from list where Email='$user_check1' and lname='$_GET[listname]'" );
+
 }
 elseif(isset($login_session))
 {
@@ -281,7 +275,9 @@ elseif(isset($login_session))
 								{
 								
 								$listmembers= $row12['Members'];
+
 								}
+
 								$explodedmember=@explode("|",$listmembers);
 								
 								$_words = "'".@implode("','", $explodedmember)."'";
@@ -299,7 +295,8 @@ if(isset($login_session))
 								{
 								$f1=$f['Name'];
 								
-								echo "<option value='$f1'>$f1</option>";
+							echo "<option value='$f1' style='font-weight:bold; font-size:15px;text-align:center;'><b>$f1</b></option>";
+echo"<option disabled>────────────────────</option>";
 								}
 								
 								 //echo "<option value='$f'>$f</option>";
@@ -312,19 +309,20 @@ if(isset($login_session))
 									   }elseif($T_array1==""){}
 									   else{
 									   echo "<option value='$T_array1'>$T_array1</option>";
+echo"<option disabled>────────────────────</option>";
 									   }
 									   }*/
 								
 								//  echo "<option value='" . $explodedmember."'>" . $explodedmember ."</option>";
 								// echo "<option value='" . $row1['Name'] ."'>" . $row1['Name'] ."</option>";
-								
+								echo"<hr>";
 								 echo "</select>";
 							?>
   </div>
 
 <div class="col-md-2 "> 
  
-    <br><br><br><br>					
+    <br><br><br><br><br>				
 					<button type="button" class="btn btn-default"  onClick="move(this.form.elements['FromLB[]'],this.form.elements['ToLB[]'])" style="margin-left:20px;"><i class="fa fa-arrow-right fa-1x" ></i></button></br></br> 
 					<button type="button" class="btn btn-default "  onClick="move(this.form.elements['ToLB[]'],this.form.elements['FromLB[]'])" style="margin-left:20px;"><i class="fa fa-arrow-left fa-1x"></i></button></br>
 
@@ -333,7 +331,7 @@ if(isset($login_session))
 						
   </div>
  
- <div class="col-md-4 " style="font-size:15px;text-align:justify;"> 
+ <div class="col-md-4" style="font-size:15px;text-align:justify;margin-top:-10px;"> 
  
     <?php
 							   
@@ -354,30 +352,21 @@ $sql=("select Members from list where lname='$listnm' and Email='$user_check' " 
 								
 								//$r=@count($result);
 								
-								echo"<center>";
-
-							echo "<select name='ToLB[]' id='ToLB' size='10' multiple style=' height:auto;' class='form-control'>";
+								
+							echo "<select name='ToLB[]' id='ToLB' size='16' multiple style=' height:auto;' class='form-control'>";
 							   
 								$_SESSION['lname']=$_GET['listname'];
 							   if(isset($_GET['listname']))
 							   {
 							   $listnm=$_GET['listname'];
 
-							   echo "<option value=''  disabled='' style='color:blue;'><b>$listnm</b></option>";
-									   
-									  /*  for($i=0;$i<$r;$i++)
-			  
-										 {		
-											 echo"<option value='$ToLB_array[$i]'>".$ToLB_array[$i]."</option>";
-			 
-										 }	*/ 
-										 //$name1=("select * from list where lname='$listnm' and Email='$user_check');
-									   
-									   
-									   
-										foreach($ToLB_array as $T_array)
+							echo "<option value=''  disabled='' style='color:red; font-weight:bold;'><b>$listnm</b></option>";
+
+foreach($ToLB_array as $T_array)
 									   {
-									   echo "<option value='$T_array'>$T_array</option>";
+									   echo "<option value='$T_array' style='font-size:15px; text-align:center;'>$T_array</option>";
+echo"<option disabled>────────────────────</option>";
+
 									   }
 													  
 							  }
@@ -387,8 +376,8 @@ $sql=("select Members from list where lname='$listnm' and Email='$user_check' " 
 								echo "</select></center>";echo"<br>";
 echo"</div>";
 
-echo"<div class='col-md-5 col-md-offset-4'>";
-echo"<input type='submit' id='save1' value='SAVE' style='background-color:#34495e; color:white; margin-left:23px;'class='btn btn-default' name='s1' onclick='selectAll()' disabled='disabled'>";
+echo"<div class='col-md-5 col-md-offset-4' >";
+echo"<input type='submit' id='save1' value='SAVE' style='background-color:#34495e; color:white; margin-left:46px;'class='btn btn-default' name='s1' onclick='selectAll()' disabled='disabled'>";
 
 echo" <a href='audience1.php'><button type='button' class='btn btn-default' data-dismiss='modal' style='background-color:#34495e;color:#fff;'>CLOSE</button></a>";
 echo"</div>";								
@@ -408,11 +397,8 @@ echo"</div>";
 
        </div>
       
-</div>
-  </div>
-</div>
-    
-	</div></div></div></div></div><br><br><br><br>
+</div></div></div></div>
+  
 
 	
 
@@ -430,8 +416,8 @@ echo"</div>";
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new1.php"  style="color:white;">About</a></li>
-						<li><a href="contactus2.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
+						<li><a href="contactus2.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -440,16 +426,16 @@ echo"</div>";
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
@@ -587,6 +573,7 @@ for(ii = 0; ii < arrTo.length; ii++)
  no.text = arrTo[ii];
  tbTo[ii] = no;
 }
+
 
 document.getElementById("save1").disabled = false;
 }

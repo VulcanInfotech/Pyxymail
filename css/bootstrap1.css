@@ -3804,6 +3804,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
   display: block;
 }
 
+
+
+
 .nav > li > a {
   position: relative;
   //display: block;
@@ -3814,6 +3817,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav > li > a:focus {
   text-decoration: none;
   //background-color: #eeeeee;
+color:red;
+
 }
 
 .nav > li.disabled > a {
@@ -4072,8 +4077,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-collapse {
-  max-height: 430px;
-  padding-right: 40px;
+  max-height: 500px;
+  padding-right: 50px;
   padding-left: 35px;
   overflow-x: visible;
   border-top: 1px solid transparent;
@@ -4658,6 +4663,7 @@ background-color:white;
   text-decoration: none;
   background-color: #ffffff;
   border: 1px solid #dddddd;
+color:#999999;
 }
 
 .pagination > li:first-child > a,

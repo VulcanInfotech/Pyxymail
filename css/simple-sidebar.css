@@ -19,8 +19,8 @@
     width: 0;
     height: 100%;
     margin-left: -250px;
-    overflow-y: auto;
-    //background: #CCCCCC;
+    overflow:hidden;
+    background: #2c3e50;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -92,8 +92,7 @@
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 100px;
-        margin-top: -20px;
+        padding-left: 120px;
     }
 
     #wrapper.toggled {
@@ -101,7 +100,7 @@
     }
 
     #sidebar-wrapper {
-        width: 120px;
+        width: 146px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

@@ -308,12 +308,14 @@ if(isset($login_session))
 }
 ?> 
 
-<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
+<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>My Account</b></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:10px;"><a href="logout.php"> <b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
- <i class="fa fa-sign-out fa-1x"></i></a></li>
+         <li style="margin-top:10px;"><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
+
+<a href="logout.php"><b style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;">Logout</b></a>
+ <!--i class="fa fa-sign-out fa-1x"></i--></li>
         
       </ul>
     </div>
@@ -460,33 +462,33 @@ while ($row2 = mysql_fetch_assoc($res2)) {
     
     ?>
                         
-<form name="all" action="" method="POST">
+<form name="all" action="" method="POST" onsubmit="checkEmail()">
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-envelope-o fa-2x" style="margin-top:25px; color:#6b7784;"></i></span>
                             <div class="col-md-9">
                                   
                                   <label for="name" ><b>To:</b></label>
-<textarea name="all"    readonly  id="output" required class="form-control">
+<textarea name="all" id="output" required class="form-control" >
     <?php 
 
 if($new_implode!="" and $contact_trim!="" and $n_implode!="")
     {
-    echo $new_implode.",".$contact_trim.",".$n_implode;
+    echo ltrim($new_implode).",".ltrim($contact_trim).",".ltrim($n_implode);
     }
     elseif($new_implode!="" and $contact_trim!=""){
-    echo $new_implode.",".$contact_trim;
+    echo ltrim($new_implode).",".ltrim($contact_trim);
     }
     elseif($new_implode!="" and $n_implode!="")
     {
-    echo $new_implode.",".$n_implode;
+    echo ltrim($new_implode).",".ltrim($n_implode);
     }
     elseif ($contact_trim!="" and $n_implode!="")
     {
-    echo $contact_trim.",".$n_implode;
+    echo ltrim($contact_trim).",".ltrim($n_implode);
     }
     else
     {
-    echo $new_implode.$contact_trim.$n_implode;
+    echo ltrim($new_implode).ltrim($contact_trim).ltrim($n_implode);
     }
 
        
@@ -497,13 +499,14 @@ if($new_implode!="" and $contact_trim!="" and $n_implode!="")
 
     ?></textarea>
 
- </div>
+ </div><br/>
+
 </div>
  <div class="form-group">
                             <span class="col-md-1 col-md-offset-1 text-center"><i class="fa fa-list-alt fa-2x" style="margin-top:25px;color:#6b7784;" ></i></span>
                                  <div class="col-md-9">
                           <label for="name"><b>Subject:</b></label>
- <input type="text" name="subject" class="form-control">
+ <input type="text" name="subject" class="form-control" required>
 </div><br><br>
 
                        <div class="form-group"><br><br>
@@ -517,7 +520,43 @@ if($new_implode!="" and $contact_trim!="" and $n_implode!="")
 function eraseText() {
     document.getElementById("output").value = "";
 }
+function checkEmail()
+{
+var arr = 
+document.getElementById("showmsg").value=arr;
+for (var i = 0; i < arr.length; i++)
+ {
+var email1=arr[i];
 
+ var domain=substr(strrchr(email1,"@"),1);
+                                        
+                                        
+                                        var regex1 = "/^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/"; 
+                                        
+                                        if ( preg_match( regex1, email1) ) {
+                                             
+                                        
+                                        if(filter_var(gethostbyname(domain),FILTER_VALIDATE_IP)) {
+
+
+
+
+                                        
+}
+else
+{
+document.getElementById("showmsg").value = "Please provide a valid email address";
+return false;
+}
+}
+else
+{
+document.getElementById("showmsg").value = "Please provide a valid email address";
+return false;
+}
+}
+
+}
 </script> 
 <?php
 include 'connect.php';
@@ -587,7 +626,7 @@ ob_start();
 echo   "<center><h3> ".$title. " </h3></center>";
 echo  "<center><img src='http://pyxymail.net/version4/$image'><br></center>";
 echo  '<img src="http://pyxymail.net/emailtracker.php?to='.$to.' & from='.$from.'"  />';
-echo  "<a href='http://pyxymail.net/version4/unsubscribe.php?from=$from&id=$id'>unsubscribe</a>";
+echo  "<center><a href='http://pyxymail.net/version4/unsubscribe.php?from=$from&id=$id'>unsubscribe</a></center>";
 
 $body .= ob_get_contents();
 ob_end_clean();
@@ -692,8 +731,8 @@ $idw=$row2['id'];
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new1.php"  style="color:white;">About</a></li>
-						<li><a href="contactus2.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
+						<li><a href="contactus2.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -709,9 +748,9 @@ $idw=$row2['id'];
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

@@ -11,5 +11,5 @@ $contactprice=$row['contactprice'];
 
 }
 
-echo "<b>The Price For $contactno Contact is $".$contactprice."</b>";
+echo "<h4 class='m_4' style='color: rgba(61, 61, 61, 0.81);font-family:Arial,sans-serif;'>$".$contactprice."</h4>";
 ?>

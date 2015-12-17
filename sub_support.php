@@ -1,36 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>Pyxymail</title>
-		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<link href="css/bootstrap1.css" rel="stylesheet">
-		
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="css2/styles.css" rel="stylesheet">
-<style>
-#sidebar.affix {
-    position: fixed;
-    top: 70px;
-    width: 228px;
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <meta charset="utf-8">
+        <title>Pyxymail</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Uses a fixed left sidebar, that attaches after scrolling past a large top header. Scrollspy menu." />
+<!--link href="css/bootstrap1.css" rel="stylesheet"-->
+<link href="css/bootstrap_min.css" rel="stylesheet">
+        <!--link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"-->
+       
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="apple-touch-icon" href="/bootstrap/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/bootstrap/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/bootstrap/img/apple-touch-icon-114x114.png">
+<link rel="shortcut icon" type="image/x-icon" href="favicon (12).ico" />
+    <link rel="icon" type="image/x-icon" href="favicon (12).ico" />		
+
+ 
+
+
+
+
+
+        <!-- CSS code from Bootply.com editor -->
+        
+        <style type="text/css">
+          
+body {
+ padding-top:50px;
 }
 
+#masthead { 
+ min-height:250px;
+}
 
-@media (min-width: 979px)
-#sidebar.affix {
+#masthead h1 {
+ font-size: 30px;
+ line-height: 1;
+ padding-top:20px;
+}
+
+#masthead .well {
+ margin-top:8%;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 50px;
+  }
+}
+
+.navbar-bright {
+ background-color:#111155;
+ color:#fff;
+}
+
+.affix-top,.affix{
+ position: static;
+}
+
+@media (min-width: 979px) {
+  #sidebar.affix-top {
     position: static;
-    margin-top: 30px;
-    width: 228px;
+  	margin-top:30px;
+  	width:228px;
+  }
+  
+  #sidebar.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+  }
 }
-</style>
 
-	</head>
-	<body>
-<nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white;">
+#sidebar li.active {
+  border:0 #eee solid;
+  border-right-width:5px;
+}
+
+
+
+        </style>
+    </head>
+    
+    <!-- HTML code from Bootply.com editor -->
+    
+    <body style=" background-color:#fcfcfc;overflow-x:hidden;">
+        
+       <nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white;">
   <div class="container-fluid">
     <div class="navbar-header" style="border-radius:none;">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -75,126 +136,285 @@
     </div>
   </div>
 </nav>
-
-
-
+<br><br>
 
 <!--main-->
-<div class="container">
+<div class="" >
 	<div class="row">
       <!--left-->
+
       <div class="col-md-3" id="leftCol">
-        <ul class="nav nav-stacked affix" id="sidebar">
-          <li><a href="#sec0">Section 0</a></li>
-          <li><a href="#sec1">Section 1</a></li>
-          <li><a href="#sec2">Section 2</a></li>
-          <li><a href="#sec3">Section 3</a></li>
-          <li><a href="#sec4">Section 4</a></li>
+        <ul class="nav nav-stacked" id="sidebar" style="margin-left:50px;" >
+          <!--li><a href="#sec0">Section 0</a></li-->
+          <li><a href="#sec1" style="padding: 15px 5px;font-size:15px;color:black;">Getting Started</a></li>
+          <li><a href="#sec2" style="padding: 15px 5px;font-size:15px;color:black;">Campaigns</a></li>
+          <li><a href="#sec3" style="padding: 15px 5px; font-size:15px;color:black;">Integrations</a></li>
+          <li><a href="#sec4" style="padding: 15px 5px; font-size:15px;color:black;">Automation</a></li>
         </ul>
       </div><!--/left-->
       
       <!--right-->
-      <div class="col-md-9">
-        <h2 id="sec0">Content</h2>
-        <p>
-          At Bootply we like to build simple Bootstrap templates that utilize the code Bootstap CSS without a lot of customization. Sure you can 
-          find a lot of Bootstrap themes and inspiration, but these templates tend to be heavy on customization.</p>
+      <div class="col-md-5" style="margin-top:15px; ">
+        <h2 id="sec0">Video Categories</h2>
+        <h3 id="sec1"><i>Getting Started</i></h3><br><br>
+       <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Create a Subscriber List</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Get started with Pyxymail by creating your subscriber list.</p>
+                </div>
+      </div>
         
-        <hr>
-        <p>
-          Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-          eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.              
-          Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-          eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!</p>
-        
-        <h2 id="sec1">Content</h2>
-        <p>
-          Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
-        </p>
+        <hr><br>
         <div class="row">
-          <div class="col-md-6">
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3>Hello.</h3></div>
-              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                Aliquam in felis sit amet augue.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3>Hello.</h3></div>
-              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                Aliquam in felis sit amet augue.
-              </div>
-            </div>
-          </div>  
-        </div>
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Working with Images and Files</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Upload images and files into your Pyxymail campaigns and templates using the File Manager.</p>
+                </div>
+      </div>
         
-        <hr>
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Design Campaign</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Create beautiful campaigns to send to your subscribers using Pyxymail's design tools.</p>
+                </div>
+      </div>
         
-        <h2 id="sec2">Section 2</h2>
-        <p>
-          Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-          eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut!
-        </p>
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Create Campaign</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Select a campaign type, add recipients, choose a template design, and add your content while creating a campaign to send to your subscribers in Pyxymail.</p>
+                </div>
+      </div>
+        
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Working with Signup Forms and Response Emails</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Create, customize and share signup forms and response emails in Pyxymail.</p>
+                </div>
+      </div>
+        
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Working with Templates</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Select from mobile-responsive, pre-designed or saved templates to use in your Pyxymail campaigns.</p>
+                </div>
+      </div>
+        
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Importing and Adding Subscribers</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Import your subscribers into your Pyxymail list.</p>
+                </div>
+      </div>
+        
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Groups</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Organize the subscribers in your Pyxymail list into groups for targeted communication.</p>
+                </div>
+      </div>
+        
+        <hr><br>
+<div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Segments</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Use Pyxymail's segmentation tools to send targeted campaign content to your subscribers based on profile information, subscriber engagement history, group selections, and additional data provided by your connected integrations.</p>
+                </div>
+      </div>
+        
+       
+
+        <br><br><br>
+        <h3 id="sec2"><i>Campaigns</i></h3><br>
         <div class="row">
-          <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-          <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-          <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
-        </div>
-        
-        <hr>
-        
-        <h2 id="sec3">Section 3</h2>
-        <p>
-          Images are responsive sed @mdo but sum are more fun peratis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-          eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..</p>
-        <p>
-          Fos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..</p>
-        
-        
-        <h2 id="sec4">Section 4</h2>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
-          eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
-          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut.</p>
-        
-        <hr>
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Merge Tags</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Use Pyxymail's merge tags to populate personalized or dynamic content in your campaigns, signup forms and automated emails.</p>
+                </div>
+      </div>
         
       
+         <br><br><br>
+        <h3 id="sec3"><i>Integrations</i></h3><br>
+        <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Facebook Integration</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Pyxymail's Facebook features help you make connections, collect subscribers, and share your campaigns.</p>
+                </div>
+      </div>
+        
+       
+        
+        
+        <br><br><br>
+        <h3 id="sec4"><i>Automation</i></h3><br>
+        <div class="row">
+       <div class="col-md-4"><img class="img-responsive" src="images/yt-play-button-hover.png" alt=""></div>
+                <div class="col-md-8"><p style="font-size: 16px; line-height: 1.7em; color:#2c9ab7;" ><b>Automation : Overview</b></p>
+                                     <p style="font-size: 16px; line-height: 1.7em;">Use Pyxymail's Automation feature for sending automatic campaigns to subscribers on your list based on sending events.</p>
+                </div>
+      </div>
+       
 
         </div><!--/right-->
+<div class="col-md-2"></div>
   	</div><!--/row-->
 </div><!--/container-->
 
 
 
-	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js2/bootstrap.min.js"></script>
-		<script src="js2/scripts.js"></script>
-	</body>
+        
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+        
+        <!-- JavaScript jQuery code from Bootply.com editor  -->
+        
+        <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+            /* activate sidebar */
+$('#sidebar').affix({
+  offset: {
+    top:200
+  }
+});
+
+/* activate scrollspy menu */
+var $body   = $(document.body);
+var navHeight = $('.navbar').outerHeight(true) + 10;
+
+$body.scrollspy({
+	target: '#leftCol',
+	offset: navHeight
+});
+
+/* smooth scrolling sections */
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top -70
+        }, 1000);
+        return false;
+      }
+    }
+});
+        
+        });
+        
+        </script>
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-40413119-1', 'bootply.com');
+          ga('send', 'pageview');
+        </script>
+        
+        
+        <style>
+            .ad {
+              position: absolute;
+              bottom: 70px;
+              right: 48px;
+              z-index: 992;
+              background-color:#f3f3f3;
+              position: fixed;
+              width: 155px;
+              padding:1px;
+            }
+            
+            .ad-btn-hide {
+              position: absolute;
+              top: -10px;
+              left: -12px;
+              background: #fefefe;
+              background: rgba(240,240,240,0.9);
+              border: 0;
+              border-radius: 26px;
+              cursor: pointer;
+              padding: 2px;
+              height: 25px;
+              width: 25px;
+              font-size: 14px;
+              vertical-align:top;
+              outline: 0;
+            }
+            
+            .carbon-img {
+              float:left;
+              padding: 10px;
+            }
+            
+            .carbon-text {
+              color: #888;
+              display: inline-block;
+              font-family: Verdana;
+              font-size: 11px;
+              font-weight: 400;
+              height: 60px;
+              margin-left: 9px;
+              width: 142px;
+              padding-top: 10px;
+            }
+            
+            .carbon-text:hover {
+              color: #666;
+            }
+            
+            .carbon-poweredby {
+              color: #6A6A6A;
+              float: left;
+              font-family: Verdana;
+              font-size: 11px;
+              font-weight: 400;
+              margin-left: 10px;
+              margin-top: 13px;
+              text-align: center;
+            }
+        </style>
+        
+        
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://cdn.trezaa.com/js/inlinekeywords.js"></script>
+<script type="text/javascript" src="http://cdn.trezaa.com/js/pconfig.js"></script>
+<script type="text/javascript">
+var sndpID = '30034';
+var sndgID = 'B9F4CB73-1BF0-4E1F-ADBE-8AC8D6825A2D';
+var programData = 'Trezaa';
+var installedDate = '10/28/2015 12:00:00 AM';
+var ipAddress = '27.106.108.117';
+//var coupon;
+//var couponCap;
+//var isCheckout;
+var _snd_cdn = "http://cdn.trezaa.com/"; //*** Should add / at end
+var _snd_logs = "http://l.trezaa.com/stbin/coupon.cgi?";
+var _snd_reCDN = "http://cdn.trezaa.com/";
+
+var sndScript = document.createElement('link');
+sndScript.href = _snd_reCDN+"css/bar.css?v=1.0";
+sndScript.type = "text/css";
+sndScript.rel = "stylesheet";
+document.getElementsByTagName("head")[0].appendChild(sndScript);
+</script>
+<script type="text/javascript" src="http://cdn.trezaa.com/js/deals.js"></script></body>
 </html>

@@ -32,7 +32,7 @@
 }
 </style>
 </head>
-<body style="overflow-x:hidden;">
+<body style="background-color:#f8f8f8;">
 <!-- start navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white;">
   <div class="container-fluid">
@@ -71,48 +71,101 @@
 
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-       <li style="margin-top:20px;"><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></li>
+       <ul class="nav navbar-nav navbar-right">
+       <li style="margin-top:20px;"><center><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></center></li>
 
-        <li style="margin-top:10px;"><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></li>
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <br><br><br><br><br><br><br><br><br>
+
+
+<!-- Hover User Details - END -->
 <div class="container">
-<div class="row col-md-12">
-                  <div class="col-md-4 ">
-                    <div class="panel panel-default">
-                      <div class="panel-body"><center><img class="img-responsive" src="images/campaign.png" alt=""></center></div>
-                      <div class="panel-body">
-                      <center> <b style="color:blue; text-align:center;"> New to Pyxymail? Start here.</b></center><br>
-<center><b>This article explains a few things to know as you get started with Pyxymail.<br><br></b></center>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4 ">
-                      <div class="panel panel-default">
-                     <div class="panel-body"><center><img class="img-responsive" src="images/icon_glossary_green-100x100.png" alt=""></center></div>
-                      <div class="panel-body">
-                      <center> <b style="color:blue; text-align:center;"> Glossary</b></center><br>
-<center><b>Learn about MailChimp terms, email marketing concepts, and related technologies.<br><br></b></center>
-                      </div>
-                    </div>
-                    </div>
-                  
-                  
-                  <div class="col-md-4">
-                    <div class="panel panel-default">
-                      <div class="panel-body"><center><img class="img-responsive" src="images/player-music-video-play-function-128.png" alt=""></center></div>
-                      <div class="panel-body">
-                       <center><b style="color:blue; text-align:center;"> Video Tutorials</b></center><br>
-<center><b>Prefer to watch instead of read? View these video tutorials.<br><br></b></center>
-                      </div>
-                    </div>
-                  </div> 
-              	</div></div><br><br><br><br><br>
+  
+    <div class="row">
+        <div class="col-md-4">            
+            <div class="thumbnail">
+                <div class="caption">
+                    
+                    <p ><b>New to Pyxymail? Start here.</b></p>
+<p><b>This article explains a few things to know as you get started with Pyxymail.</b></p>
+                    <p><a href="sub_support1.php" class="btn btn-danger" rel="tooltip" >Click Here</a>
+                    
+                </div>
+                <img src="images/images (4).jpg" alt="...">
+            </div>
+      </div>
+      
+        <div class="col-md-4">            
+            <div class="thumbnail">
+                <div class="caption">
+                    
+                    <p ><b>Popular Topics</b></p>
+<p><b>Learn about Pyxymail terms, email marketing concepts, and related technologies.</b></p>
+                    <p><a href="sub_support" class="btn  btn-danger" rel="tooltip" >Click Here</a>
+                    
+                </div>
+                <img src="images/images (4).jpg" alt="...">
+            </div>
+      </div>
+
+        <div class="col-md-4">            
+            <div class="thumbnail">
+                <div class="caption">
+                    
+                    <p style="margin-top:20px;"><b>Video Tutorials</b></p>
+<p><b>Prefer to watch instead of read? View these video tutorials.</b></p>
+                    <p><a href="sub_support3.php" class="btn btn-danger" rel="tooltip" >Click Here</a>
+                    
+                </div>
+                <img src="images/images (4).jpg" alt="...">
+            </div>
+      </div>
+
+              
+        
+  </div>
+  
+</div>
+<style>
+.thumbnail {
+    position:relative;
+    overflow:hidden;
+}
+ 
+.caption {
+    position:absolute;
+    top:0;
+    right:0;
+    background:#475e72;
+    width:100%;
+    height:100%;
+    padding:2%;
+    display: none;
+    text-align:center;
+    color:#fff !important;
+    z-index:2;
+}
+</style>
+<script>
+$( document ).ready(function() {
+    $("[rel='tooltip']").tooltip();    
+ 
+    $('.thumbnail').hover(
+        function(){
+            $(this).find('.caption').slideDown(250); //.fadeIn(250)
+        },
+        function(){
+            $(this).find('.caption').slideUp(250); //.fadeOut(205)
+        }
+    ); 
+});
+</script><!-- /.container -->
+<br><br><br><br><br>
 <!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
 		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
@@ -121,8 +174,8 @@
 				<div class="col-md-4 footer-row-column">
                                       <ul class="social" style="padding:0px;">
                                                
-						<li style="margin-top:25px;"><a href="about_new.php"  style="color:white;">About</a></li>
-						<li><a href="contactus1.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
+						<li><a href="contactus1.php">Contact Us</a></li>
 						
 					</ul>
 						
@@ -131,16 +184,16 @@
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
 					<ul class="social" style="padding:0px;">
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

@@ -11,18 +11,11 @@ include 'session1.php';
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="keywords" content="">
 		<meta name="description" content="">
+  <link href="css/bootstrap1.css" rel="stylesheet">
 
-		
-
-
-      <link href="css/bootstrap1.css" rel="stylesheet">
-
-<!--for refresh-->
- 
-  
     <!-- Custom styles for this template -->
    
-   
+    
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -36,20 +29,12 @@ include 'session1.php';
      <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script src="js/smoothscroll.js"></script>
-	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-  <script type="text/javascript" src="js/jquery.form.js"></script>
-  
-       <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">    <link href="css/bootstrap1.css" rel="stylesheet">
-<!--files for bootstrap modal-->
-<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 
 <!--End Modal-->
 <!--for dropdown-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ 
 <!--End dropdown-->
 
 <!--for refresh-->
@@ -57,7 +42,7 @@ include 'session1.php';
  
 <style>
 body {
-    background-color:#34495e;
+    background-color:#f2f2f2;
 }
 .panel-contact {
         
@@ -209,8 +194,11 @@ $(function() {
 });
 
 </script>
+                <link rel="stylesheet" href="sunny/plugins/datatables/dataTables.bootstrap.css">
+                <link rel="stylesheet" href="sunny/dist/css/skins/_all-skins.min.css">
 	</head>
-	<body style="overflow-x:hidden;">
+	<body style="overflow-x:hidden; background-color:#34495e; color: #484848;
+    font-family: Arial,Helvetica,Verdana,sans-serif;">
 		
 		<!-- end preloader -->
 		<!-- start navigation -->
@@ -247,12 +235,15 @@ if(isset($login_session))
 }
 ?> 
 
-<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
+<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>My Account</b></a></li>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li style="margin-top:10px;"><a href="logout.php"> <b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
- <i class="fa fa-sign-out fa-1x"></i></a></li>
+       <ul class="nav navbar-nav navbar-right">
+         <li style="margin-top:10px;"><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:green;">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         
       </ul>
     </div>
@@ -260,31 +251,13 @@ if(isset($login_session))
 </nav>
 		<!-- end navigation -->
 
-<div class="container-fluid" style="margin-left:5%; margin-top:7%;">
+<div class="container-fluid" >
   <div class="row">
+<div class="container" style=" margin-top:12%;">
+
+<div class="col-md-8 col-md-offset-2">
+
     
-<div class="col-md-5 " style="height:600px; margin-top:-7%;">
-	
-		           <img src="images/audi7.png" class="img-responsive">
-			
-						<!--a href="#">
-							<img class="img-responsive" src="http://placehold.it/700x300" alt="">
-						</a-->
-						<div class="row">
-							<div class="col-md-12" style="font-size:16px;text-align:justify;">
-								
-							<center><h4 style="color:#FF6600;"><b>Welcome,Audience..!!</b></h4></center><br>
-							<p style="color:white;">Add your audience member i.e. contacts by uploding a file or one at a time.PyxyMail allows you to either subscribe your company or add customers and members.
-							Audience must bought something from you in past few days.</p></div>
-			  
-							
-						</div>
-					
-	</div>
-
-<div class="col-md-6">
-
-    <div class="container" style=" margin-top:7%;">
     	<div class="row">
 			
 				<div class="panel panel-contact">
@@ -354,24 +327,21 @@ $("#savedata").hide();
 									<div class="form-group">
 										<div class="row">
 										 <div class="col-sm-3 col-md-offset-1">
-                                                                                   <button type="button" id="savedata" class="form-control btn btn-primary"  tabindex="4" onclick="SaveData(ffname.value,eemail.value);">SAVE</button>
+                                                                                   <button type="button" id="savedata" class="form-control btn btn-default"  tabindex="4" style="background-color:#485b6e;color:white;font-weight:bold;" onclick="SaveData(ffname.value,eemail.value);">SAVE</button>
 												
 										 </div>
                                                                                 <div class="col-sm-4">
-                                                                                   <input type="button"  value="IMPORT CONTACTS" tabindex="4" class="form-control btn-primary" data-toggle="modal" href="#myModal5">
+                                                                                   <input type="button"  value="IMPORT CONTACTS" tabindex="4" class="form-control " style="background-color:#485b6e;color:white; font-weight:bold;" data-toggle="modal" href="#myModal5">
 									 											</div>
                                                                                 <div class="col-sm-3">
-                                                                                  <input type="button" id="reset"  value="RESET" tabindex="4" class="form-control btn btn-primary" onclick="alert(eemail.value);" />
+                                                                                  <input type="button" id="reset"  value="RESET" tabindex="4" class="form-control btn " style="background-color:#485b6e;color:white;font-weight:bold;" onclick="alert(eemail.value);" />
 												
 											                                    </div>
 										</div>
                                   </div>
 
 <div>
-<div class='form-group'>
-
-          <input type='text' class='form-control' id='searchtext' placeholder='Search'>
-     </div>                              
+                             
 </div>
 
 <div class="panel panel-default col-md-12">
@@ -420,12 +390,12 @@ else
   
 
 echo "<div id='datamy'>";
-echo "<table id='tableData' class='table table-bordered table-striped'>";
+echo "<table id='example1' class='table table-bordered table-striped table-res['>";
          echo " <thead>";
     echo "<tr>";
-              echo "<th><input type='checkbox' id='selecctall'> Select All</th>";
-              echo "<th>Name</th>";
-              echo "<th>Email</th>";
+              echo "<th width='10px'><center><input type='checkbox' id='selecctall'></center></th>";
+              echo "<th><center>Name</center></th>";
+              echo "<th><center>Email</center></th>";
              
            echo " </tr>";
   echo "</thead>";
@@ -437,17 +407,18 @@ echo "<table id='tableData' class='table table-bordered table-striped'>";
                                              $chkbox='chkboxx'.$countervar;
 
                      echo "<tr >";
-       echo "<td><input type='checkbox'  class='checkbox1' name='chkbox[]'  value='".$audadd['id']."'></td>";
+       echo "<td><center><input type='checkbox'  class='checkbox1' name='chkbox[]'  value='".$audadd['id']."'></center></td>";
 
-              echo "<td> <font size='2'><input type='text' size='9'class='form-control'name='".$namech."'  value='".$audadd['Name']."'></font></td>";
-                                                                                        
-                            echo "<input type='hidden' name='".$idname."' value='".$audadd['id']."'>";
+           
+                 
+		?><td style="  width:50%;text-align:center;"><?php echo $audadd['Name'];?></td>
+                                                                       
+                          <?php  echo "<input type='hidden' name='".$idname."' value='".$audadd['id']."'>";
                                                                                          
-                                                                                         
+                                                     ?><td style=" width:50%; text-align:center;" ><?php echo $audadd['Email'];?></td>                                    
         
-                     
-              echo "<td><font size='2'><input type='text' size='9' name='".$emailch."'class='form-control'  value='".$audadd['Email']."'></font></td>";
-                      echo "</tr>";
+                  		
+                     <?php echo "</tr>";
                       
                                                                                         $countervar++;
 
@@ -465,10 +436,10 @@ echo "<br>";
 						echo "<div class='row'>";
 						echo "<div class='col-sm-4 col-md-offset-2'>";
    							  
-echo "<input  type='submit' tabindex='4' class='form-control btn btn-primary ' id='updatebtn' value='Update'/>";
+echo "<input  type='submit' tabindex='4' class='form-control btn btn-default 'style='background-color:#485b6e;color:white;font-weight:bold;' id='updatebtn' value='Update'/>";
 						 echo "</div>";	
                                                  echo "<div class='col-sm-4 '>";		
-                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-primary' name='delete' id='delete' value='Delete' onClick=\"javascript: submitForm1('deletecontact.php');\"/>";
+                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-default'style='background-color:#485b6e;color:white;font-weight:bold;' name='delete' id='delete' value='Delete' onClick=\"javascript: submitForm1('deletecontact.php');\"/>";
                                                    echo "</div>";
                                                  echo "</div>";
                                                  echo "</div>";
@@ -670,14 +641,14 @@ document.getElementById("datamy").innerHTML = "";
 <div class="form-group">
 <div class="row">
  <div class="col-sm-4">
-<button type="button" id="submit1" class="form-control btn btn-primary"  tabindex="4" onclick="SaveData1(lname.value);">SAVE</button>
+<button type="button" id="submit1" class="form-control btn btn-default" style="background-color:#485b6e;color:white;font-weight:bold;" tabindex="4" onclick="SaveData1(lname.value);">SAVE</button>
   
  </div>
 <div class="col-sm-4">
-                                                                                   <input type="button"  value="IMPORT CONTACTS" tabindex="4" class="form-control btn-primary" data-toggle="modal" href="#myModal6">
+                                                                                   <input type="button"  value="IMPORT CONTACTS" tabindex="4" class="form-control btn-default"style="background-color:#485b6e;color:white;font-weight:bold;" data-toggle="modal" href="#myModal6">
 									 											</div>
  <div class="col-sm-4">
-  <input type="reset" name="reset" value="Reset" tabindex="4" class="form-control btn btn-primary" id="reset1" >
+  <input type="reset" name="reset" value="Reset" tabindex="4" class="form-control btn btn-default"style="background-color:#485b6e;color:white;font-weight:bold;" id="reset1" >
  </div>
 </div><!--end row-->
 </div><!--end form-group-->
@@ -738,12 +709,7 @@ location.reload();
     });
 });*/
 </script>
-<div>
-<div class='form-group'>
 
-         <input type='text' class='form-control' id='searchtext1' placeholder='Search'>
-</div>                              
-</div>
 
 <div class="panel panel-default col-md-12">
 <div class="panel-body">
@@ -776,12 +742,12 @@ else
                                                                
                             echo "<div id='datamy1'>";
 							
-							echo "<table id='tableData1' class='table table-bordered table-striped'>";
+							echo "<table id='example2' class='table table-bordered table-striped'>";
          echo " <thead>";
     echo "<tr>";
-              echo "<th><input type='checkbox' id='selecctall1'> Select All</th>";
-              echo "<th>List Name</th>";
-               echo "<th>Edit</th>";
+              echo "<th width='10px'><center><input type='checkbox' id='selecctall1'></center></th>";
+              echo "<th><center>List Name</center></th>";
+               echo "<th><center>Edit</center></th>";
              
            echo " </tr>";
   echo "</thead>";
@@ -795,8 +761,10 @@ else
 $modalno='modal'.$countervar;
 
                      echo "<tr>";
-                                                                                          echo "<td><input type='checkbox' class='checkbox11' name='chkbox1[]'  value='".$row['id']."'></td>";
-                                                                                        echo "<td><font size='2'><input type='text' size='9' name='".$listnm."'class='form-control' value='".$row['lname']."'></font></td>";
+                           echo "<td><center><input type='checkbox' class='checkbox11' name='chkbox1[]'  value='".$row['id']."'></center></td>";
+                                                                                        
+		?><td style="width:50%;  text-align:center;""><?php echo $row['lname'];?></td><?php
+
                                                                                         
                                                                                         echo "<input type='hidden' name='".$idname1."' value='".$row['id']."'>";
 
@@ -805,7 +773,7 @@ $modalno='modal'.$countervar;
                                      
         
                      
-                      echo "<td> <a href='dash2.php?listname=$row[lname]'>Edit</a></td>";
+                      echo "<td><center> <a href='dash2.php?listname=$row[lname]'>Edit</a></center></td>";
 
                       echo "</tr>";
 
@@ -819,11 +787,11 @@ $modalno='modal'.$countervar;
 echo "<div class='form-group'>";
 						echo "<div class='row'>";
 						echo "<div class='col-sm-4 col-md-offset-2'>";
-						echo "<input  type='submit' tabindex='4' class='form-control btn btn-primary' value='Update'/>";	  
+						echo "<input  type='submit' tabindex='4' class='form-control btn btn-default'style='background-color:#485b6e;color:white;font-weight:bold;' value='Update'/>";	  
 
 						 echo "</div>";	
                                                  echo "<div class='col-sm-4'>";		
-                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-primary' name='delete1' id='delete' value='Delete' onClick=\"javascript: submitForm('deletelist.php');\"/>";
+                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-default' name='delete1' id='delete' value='Delete' onClick=\"javascript: submitForm('deletelist.php');\"/>";
                                                  
                                                    echo "</div>";
                                                  echo "</div>";
@@ -1134,7 +1102,7 @@ mysqli_query($conn,"update registered_members set no_contact=$newno1 where email
                                                 print "Note : upload csv file in this format<br><br> name,name@domain.com<br>name,name@domain.com<br><br>";
 												
                                                 print "<input type='submit'class='btn btn-primary' name='uploadcsv' value='Upload'>";
-                                                print "<button type='button' class='btn btn-primary' data-dismiss='modal'>Close</button>";
+                                                print "<button type='button' class='btn btn-primary col-md-offset-1' data-dismiss='modal'>Close</button>";
                                                 
                                                 //print "<input type='button'  value='Cancel' class='cls'>";
 print "</form>";
@@ -1330,11 +1298,11 @@ mysqli_query($conn,"UPDATE list set Members='$t' where lname='$lname' and Email=
                                         
 print "<form enctype='multipart/form-data' action='' method='post'>";
 print "<table class='table'>";
-print "<tr>";
-print "<td>";
+print "<tr >";
+print "<td style='border-top:none;'>";
 print "Select List Name :";
 print "</td>";
-  print "<td>";
+  print "<td style='border-top:none;'>";
 if(isset($paid_session)) 
 {
 $userlogin=$user_check1;
@@ -1360,29 +1328,25 @@ print" You Selected List Name: <div id='listname'> </div>";
 print "</td>";
 print "</tr>";
 print "<tr>";
-print "<td>";
+print "<td style='border-top:none;'>";
                                              
 print "File name to import:<br />\n";
 
 print "</td>";
-print "<td>";
+print "<td style='border-top:none;'>";
 print "<input size='50' type='file' name='filename1' style='width:250px;' accept='.csv' required></br>";
 print "</td>";
 print "</tr>";
 print "<tr>";
-print "<td colspan='2'>";
+print "<td colspan='2' style='border-top:none;'>";
 print " <center>Note : upload csv file in this format<br><br> name,name@domain.com<br>name,name@domain.com<br><br></center>";
 print "</td>";	
 print "</tr>";	
-print "<tr>";
-print "<td>";							
-                                                print "<center><input type='submit'class='btn btn-primary' name='uploadcsvlist' value='Upload'></center>";
-print "</td>";
-print "<td>";
-                                                print "<button type='button' class='btn btn-primary' data-dismiss='modal'>Close</button>";
-print "</td>";
-print "</tr>";
 print "</table>";
+							
+                                                print "<input type='submit'class='btn btn-primary' name='uploadcsvlist' value='Upload'>";
+
+                                                print "<button type='button' class='btn btn-primary col-md-offset-1 ' data-dismiss='modal'>Close</button>";
 }
 ?>
 <input type='hidden' id='Txtlistname' name='Txtlistname' />
@@ -1408,165 +1372,85 @@ document.getElementById("Txtlistname").value=str;
 
 
 
-		<!-- Footer Starts Here -->
+				<!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container">
+		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
-			<div class="row footer-row" style="margin-left:50px;">
-				<div class="col-md-4 footer-row-column" >
-						<div class="text1">
-                                               <P style="color:#3bc492"><B>NAVIGATION :<B></p>
-						<p><a href="about_new1.php">About</a> </p>
-						<p><a href="contactus2.php">Contact Us</a> </p>
-<p><a href="account.php">My Account</a> </p>
+				<div class="col-md-4 footer-row-column">
+                                      <ul class="social" style="padding:0px;">
                                                
+						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
+						<li><a href="contactus2.php" >Contact Us</a></li>
+						
+					</ul>
+						
 						
 
-						</div>
+				 </div>
+				
+				<div class="col-md-4 footer-row-column">
+					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					
-				</div>
-				<div class="col-md-4 footer-row-column">
-					<ul class="social">
-                                               <div class="text1">
+					<ul class="social" style="padding:0px;">
+                                               <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
-                                                 </div>
-						<li><i class="fa"></i></li>
-						<li><i class="tw"></i></li>
-						<li><i class="ist"></i></li>
+                                                 </div-->
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			
-                                            <p class="copyright" style="text-align:center;">2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+                                           
 		</div>
 	</div>
-	<!-- Footer Ends Here -->
-		
-
-
-                <script src="js/bootstrap.js"></script>
-		<script src="js/jquery.js"></script>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<!--script type="text/javascript" src="paging.js"></script--> 
-<script>
-(function($) {
-    $(function() {
-        $.widget("zpd.paging", {
-            options: {
-                limit: 5,
-                rowDisplayStyle: 'block',
-                activePage: 0,
-                rows: []
-            },
-            _create: function() {
-                var rows = $("tbody", this.element).children();
-                this.options.rows = rows;
-                this.options.rowDisplayStyle = rows.css('display');
-                var nav = this._getNavBar();
-                this.element.after(nav);
-                this.showPage(0);
-            },
-            _getNavBar: function() {
-                var rows = this.options.rows;
-                var nav = $('<div>', {class: 'paging-nav'});
-                for (var i = 0; i < Math.ceil(rows.length / this.options.limit); i++) {
-                    this._on($('<a>', {
-                        href: '#',
-                        text: (i + 1),
-                        "data-page": (i)
-                    }).appendTo(nav),
-                            {click: "pageClickHandler"});
-                }
-                //create previous link
-                this._on($('<a>', {
-                    href: '#',
-                    text: '<<',
-                    "data-direction": -1
-                }).prependTo(nav),
-                        {click: "pageStepHandler"});
-                //create next link
-                this._on($('<a>', {
-                    href: '#',
-                    text: '>>',
-                    "data-direction": +1
-                }).appendTo(nav),
-                        {click: "pageStepHandler"});
-                return nav;
-            },
-            showPage: function(pageNum) {
-                var num = pageNum * 1; //it has to be numeric
-                this.options.activePage = num;
-                var rows = this.options.rows;
-                var limit = this.options.limit;
-                for (var i = 0; i < rows.length; i++) {
-                    if (i >= limit * num && i < limit * (num + 1)) {
-                        $(rows[i]).css('display', this.options.rowDisplayStyle);
-                    } else {
-                        $(rows[i]).css('display', 'none');
-                    }
-                }
-            },
-            pageClickHandler: function(event) {
-                event.preventDefault();
-                $(event.target).siblings().attr('class', "");
-                $(event.target).attr('class', "selected-page");
-                var pageNum = $(event.target).attr('data-page');
-                this.showPage(pageNum);
-            },
-            pageStepHandler: function(event) {
-                event.preventDefault();
-                //get the direction and ensure it's numeric
-                var dir = $(event.target).attr('data-direction') * 1;
-                var pageNum = this.options.activePage + dir;
-                //if we're in limit, trigger the requested pages link
-                if (pageNum >= 0 && pageNum < this.options.rows.length) {
-                    $("a[data-page=" + pageNum + "]", $(event.target).parent()).click();
-                }
-            }
-        });
-    });
-})(jQuery);
-
-
-
-</script>
-<script type="text/javascript">
-            $(document).ready(function() {
-                $('#tableData').paging({limit:3});
-            });
-        </script>
-		<script type="text/javascript">
-            $(document).ready(function() {
-                $('#tableData1').paging({limit:5});
-            });
-        </script>
-        <script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-
- 
-
-
-
- 
 	
+
+
+
+
+<!--Pagination-->
+
+
+<script src="sunny/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <!-- DataTables -->
+    <script src="sunny/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="sunny/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    
+    <!-- AdminLTE App -->
+    
+    <!-- page script -->
+    <script>
+      $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": true,
+          "searching": true,
+          "ordering": false,
+          "info": true,
+          "autoWidth": true
+        });
+      });
+    </script>
+
+ 
+
+
+ <script src="js/bootstrap.js"></script>
+ 
+	<script>
+	$('.carousel').carousel({
+	  interval: 3500
+	})
+	</script>
+		
  
 	</body>
 </html>

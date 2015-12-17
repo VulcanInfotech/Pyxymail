@@ -18,17 +18,13 @@ $Editor=$_POST['Editor'];
 $promotion_no =rand();
 $pro_title=$_POST['pro_title'];
 $save_div=$_POST['Edi'];
-//$_SESSION['pro_title1']= $_POST['pro_title'];	
-//$pro_title= $_SESSION['pro_title1'];
-
 
 // Escape User Input to help prevent SQL Injection
 $Editor = mysqli_real_escape_string($conn,$Editor);
 $Img = mysqli_real_escape_string($conn,$Img);
 $pro_title = mysqli_real_escape_string($conn,$pro_title);
 $UserId = mysqli_real_escape_string($conn,$userId); 
-
-
+$_SESSION['id']=$_REQUEST['id'];
 ?>
 <HTML>
 <head>
@@ -42,20 +38,26 @@ $UserId = mysqli_real_escape_string($conn,$userId);
 
 <!--CSS start-->
 <link href="version4_editor/css/bootstrap.css" rel="stylesheet">
-<link href="css/imgtab.css" rel="stylesheet">
-<link href="version4_editor/css/bootstrap.css" rel="stylesheet">
+<!--<link href="css/imgtab.css" rel="stylesheet">-->
+<!--link href="version4_editor/css/bootstrap.css" rel="stylesheet"-->
 <link href="version4_editor/css/style.css" rel="stylesheet">
 <link href="version4_editor/css/style1.css" rel="stylesheet">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link href="version4_editor/css/style-responsive.css" rel="stylesheet">	
 <link href="popup/css/style2.css" rel='stylesheet' type='text/css' />
-<link href="css/imgtab.css" rel="stylesheet">
+<link href="css/my_imgtab.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/dashboard.css">
 <link href="edi/jquery-te-1.4.0.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/uploadify.css">
 <link rel="stylesheet" type="text/css" href="css/spectrum.css">
+<link href="css/simple-sidebar.css" rel="stylesheet">
+<link rel="stylesheet" href="css/templatemo-style.css">
+<!--<link href="css/bootstrap1.css" rel="stylesheet">-->
+<!--link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script src="js/modernizr.custom1.js"></script-->
 <style>
 .active {
 background-color: #0073e6;  
@@ -63,8 +65,6 @@ background-color: #0073e6;
 .inactive {
 background-color: #FFFFFF;
 } 
-</style>
-<style>
 .fadebox { position:relative; }
 .fadebox p { position:absolute; left:0; top:0; width: 300px; display:none;}
 
@@ -73,9 +73,6 @@ background-color: #FFFFFF;
 <!--CSS end-->
 
 <!--JS Start-->
-<!--<script src="popup/js/jquery.magnific-popup.js" type="text/javascript"></script>
-<script type="text/javascript" src="popup/js/modernizr.custom.53451.js"></script> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
 
 <!-- Paritosh templates code start-->
 <script type="text/javascript">
@@ -114,81 +111,78 @@ xhttp.open("POST", "delete_img.php", true);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhttp.send("del="+imagNm+"&banner="+Banr+"&ext="+type);
 }
-
-function setTextColor(picker) {
-document.getElementById('editor').style.color = '#' + picker.toString()
-}
-function SetToBold () {
-document.execCommand ('bold', false, null);
-}
-function SetToItalic () {
-document.execCommand ('italic', false, null);
-}
-function SetToUnderline () {
-document.execCommand ('underline', false, null);
-}
-function SetToCopy () {
-document.execCommand ('copy', false, null);
-}
-function SetToCut () {
-document.execCommand ('cut', false, null);
-}
-function SetToResize () {
-document.execCommand ('', false, 'Tahoma');
-}
-function SetToLink () {
-document.execCommand ('createLink', false, 'null');
-}
-function fontEditor() {
-var e = document.getElementById("fontName");
-var name = e.options[e.selectedIndex].value;
-
-var txt=document.getElementById("txtEditor1");
-document.execCommand('fontName',true,name);   
-}
-function fontname()
-{var sText = document.selection.createRange();
-var name="Arial";
-sText.execCommand ("FontName", 1, name);
-}
-function left()
-{
-document.execCommand("JustifyLeft");
-}
-function center()
-{
-document.execCommand("JustifyCenter");
-}
-function right()
-{
-document.execCommand("JustifyRight");
-}
-function indent()
-{
-document.execCommand("Indent");
-}
-function outdent()
-{
-document.execCommand("outdent");
-}
-function orderedList()
-{
-document.execCommand("InsertOrderedList");
-}
-function UnorderedList()
-{
-document.execCommand("InsertUnorderedList");
-}
-
-function setColor(e) {
-var target = e.srcElement,
-status = e.target.classList.contains('active');
-
-e.target.classList.add(status ? 'inactive' : 'active');
-e.target.classList.remove(status ? 'active' : 'inactive');
-}
-
 </script>
+<!-- CKEDITOR -->
+<script src="ckeditor/ckeditor.js"></script>
+<script src="ckeditor/samples/js/sample.js"></script>
+<link rel="stylesheet" href="ckeditor/samples/css/samples.css">
+<!-- CKEDITOR -->
+
+<script>
+        // We need to turn off the automatic editor creation first.
+        CKEDITOR.disableAutoInline = true;
+
+        var activeEditor = 0;
+        var activeEditorElement = 0;
+        var activeId = '';
+
+        function editorInit(id) {
+
+            // Is there already an editor active?
+            if (activeEditor) {
+
+                // Is the active editor the same
+                // as the one being requested?
+                if (activeEditor.element.getId() == activeId) {
+
+                    // Then our editor is already running
+                    // so there's nothing to do!
+                    return;
+                }
+                activeEditor.destroy();
+            }
+
+            // Find the element that we want to
+            // attach the editor to
+            if (! (activeEditorElement = document.getElementById(id))) {    
+                return;
+            }
+
+            // TODO - verify that the element is either a
+            // div or a textarea which are the only two
+            // element types supporting contenteditable=true
+
+            // Make the element editable
+            activeEditorElement.setAttribute('contenteditable', 'true');
+
+            // Create a new inline editor for this div
+            activeEditor = CKEDITOR.inline(id);
+
+            // Set up a destruction function that will occur
+            // when the user clicks out of the editable space
+            activeEditor.on('blur', function() {
+                this.element.setAttribute('contenteditable', 'false');
+                activeId = '';
+                activeEditor = 0;
+                activeEditorElement = 0;
+                this.destroy();
+            });
+
+            // Now set the focus to our editor so
+            // that it will open up for business
+            activeEditorElement.focus();
+        }
+		/*$(document).ready(function()
+		{
+		var editnum=1;
+			$('#getv').click(function()
+			{
+				$('body').append("<div id='editable"+editnum+"' contenteditable='false' onClick=editorInit('editable"+editnum+"');>Your editable text goes here</div><br>");
+				editnum++;
+			});
+		});*/
+    </script>
+
 
 
 <!-- Paritosh templates code end-->
@@ -234,11 +228,10 @@ var edit=document.getElementById('save_div').innerHTML;
                         $.ajax({
                             url: '',
                             type: 'POST',
-                            data: { 
-                                'Edi':edit  ,
+                            data: {   
                                 'file' : imgString,
                                 'pro_title' : pro_title,
-								
+								'Edi':edit
 								
                             },
                             success: function(response){
@@ -246,9 +239,9 @@ var edit=document.getElementById('save_div').innerHTML;
                                 return false;
                             
      
-                  <?php
-
-                                   //$promotion_no="23";
+                 <?php
+$ids=$_SESSION['id'];
+                                   $save_div = $_POST['Edi'];  $pro_title= $_POST['pro_title'];
                                    $Img = 'upload/file_'.$promotion_no.'.png';
                                     if(($_POST['file'] != "") )
                                     {
@@ -259,31 +252,17 @@ var edit=document.getElementById('save_div').innerHTML;
                                     if(($im)) 
                                     {
                                         $save = imagepng($im, 'upload/file_'.$promotion_no.'.png');
-                          
-                          // if(isset($_post['saveme'])){
-   
-                              $qry= "INSERT INTO promotion VALUES ('','$parentemail','$save_div','$Img','','$promotion_no','$pro_title','$pro_id')";
+   $qry1= "delete from promotion where id='$ids'";
+   $res1 = mysqli_query($conn,$qry1);
+             $qry= "INSERT INTO promotion VALUES ('','$parentemail','$save_div','$Img','','$promotion_no','$pro_title','$pro_id')";
                               $res = mysqli_query($conn,$qry);
-                           //} 
-                                     
-                                        // echo $pro_title=$_POST['pro_title'];  
-                                        
-
-                                        
                                         echo json_encode(array('file' => true));
                                     }
                                     else
                                     {
                                         echo json_encode(array('error' => 'Could not parse image string.'));
                                     }
-                                           
-                                          
-                                    //exit();
-
                                 }
-                                
-                             
-
                             ?>	
                                 //alert('Everything works fine.');
                             },
@@ -301,171 +280,221 @@ var edit=document.getElementById('save_div').innerHTML;
             });
         });
 </script>
-
-
-
-
-
-
-
-
-<!--JS End-->
+<style>
+.edilen
+{
+height:165px;
+}
+</style>
 </head>
-<body style="background:#424a5d;">
-	 
-     <header class="header black-bg">
-            <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-           
-            <a href="" class="logo"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
-          
-            <div class="nav notify-row" id="top_menu">
-			    
-              
-                <ul class="nav top-menu ">
-                 
+<body style="background-color:#f2f2f2;">
 
-                 <li class="dropdown" > <div class="col-md-12">
-                            <input type="text" name="pro_title" id="pro_title" size="40" class="form-control" placeholder=" Save The Promotion As.." style="background:#f2f2f2;" >
-                       
-                       </div></li>
-                </ul>
-               
-            </div>
-            <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
- <li><a class="logout btn btn-warning" href="login.html"><i class="fa fa-floppy-o">&nbsp;LOGOUT</i></a></li>
-                    <li><a id="prv" class="logout btn btn-success" ><i class="fa fa-floppy-o">&nbsp;&nbsp;SAVE</i></a></li>
-                   
-            	</ul>
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color:white; height:70px; padding:5px; border-color:white;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a href="index.php" class="navbar-brand" style=" padding:5px;"><img src="images/pyxymail31.png"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" style="background-color:white;">
+      <ul class="nav navbar-nav">
+        <li><a href="dashboard.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><b>Dashbord</b></a></li>
+       
+        <li><a href="audience1.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> <b>Audience</b></a></li>
 
-<div id="display"><div class='fadebox'>
+        <li><a href="campaign_dash.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> <b>Campaign</b></a></li>
+<?php
+include 'session1.php';
+if(isset($paid_session))
+{
+         echo "                  <li><a href='pricing_signups.php' style='font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;'><b>Pricing</b></a>   </li>";
+}
+?>
+<?php
+include 'session1.php';
+if(isset($login_session))
+{
+         echo "                  <li><a href='pricing_signups.php'  style='font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;'><b>Pricing Plans</b></a>   </li>";
+}
+?> 
+
+<li><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><b>My Account</b></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php">Logout</a></b>
+
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+       <li><div id="display"><div class='fadebox'>
 <p class='alert alert-success'>
-  <strong>Saved Successfully!</strong> For Preview Click on Campaign
+  <strong>Promotion Created!</strong>&nbsp;Redirecting to Campaigns...
 </p>
     
-</div>
-            </div>
-        </header>
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion" style="list-style: none;">
-              
-                   <li class="mt">
-                      <div class="btn-group" >
-                          <button type="button" class="btn btn-default " style="background:#f2f2f2; height:34px;" onclick="SetToBold();" title="Bold"><i class="fa fa-bold"></i></button>
-  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="SetToItalic()" title="Italic">&nbsp;&nbsp;<i class="fa fa-italic"></i></button></div>
-                  </li>
+</div></li>
+      </ul>
 
-                 <li class="mt">
-                      <div class="btn-group" >
-                         <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="SetToUnderline();" title="Underline"><i class="fa fa-underline"></i></button>
-   <button type="button" class="btn btn-default " style="background:#f2f2f2;" onclick="left();" title="Left"><i class="fa fa-align-left"></i></button></div>
- 
-                  </li>
+    </div>
+  </div>
+</nav>
+	 
+<br><br>
+<!--sidebar-->
+<div id="wrapper">
 
-                 <li class="mt">
-                      <div class="btn-group">
-      <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="right();" title="Right"><i class="fa fa-align-right"></i></button>                  
-  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="center();" title="Center"><i class="fa fa-align-center"></i></button></div>
-  
-                  </li>
-
-<li class="mt">
-                      <div class="btn-group">
-      <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="indent();" title="Indent"><i class="fa fa-indent"></i></button>                  
-  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="outdent();" title="Outdent"><i class="fa fa-outdent"></i></button></div>
-  
-                  </li>
-                 <li class="mt">
-                      <div class="btn-group">
-                          <button type="button" class="btn btn-default " style="background:#f2f2f2;" onclick="orderedList();" title="OrderedList"><i class="fa fa-list-ol"></i></button>
-  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="UnorderedList()"title="UnorderedList" ><i class="fa fa-list-ul"></i></button></div>
-                  </li>
-
-		<li class="mt" >
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            
+            <ul class="sidebar-nav">
+                <!-- sidebar menu start-->
+                   <li>&nbsp;</li>
+                  <li class="mt">
                      
-                       <div style="margin-left:2px;background:#f2f2f2;" class="btn btn-default"><input id="full" title="Background" / ></div>
-                      
-                  </li>
-		<li class="mt">
-                     <!-- <div class="btn-group">
-                         <button type="button"  class="btn btn-default" style="background:#f2f2f2;"><i class="fa fa-text-height"></i></button>
-  <button type="button"  class="btn btn-default" style="background:#f2f2f2;" onclick="fontname()"><i class="fa fa-font"></i></button></div>-->
                   </li>
 
+
+ <li>&nbsp;</li>
+                   <!--li>
+                      <div class="btn-group" >
+                          <button type="button" class="btn btn-default " style="height:34px;" onclick="SetToBold();" title="Bold"><i class="fa fa-bold"></i></button>
+  <button type="button"  class="btn btn-default" onclick="SetToItalic()" style="height:34px;" title="Italic">&nbsp;&nbsp;<i class="fa fa-italic"></i></button></div>
+                  </li>
+
+                                  <li class="mt">
+                      <div class="btn-group">
+                  <button type="button"  class="btn btn-default" onclick="SetToUnderline();" style="height:34px;" title="Underline"><i class="fa fa-underline"></i></button>
+  <button type="button"  class="btn btn-default" onclick="center();" style="height:34px;" title="Center"><i class="fa fa-align-center"></i></button></div>
+               </li>
 <li class="mt">
-<button type="button" class="btn btn-default " style="background:#f2f2f2; width:77px;" id="banner" title="Banner-Image">Banner</button>
+                      <div class="btn-group">
+      <button type="button"  class="btn btn-default" onclick="indent();" style="height:34px;" title="Indent"><i class="fa fa-indent"></i></button>                  
+  <button type="button"  class="btn btn-default" onclick="outdent();" style="height:34px;" title="Outdent"><i class="fa fa-outdent"></i></button></div>
+  
+                  </li>
+                 <li class="mt">
+                      <div class="btn-group">
+                          <button type="button" class="btn btn-default " onclick="orderedList();" style="height:34px;" title="OrderedList"><i class="fa fa-list-ol"></i></button>
+  <button type="button"  class="btn btn-default" onclick="UnorderedList()" style="height:34px;" title="UnorderedList" ><i class="fa fa-list-ul"></i></button></div>
+                  </li>
+
+                  <li class="mt">
+                      <div class="btn-group" >
+                         
+                               <button type="button"  class="btn btn-default" onclick="right();" style="height:34px;" title="Right"><i class="fa fa-align-right"></i></button>
+   <button type="button" class="btn btn-default" onclick="left();" style="height:34px;" title="Left"><i class="fa fa-align-left"></i></button></div>
+ 
+                  </li-->
+
+		<!--li class="mt" >
+                    <div class="btn-group">
+                     <button type="button" class="btn btn-default " style="height:40px;"><input id="full" title="Background" / ></button></div>
+                       <!--div style="width:77px;" class="btn btn-default"></div-->
+                      
+                  <!--/li>
+		<!-- li class="mt">
+                     <div class="btn-group">
+                         <button type="button"  class="btn btn-default"><i class="fa fa-text-height"></i></button>
+  <button type="button"  class="btn btn-default" onclick="fontname()"><i class="fa fa-font"></i></button></div>
+                  </li-->
+                  
+<li class="mt">
+<button type="button" class="btn btn-default " id="banner" style="width:110px;" title="Banner-Image"><i class="fa fa-credit-card fa-2x"></i><br>Banner</button>
  
 
 </li>
+<li class="Divider"></li>
 <li class="mt">
-<button type="button" class="btn btn-default " style="background:#f2f2f2; width:77px;" id="divider1" title="Divider"><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i><i class="fa fa-minus"></i></button>
+<button type="button" class="btn btn-default" id="divider1" style="width:110px;" title="Divider"><b>-------</b><br>Divider</button>
 </li>
+<li class="Divider"></li>
        <li class="mt">
     <div class="btn-group">
- <button type="button" class="btn btn-default " style="background:#f2f2f2;" id="textimg" title="Text&Image"><i class="fa fa-text-width"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o"></i> </button>
+ <button type="button" class="btn btn-default " id="textimg" title="Text&Image"><i class="fa fa-text-width fa-2x"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o fa-2x"></i><br>Text &nbsp;&nbsp;&nbsp;Image</button>
  
 </div>
 </li>
+<li class="Divider"></li>
  <li class="mt">
     <div class="btn-group">
- <button type="button" class="btn btn-default " style="background:#f2f2f2;" id="imgtext" title="Image&Text"><i class="fa fa-picture-o"></i>&nbsp; & &nbsp;<i class="fa fa-text-width"></i></button>
+ <button type="button" class="btn btn-default " id="imgtext" title="Image&Text"><i class="fa fa-picture-o fa-2x"></i>&nbsp; & &nbsp;<i class="fa fa-text-width fa-2x"></i><br>Image &nbsp;&nbsp;&nbsp;Text</button>
 </div>
 </li>
+<li class="Divider"></li>
 <li class="mt">
-
- <button type="button" class="btn btn-default " style="background:#f2f2f2; width:37px;" id="imgonly" title="Image"><i class="fa fa-picture-o"></i></button>
- <button type="button" class="btn btn-default " style="background:#f2f2f2; width:37px;" id="textonly" title="Text"><i class="fa fa-text-width"></i></button>
+ <button type="button" class="btn btn-default " id="imgonly" style="width:110px;" title="Image"><i class="fa fa-picture-o fa-2x"></i><br>Image</button>
 </li>
+<li class="Divider"></li>
+<li class="mt">
+<button type="button" class="btn btn-default " id="textonly" style="width:110px;" title="Text"><i class="fa fa-text-width fa-2x"></i><br>Text</button>
+</li>
+
               </ul>
               <!-- sidebar menu end-->
-          </div>
-      </aside>
-	  <section id="main-content"  >
-         <section class="wrapper">
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-             <!-- <div class="row">-->
-                  <div class="col-md-8 main-chart ">
-				  
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <!--div class="row"-->
+                    <div class="col-lg-8">
+                      
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <div class="container-fluid">
+           <div class="row">
+            <div class="col-md-1"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="height:35px;" title="Toggle Sidebar"><i class="fa fa-arrows-h" style="margin-top:5px;"></i></a></div>
+            <div class="col-md-2"><!--<button type="button" title="Set Background Color" class="btn btn-default">--><input id="full" / ><!--</button>--></div>
+<?php
+$id=$_REQUEST['id'];
+$audience=mysqli_query($conn,"SELECT pro_title FROM promotion where id='$id'");
+$title=mysqli_fetch_assoc($audience);
+?>
+            <div class="col-md-8"><input type="text" name="pro_title" id="pro_title" class="form-control col-xs-4" placeholder="Enter Promotion Name" style="text-align:center;" value='<?php echo $title['pro_title'];?>'></div>
+            <div class="col-md-1"><button type="submit" id="prv" class="btn btn-default" style="height:35px;" title="Save Promotion"><i class="fa fa-floppy-o"></i></button></div>
+           </div>
+        </div>
+  </div>
+</div>
 <div class="mt">				   
-<div id="editor" style="height:auto; width:auto; border:2px solid #989898;background:#f2f2f2;">	  
-<div id="save_div" class="pro_body" >	
-
-							<?php
-include "connect.php";
-$id=$_GET['id'];
-	$audience=mysqli_query($conn,"SELECT * FROM promotion where id='$id'");
-while($row=mysqli_fetch_array($audience))
+<div id="editor" style="height:auto; border:1px solid #CCCCCC; border-radius:5px 5px 5px 5px; background-color:#ffffff;">	  
+<div id="save_div" class="pro_body">
+<?
+$audience1=mysqli_query($conn,"SELECT * FROM promotion where id='$id'");
+while($row=mysqli_fetch_array($audience1))
 {
        echo $row['Editor'];
 }
-
-							 ?>  
-        </div> 
-		<!--pro body ends here -->
-				</div><!--editor div-->  
-		     </div>
-			 </div>
-			 
-			 
-			 <div class="col-md-4 ds" style="background:#424a5d;" >
-                              
-                      <ul class="nav  nav-pills">
-    <li class="active"><a data-toggle="tab" href="#home" style="width:120px;"><center>Images</center></a></li>
-   <li><a data-toggle="tab" href="#menu1" style="width:120px;" ><center>Banners</center></a></li>
-	 <li><a data-toggle="tab" href="#menu2" style="width:100px;" ><center>Templates</center></a></li>
+?>
+</div> <!--end pro_body-->
+</div> <!--end editor-->
+		
+  </div><!--mt div-->  
+</div><!-- col-md-8 -->
+                         <div class="col-md-4">
+                           <div class="panel panel-default" style="height:565px;">
+                             <div class="panel-body">
+                                      <ul class="nav  nav-pills" style="background-color:#f2f2f2;">
+    <li class="active"><a data-toggle="tab" href="#home" style="width:100px;"><center><i class="fa fa-picture-o"></i><br>Images</center></a></li>
+   <li><a data-toggle="tab" href="#menu1" style="width:110px;" ><center><i class="fa fa-credit-card"></i><br>Banners</center></a></li>
+	 <li><a data-toggle="tab" href="#menu2" style="width:110px;" ><center><i class="fa fa-file-text-o"></i><br>Templates</center></a></li>
   
    
   </ul>
-   <div class="tab-content" >
-    <div id="home" class="tab-pane fade in active"  style=" height:425px; background:#f2f2f2;">
-	
-	
-<div id="frm" style="margin-left:25px; overflow-y:scroll; overflow-x:hidden; height:325px;">
+   <div class="tab-content">
+    <div id="home" class="tab-pane fade in active" style="background-color:white;"><br>
+     
+
+   <div class="panel panel-default" style="height:350px; overflow-y:scroll;">
+       <div class="panel-body">	
+<div id="frm">
 <center>
  
 <?php
@@ -491,11 +520,17 @@ $supported_file = array(
 $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 if (in_array($ext, $supported_file))
 {
-echo "<form><img class='file-preview-image' src='".$image."'>
+echo "
+<form>
+<img class='file-preview-image' src='".$image."' style='margin-top:-1%;'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgNames."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_types."' style='display:none;'>
-<a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a></form>";
+
+     <a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
+
+</form><hr style='margin-top:-3%;'>
+";
 }
 else
 {
@@ -504,13 +539,15 @@ else
 }
 ?>	   
 </center>
-</div><hr>
-	
-<div style="background-color:#B8B8B8 ; ">
-<form>
+</div></div></div>
+<hr>
+<div class="panel panel-default" style="height:60px;">
+       <div class="panel-body">
+    
 <div id="queue"></div>
+<center>
 <input id="file_upload" name="file_upload" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
-	</form><br>
+	<br>
 	<script type="text/javascript">
 		<?php $timestamp = time();?>
 		$(document).ready(function() {
@@ -524,12 +561,21 @@ else
 			});
 		});
 	</script>
-	</div>
- </div>
+	</center>
 
-<div id="menu1" class="tab-pane fade" style=" height:425px; background:#f2f2f2;">
+       </div><!--end panel-body-->
+     </div><!--end panel-default-->
+</div>
+	
+
  
-<div id="frm2" style="margin-left:25px; overflow-y:scroll; overflow-x:hidden; height:325px; ">
+
+<div id="menu1" class="tab-pane fade">
+ <br>
+
+<div class="panel panel-default" style="height:350px; overflow-y:scroll;">
+   <div class="panel-body">
+<div id="frm2">
 <center>
  
 <?php
@@ -555,27 +601,35 @@ else
 $supported_file = array(
     'gif',
     'jpg',
-    'jpeg',
+    'zjpeg',
     'png'
 );
 
 $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
 if (in_array($ext, $supported_file)) {
-    echo "<form><img class='file-preview-image' src='".$image."'>
+    echo "
+<form>
+
+<img class='file-preview-image ' src='".$image."'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgName."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_type."' style='display:none;'>
-<a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a></form>";
+<a><button type='button' onclick='DelImg(ban".$i.".value,img".$i.".value,ext".$i.".value)' class='btn btn-default' title='Delete Image'><i class='fa fa-trash' style='color:red;'></i></button></a>
+
+</form><hr>
+";
 } else {
     continue;
  }
 }
 ?>	   
 </center>
-</div><hr>
-<div style="background-color:#B8B8B8 ; ">
-<form>
-<div id="queue"></div>
+</div></div></div>
+<hr>
+<div class="panel panel-default" style="height:60px;">
+   <div class="panel-body">
+      <form>
+<div id="queue"></div><center>
 <input id="file_upload2" name="file_upload2" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
 	</form><br>
 	<script type="text/javascript">
@@ -590,55 +644,68 @@ if (in_array($ext, $supported_file)) {
 				'uploader' : 'uploadify_banner.php'
 			});
 		});
-	</script>	
-	</div>
+	</script></center>
+   </div>
+</div>
+
  </div>
-    <div id="menu2" class="tab-pane fade"  style=" margin-left:25px; overflow-y:scroll; overflow-x:hidden; height:425px; margin-left:-2px; background:#f2f2f2;">
+    <div id="menu2" class="tab-pane fade">
+	<br>
+<div class="panel panel-default" style="height:452px; overflow-y:scroll;">
+  <div class="panel-body">
 	
-	
-	<div class="col-md-10">
+	<div class="col-md-12">
 
-<img src="images/compose.png" width="100px" height="100px">
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-  <a id="1" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+  <a id="1" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
   <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal1">View</button></a>
-</div>
-<img src="images/compose.png" width="100px" height="100px">
+</div><hr>
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-  <a id="2" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+  <a id="2" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
   <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal2">View</button></a>
+</div><hr>
 </div>
-</div>
-<div class="col-md-10">
+<div class="col-md-12">
 
-<img src="images/compose.png" width="100px" height="100px">
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-	<a id="3" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+	<a id="3" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
 	<a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal3">View</button></a>
-</div>
-	<img src="images/compose.png" width="100px" height="100px">
+</div><hr>
+	<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-        <a id="4" onclick="template(this.id);"><button class="btn btn-success">Apply</button></a>
+        <a id="4" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
          <a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal4">View</button></a>
 </div>
 </div>
     
   </div>
+</div>
+</div>
 
-	</div>				   
-			</section>
-			 </section>
-						
-						<!--footer start-->
-      <footer class="site-footer" style="margin-top:-20px;">
-          <div class="text-center" style="margin-top:23px;">
-              &copy;2015 - PyxyMail
-              <!--<a href="index.php" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>-->
-          </div>
-      </footer>
-<script>
+	</div>	
+                         </div><!--end panel-body-->
+                         </div><!--end panel-default-->
+                        </div><!--end col-md-4-->
+                        <!--/div><!-- end row -->
+                    </div><!-- end col-md-12 -->
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+<!--end sidebar-->
+
+<!--script>
 function sendPromotion() {
 //var edit = encodeURIComponent(CKEDITOR.instances.editor.getData());
 //var Editor = edit.replace(/\u200/g,"");
@@ -656,18 +723,18 @@ var edi=encodeURIComponent(edit);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("Editor="+edi);
 } 
-</script>]
+</script-->
 <script type="text/javascript">
 
 
 $(document).ready(function(){
-  
-	         $("#txtEditor1").jqte();
+ 
+	         /*$("#txtEditor1").jqte();   
 	         $('#txtEditor2').jqte();
 	         $('#txtEditor3').jqte();
                  $('#txtEditor4').jqte();
                  $('#txtEditor5').jqte();
-                  $(".jqte_editor").focus();
+                  $(".jqte_editor").focus();*/
        //$('.jqte_toolbar').css('display','none');                          
 
 $(".jqte_editor").focus(); 
@@ -698,16 +765,16 @@ $(".jqte_editor").focus();
         	
                 
         	$("#textimg").click(function(){
+var $lenOfEditors = $(".editor").length;
+$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
+
         		helper: 'clone',
-                      
-				//$('.textimgdiv').appendTo('#sortable').show('slow');
-				$("#sortable").append('<div class="textimgdiv" style="cursor: auto;margin-bottom: 40px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="myFunction(this.id)" style="float:right;" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="edi" style="width: 56%;cursor: pointer;"><div class="col-lg-12 nopadding"><div contenteditable="true"	class="editor"></div></div></div><div class="drop"><span class="tool" style="display:none;"><a href="#"><i class="fa fa-trash-o" id="trash"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
+				$("#sortable").append('<div class="textimgdiv" style="cursor: auto;margin-bottom: 40px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="myFunction(this.id)" style="float:right;" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="edi" style="width: 56%;cursor: pointer; "><div class="col-lg-12 " style="margin-top:21px;margin-left:20px;text-align:center;"><div contenteditable="false" onDblclick="editorInit(this.id)" class="editor edilen">Your text goes here</div></div></div><div class="drop"><span class="tool" style="display:none;"><a href="#"><i class="fa fa-trash-o" id="trash"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div></div></div>');
 				var $lenOfEditors = $(".editor").length;
 				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-				$(".editor:last").jqte();
-                                
-                                 $(".jqte_editor").focus(); 
-                                
+
+				/*$(".editor:last").jqte();                                
+                                $(".jqte_editor").focus(); */
                                 var $save = $(".saveme").length;
 				$(".saveme:last").attr("id","save_"+$save++);
                                   
@@ -729,9 +796,11 @@ $(".jqte_editor").focus();
 				 helper: 'clone',
                                   
                                   
-				$("#sortable").append('<div class="imgtextdiv" style="cursor:auto;margin: 30px 0px 40px 0px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="width: 100%;margin: 5px;"><div class="drop" style="margin-top: 43px;float:left;margin-left: 0px;"><span class="tool1" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash1"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div><div class="edi1" style="width: 56%;margin: 24px 0px 0px 58px;cursor: pointer" ><div class="col-md-12 nopadding"  style="margin-left:-60px;"><div id="txtEditor2" class="editor" contenteditable="true"></div></div></div></div></div>');
-				
-                                $(".jqte_editor").focus(); 
+				$("#sortable").append('<div class="imgtextdiv" style="cursor:auto;margin: 30px 0px 40px 0px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="width: 100%;margin: 5px; margin-left:40px;"><div class="drop" style="margin-top: 13px;float:left;margin-left: 0px;"><span class="tool1" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash1"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div><div class="edi1" style="width: 56%;margin: 24px 0px 0px 58px;cursor: pointer" ><div class="col-md-12 nopadding"  style="margin-left:-60px;margin-top:-5px;text-align:center"><div contenteditable="false" onDblclick="editorInit(this.id)" class="editor edilen">Your text goes here</div></div></div></div></div>');
+				var $lenOfEditors = $(".editor").length;
+				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
+
+                                //$(".jqte_editor").focus(); 
                                 
 				$('.tool1').click(function(){
                                         $(this).parent().find('img').detach(); 
@@ -743,50 +812,26 @@ $(".jqte_editor").focus();
 				$(".drop:last").attr("id","drop_"+$drp++);   
                                 
                                   var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img_"+$img++); 
-  
-				// $(".classy-editor:last").ClassyEdit();
-                              
-                             var $save = $(".saveme").length;
-				$(".saveme:last").attr("id","save_"+$save++); 
-                                
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-				$(".editor:last").jqte();                              
-                                 
-			});		
-	
-	
-
-			
+                                        $(".file-preview-image:last").attr("id","img_"+$img++);  
+			});	
         	$("#textonly").click(function(){
 				 helper: 'clone',
-				//$('.textimgdiv').appendTo('#sortable').show('slow');
-				$("#sortable").append('<div class="textdiv" style="cursor:auto;margin: 20px 0px 20px 0px; margin-bottom: 45px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style=" width: 100%;margin: 5px;"><div class="edi3" style="margin-left: 150px;width: 98%;cursor: pointer"><div class="col-lg-12 nopadding" id="col-md-12edi" style="margin-left:-170px;"><div id="txtEditor3" class="editor" style="height:10px;"></div></div></div></div></div>').show('slow');
 				
-                                
-                                 $(".jqte_editor").focus(); 
-				 
+				$("#sortable").append('<div class="textdiv" style="cursor:auto;margin: 20px 0px 20px 0px; margin-bottom: 45px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style=" width: 100%;margin: 5px;"><div class="edi3" style="margin-left: 150px;width: 98%;cursor: pointer"><div class="col-md-12" id="col-md-12edi" style="margin-left:-146px;text-align:center;"><div contenteditable="false" onDblclick="editorInit(this.id)" class="editor" >Your text goes here</div></div></div></div></div>').show('slow');
                                  var $drp = $(".drop").length;
 				$(".drop:last").attr("id","drop_"+$drp++);    
                                 
                                    var $img = $(".file-preview-image").length;
                                         $(".file-preview-image:last").attr("id","img"+$img++); 
-                                
-				// $(".classy-editor:last").ClassyEdit();
-				 
-
                             var $save = $(".saveme").length;
 				$(".saveme:last").attr("id","save_"+$save++);	         
 				 
 				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-				$(".editor:last").jqte();
+				$(".editor:last").attr("id","editor"+$lenOfEditors++);
                         });
 						
         	$("#imgonly").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 100px;width: 66%;height: 240px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
-			
+				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 100px;width: 72%;height: 240px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div></div></div>');
                                  
                                  $('.tool2').click(function(){
                                         $(this).parent().find('img').detach();        
@@ -796,42 +841,34 @@ $(".jqte_editor").focus();
 				$(".drop:last").attr("id","drop_"+$drp++); 
                                 
                                    var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img"+$img++); 
-                                
-                                //  $(".classy-editor:last").ClassyEdit();
-                           
-                           var $save = $(".saveme").length;
-				$(".saveme:last").attr("id","save_"+$save++);                        
+                                        $(".file-preview-image:last").attr("id","img"+$img++);
+                        });
 
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-				$(".editor:last").jqte();
+
+                                 //image grid
+$("#imggrid").click(function(){
+				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 20px;width: 30%;height: 200px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><div class="col-md-12"><img class="file-preview-image ui-draggable" src="images/img.png" ></div></div><div class="drop" style="margin-left: 20px;width: 30%;height: 200px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><div class="col-md-12"><img class="file-preview-image ui-draggable" src="images/img.png" ></div></div><div class="drop" style="margin-left: 20px;width: 30%;height: 200px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><div class="col-md-12"><img class="file-preview-image ui-draggable" src="images/img.png" ></div></div></div></div>');
+                                 
+                                 $('.tool2').click(function(){
+                                        $(this).parent().find('img').detach();        
+			         });
+				 
+                                var $drp = $(".drop").length;
+				$(".drop:last").attr("id","drop_"+$drp++); 
+                                
+                                   var $img = $(".file-preview-image").length;
+                                        $(".file-preview-image:last").attr("id","img"+$img++);
                         });
 						
 						//banner image
 						
-						$("#banner").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 20px;width: 90%;height: 160px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/galary.png"></div></div></div>');
+		$("#banner").click(function(){
+				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 33px;width: 90%;height: 160px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div></div></div>');
 			
                                  
                                  $('.tool2').click(function(){
                                         $(this).parent().find('img').detach();        
 			         });
-				 
-                                var $drp = $(".drop").length;
-				$(".drop:last").attr("id","drop_"+$drp++); 
-                                
-                                   var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img"+$img++); 
-                                
-                                //  $(".classy-editor:last").ClassyEdit();
-                           
-                           var $save = $(".saveme").length;
-				$(".saveme:last").attr("id","save_"+$save++);                        
-
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-				$(".editor:last").jqte();
                         });
 						
 						
@@ -841,20 +878,6 @@ $(".jqte_editor").focus();
         	$("#divider1").click(function(){
 				$('#sortable').append('<div class="divider" ><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><hr width="97%" style="border: 2px; height: 1px; color: #333; background-color: #333; "></div>');	
 			
-                        //$(".classy-editor:last").ClassyEdit();
-                          
-                          var $img = $('.file-preview-image').length;
-                                        $('.file-preview-image:last').attr("id","img"+$img++); 
-                        
-				 
-                                var $drp = $(".drop").length;
-				$(".drop:last").attr("id","drop_"+$drp++); 
-                                
-                            var $save = $(".saveme").length;
-				$(".saveme:last").attr("id","save_"+$save++);
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-				$(".editor:last").jqte();
                 }); 
 			
 			$('.tool').click(function(){
@@ -885,8 +908,9 @@ $(".jqte_editor").focus();
                                 $('#trash').hide();
                                 $('#trash1').hide();
                                 $('#trash2').hide();
-                                $('.classyedit').css('border', 'none');
+                                $('.editor').css('border', 'none');
                                 $('.toolbar').hide();
+                                
                                 $('.jqte').css('border','none');
 			   //var canvas = document.createElement('canvas');
 				html2canvas($(".pro_body"), {
@@ -1016,6 +1040,10 @@ $('.editor').focus();
 		            
 	</script>
               <!--  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script> -->
+
+
+
+		
         
   <div class="container">
 
@@ -1106,10 +1134,23 @@ $('.editor').focus();
     </div>
   </div>
 </div>
-</body>
+
+
+
+
 <script src="js/jquery.uploadify.min.js" type="text/javascript"></script>
 <script src="js/jquery.uploadify.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/spectrum.js"></script>
 <script type='text/javascript' src='js/docs.js'></script>
 <script type="text/javascript" src="js/prettify.js"></script>
+
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
 </html>
