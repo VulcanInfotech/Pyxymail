@@ -18,4 +18,6 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
 	config.removeButtons = 'Source,Templates,NewPage,Save,Preview,Print,Cut,Copy,Paste,PasteText,PasteFromWord,Redo,Undo,Find,Replace,SelectAll,Form,Checkbox,Scayt,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Strike,Subscript,Superscript,RemoveFormat,Outdent,Indent,Blockquote,CreateDiv,JustifyBlock,BidiLtr,BidiRtl,Language,Unlink,Anchor,Link,Flash,Image,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,Format,Maximize,ShowBlocks,About';
+
+config.enterMode = CKEDITOR.ENTER_BR;
 };

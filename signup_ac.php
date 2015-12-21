@@ -36,7 +36,7 @@ if($countp == 1)
 {
 echo "<script>
 alert('Your already having Premium account');
-window.location.href='paid_signup_form.php#tologin';
+window.location.href='paid_signup_form1.php#tologin';
 </script>";
 
 }
@@ -45,7 +45,7 @@ elseif($count==1)
 {
 echo "<script>
 alert('Email already exist');
-window.location.href='paid_signup_form.php#tologin';
+window.location.href='paid_signup_form1.php#tologin';
 </script>";
 
 }
@@ -54,7 +54,7 @@ window.location.href='paid_signup_form.php#tologin';
 {
 echo "<script>
 alert('password mismatch');
-window.location.href='paid_signup_form.php#tologin';
+window.location.href='paid_signup_form1.php#tologin';
 </script>";
 }
 

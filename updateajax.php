@@ -4,20 +4,20 @@ include 'session1.php';
 $i=0;
 $counterupdated=0;
 $nothing=0;
+ echo $myVar = $_POST['varname'];
+//echo $_POST['somename'.$i];
 
-echo $_POST['somename'.$i]."hiii";
-
-
+//echo $_POST['idname'.$i]."hiiii";
 while(isset($_POST['idmane'.$i]))
 {
+echo $_POST['idmane'.$i]."byeee";
 
 
+echo $namefield=$_POST['somename'.$i];
 
-$namefield=$_POST['somename'.$i];
+ echo $emailfld=$_POST['emailch'.$i];
 
-$emailfld=$_POST['emailch'.$i];
-
-$idofupdate=$_POST['idmane'.$i];
+echo $idofupdate=$_POST['idmane'.$i];
 
  $domain=substr(strrchr($emailfld,"@"),1);
  

@@ -27,8 +27,6 @@ $Editor = mysqli_real_escape_string($conn,$Editor);
 $Img = mysqli_real_escape_string($conn,$Img);
 $pro_title = mysqli_real_escape_string($conn,$pro_title);
 $UserId = mysqli_real_escape_string($conn,$userId); 
-
-
 ?>
 <HTML>
 <head>
@@ -41,13 +39,7 @@ $UserId = mysqli_real_escape_string($conn,$userId);
 <link rel="icon" type="image/x-icon" href="Pmail.ico" />
 
 <!--CSS start-->
-<link href="version4_editor/css/bootstrap.css" rel="stylesheet">
-<!--<link href="css/imgtab.css" rel="stylesheet">-->
-<!--link href="version4_editor/css/bootstrap.css" rel="stylesheet"-->
-<link href="version4_editor/css/style.css" rel="stylesheet">
-<link href="version4_editor/css/style1.css" rel="stylesheet">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-<link href="version4_editor/css/style-responsive.css" rel="stylesheet">	
 <link href="popup/css/style2.css" rel='stylesheet' type='text/css' />
 <link href="css/my_imgtab.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -58,14 +50,17 @@ $UserId = mysqli_real_escape_string($conn,$userId);
 <link rel="stylesheet" type="text/css" href="css/spectrum.css">
 <link href="css/simple-sidebar.css" rel="stylesheet">
 <link rel="stylesheet" href="css/templatemo-style.css">
-<!--<link href="css/bootstrap1.css" rel="stylesheet">-->
-<!--link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/component.css" />
-<script src="js/modernizr.custom1.js"></script-->
+
+<!--pop up code-->
+<link href="popup/css/style2.css" rel='stylesheet' type='text/css' /></script>
+
+
+
+					
+
+<!--pop up code end here-->
+
 <style>
-.active {
-background-color: #0073e6;  
-}
 .inactive {
 background-color: #FFFFFF;
 } 
@@ -74,12 +69,17 @@ background-color: #FFFFFF;
 .fadebox { position:relative; }
 .fadebox p { position:absolute; left:0; top:0; width: 300px; display:none;}
 
+#fixed {position:fixed;}
+
 </style>
+
 
 <!--CSS end-->
 
 <!--JS Start-->
-
+<!--<script src="popup/js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script type="text/javascript" src="popup/js/modernizr.custom.53451.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Paritosh templates code start-->
 <script type="text/javascript">
 function template(templateID)
@@ -105,92 +105,25 @@ xhr.send();
 
 function DelImg(Banr,imagNm,type)
 {
+var uri = "Promotion.php";
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
 if (xhttp.readyState == 4 && xhttp.status == 200) {
 var stat= xhttp.responseText;
-
-window.location.reload();
+if(Banr=="0")
+{
+$('#frm').load(uri +' #frm');
+}
+if(Banr=="1")
+{
+$('#frm2').load(uri +' #frm2');
+}
 }
 }
 xhttp.open("POST", "delete_img.php", true);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhttp.send("del="+imagNm+"&banner="+Banr+"&ext="+type);
 }
-
-function setTextColor(picker) {
-document.getElementById('editor').style.color = '#' + picker.toString()
-}
-function SetToBold () {
-document.execCommand ('bold', false, null);
-}
-function SetToItalic () {
-document.execCommand ('italic', false, null);
-}
-function SetToUnderline () {
-document.execCommand ('underline', false, null);
-}
-function SetToCopy () {
-document.execCommand ('copy', false, null);
-}
-function SetToCut () {
-document.execCommand ('cut', false, null);
-}
-function SetToResize () {
-document.execCommand ('', false, 'Tahoma');
-}
-function SetToLink () {
-document.execCommand ('createLink', false, 'null');
-}
-function fontEditor() {
-var e = document.getElementById("fontName");
-var name = e.options[e.selectedIndex].value;
-
-var txt=document.getElementById("txtEditor1");
-document.execCommand('fontName',true,name);   
-}
-function fontname()
-{var sText = document.selection.createRange();
-var name="Arial";
-sText.execCommand ("FontName", 1, name);
-}
-function left()
-{
-document.execCommand("JustifyLeft");
-}
-function center()
-{
-document.execCommand("JustifyCenter");
-}
-function right()
-{
-document.execCommand("JustifyRight");
-}
-function indent()
-{
-document.execCommand("Indent");
-}
-function outdent()
-{
-document.execCommand("outdent");
-}
-function orderedList()
-{
-document.execCommand("InsertOrderedList");
-}
-function UnorderedList()
-{
-document.execCommand("InsertUnorderedList");
-}
-
-function setColor(e) {
-var target = e.srcElement,
-status = e.target.classList.contains('active');
-
-e.target.classList.add(status ? 'inactive' : 'active');
-e.target.classList.remove(status ? 'active' : 'inactive');
-}
-
 </script>
 <!-- CKEDITOR -->
 <script src="ckeditor/ckeditor.js"></script>
@@ -252,19 +185,8 @@ e.target.classList.remove(status ? 'active' : 'inactive');
             // that it will open up for business
             activeEditorElement.focus();
         }
-		/*$(document).ready(function()
-		{
-		var editnum=1;
-			$('#getv').click(function()
-			{
-				$('body').append("<div id='editable"+editnum+"' contenteditable='false' onClick=editorInit('editable"+editnum+"');>Your editable text goes here</div><br>");
-				editnum++;
-			});
-		});*/
+
     </script>
-
-
-
 <!-- Paritosh templates code end-->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -273,15 +195,18 @@ e.target.classList.remove(status ? 'active' : 'inactive');
 <script src="edi/fileinput.min.js"></script>
 <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 <script src="js/html2canvas.js"></script>
-
+<script type="text/javascript">
+$(document).ready(function(){});</script>
 <script type='text/javascript'>
-  $(document).ready(function(){
-        $('#error').hide();
+$(document).ready(function(){
+$('#error,#err').hide();
+$('.tool').click(function(){$('.tool').parent().find('img').detach();});
+$('.tool1').click(function(){$('.tool1').parent().find('img').detach();});
+$('.tool2').click(function(){$('.tool2').parent().find('img').detach();});
+$('.fa fa-trash-o').click(function(){$('.drop').find('img').remove();});
    $('#prv').on('click', function(e){
-
       $('.toolbar').hide();
-     $('#error').hide();
-  	
+    $('#error,#err').hide();
         var name = $("input#pro_title").val();
      
      if (name == "") {
@@ -290,8 +215,15 @@ e.target.classList.remove(status ? 'active' : 'inactive');
         return false;
         
       }
-      else
+else if($(".editor").text() == "")
+{
+     $('#err').show();
+return false;
+}
+else
       {
+var ptag=$('p').html();
+ptag.replace(/"/g, '');
 var edit=document.getElementById('save_div').innerHTML;
  $('.fadebox p').hide().fadeIn(2000);
  setTimeout(function(){$('.fadebox p').fadeOut(2000);}, 5000);
@@ -299,29 +231,19 @@ var edit=document.getElementById('save_div').innerHTML;
                 html2canvas($('.pro_body'), {
                     onrendered: function(canvas){
                         var imgString = canvas.toDataURL();
-                        
                         var pro_title = document.getElementById("pro_title").value;
-						
-						//var edi=encodeURIComponent(edit);
-						//alert(edit);
-                      // window.open(imgString);
                         $.ajax({
                             url: '',
                             type: 'POST',
-                            data: {   
+                            data: {
                                 'file' : imgString,
                                 'pro_title' : pro_title,
-								'Edi':edit
-								
+				'Edi':edit		
                             },
                             success: function(response){
-								window.location.href = 'campaign_dash.php';
+				window.location.href = 'campaign_dash.php';
                                 return false;
-                            
-     
                   <?php
-
-                                   //$promotion_no="23";
                                    $Img = 'upload/file_'.$promotion_no.'.png';
                                     if(($_POST['file'] != "") )
                                     {
@@ -332,44 +254,25 @@ var edit=document.getElementById('save_div').innerHTML;
                                     if(($im)) 
                                     {
                                         $save = imagepng($im, 'upload/file_'.$promotion_no.'.png');
-                          
-                          // if(isset($_post['saveme'])){
-   
                               $qry= "INSERT INTO promotion VALUES ('','$parentemail','$save_div','$Img','','$promotion_no','$pro_title','$pro_id')";
                               $res = mysqli_query($conn,$qry);
-                           //} 
-                                     
-                                        // echo $pro_title=$_POST['pro_title'];  
-                                        
-
-                                        
+                           
                                         echo json_encode(array('file' => true));
                                     }
                                     else
                                     {
                                         echo json_encode(array('error' => 'Could not parse image string.'));
                                     }
-                                           
-                                          
-                                    //exit();
-
                                 }
-                                
-                             
-
                             ?>	
-                                //alert('Everything works fine.');
+                                alert('Everything works fine.');
                             },
                             error: function(response){
-                                //alert('Server response error.');
+                                alert('Server response error.');
                             }
                         });
                     }
                 });
-             
-             
-            
-               
           }  
             });
         });
@@ -377,10 +280,48 @@ var edit=document.getElementById('save_div').innerHTML;
 <style>
 .edilen
 {
-height:165px;
+height:auto;
 }
 </style>
+
 </head>
+<!--image upload files-->
+<link href="ajax_upload/css/uploadfilemulti.css" rel="stylesheet">
+<script src="ajax_upload/js/jquery.fileuploadmulti.min.js"></script>
+
+<!--image upload file end-->
+
+<!--pop up code-->
+
+<script src="popup/js/jquery.magnific-popup.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="popup/js/modernizr.custom.53451.js"></script> 
+
+
+
+<script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+
+});
+																						
+</script>	
+
+<!--pop up end-->
+
+
+
+
 <body style="background-color:#f2f2f2;">
 
   <nav class="navbar navbar-default navbar-fixed-top" style="background-color:white; height:70px; padding:5px; border-color:white;">
@@ -445,29 +386,29 @@ if(isset($login_session))
             
             <ul class="sidebar-nav">
                 <!-- sidebar menu start-->
-                   <li>&nbsp;</li>
-                  <li class="mt">
-                     
-                  </li>
-
-
  <li>&nbsp;</li>
-                   
-                 
+
 <li class="mt">
 <button type="button" class="btn btn-default " id="banner" style="width:110px;" title="Banner-Image"><i class="fa fa-credit-card fa-2x"></i><br>Banner</button>
- </li>
-
+</li>
+<li class="Divider"></li>
+<li class="mt">
+<button type="button" class="btn btn-default " id="textonly" style="width:110px;" title="Text"><i class="fa fa-text-width fa-2x"></i><br>Text</button>
+</li>
+<li class="Divider"></li>
+<li class="mt">
+ <button type="button" class="btn btn-default " id="imgonly" style="width:110px;" title="Image"><i class="fa fa-picture-o fa-2x"></i><br>Image</button>
+</li>
 <li class="Divider"></li>
 <li class="mt">
 <button type="button" class="btn btn-default" id="divider1" style="width:110px;" title="Divider"><b>-------</b><br>Divider</button>
 </li>
-
 <li class="Divider"></li>
        <li class="mt">
     <div class="btn-group">
  <button type="button" class="btn btn-default " id="textimg" title="Text&Image"><i class="fa fa-text-width fa-2x"></i>&nbsp; & &nbsp;<i class="fa fa-picture-o fa-2x"></i><br>Text &nbsp;&nbsp;&nbsp;Image</button>
- </div>
+ 
+</div>
 </li>
 <li class="Divider"></li>
  <li class="mt">
@@ -477,24 +418,12 @@ if(isset($login_session))
 </li>
 <li class="Divider"></li>
 <li class="mt">
- <button type="button" class="btn btn-default " id="imgonly" style="width:110px;" title="Image"><i class="fa fa-picture-o fa-2x"></i><br>Image</button>
-</li>
-<li class="Divider"></li>
-<li class="mt">
-<button type="button" class="btn btn-default " id="textonly" style="width:110px;" title="Text"><i class="fa fa-text-width fa-2x"></i><br>Text</button>
-</li>
-<li class="Divider"></li>
-<li class="mt">
-<button type="button" class="btn btn-default " id="imggrid" style="width:110px;" title="Text"><i class="fa fa-picture-o fa-2x"></i><br>Image Grid</button>
+<button type="button" class="btn btn-default " id="imggrid" style="width:110px;" title="Text"><i class="fa fa-picture-o fa-2x" style="margin-left:-6px;"></i>&nbsp;<i class="fa fa-picture-o fa-2x"></i>&nbsp;<i class="fa fa-picture-o fa-2x"></i><br>Grid</button>
 </li>
 
               </ul>
               <!-- sidebar menu end-->
         </div>
-        <!-- /#sidebar-wrapper -->
-
-
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
@@ -508,7 +437,11 @@ if(isset($login_session))
            <div class="row">
             <div class="col-md-1"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle" style="height:35px;" title="Toggle Sidebar"><i class="fa fa-arrows-h" style="margin-top:5px;"></i></a></div>
             <div class="col-md-2"><!--<button type="button" title="Set Background Color" class="btn btn-default">--><input id="full" / ><!--</button>--></div>
-            <div class="col-md-8"><input type="text" name="pro_title" id="pro_title" class="form-control col-xs-4" placeholder="Enter Promotion Name" style="text-align:center;"></div>
+            <div class="col-md-8"><input type="text" name="pro_title" id="pro_title" class="form-control col-xs-4" placeholder="Enter Promotion Name" style="text-align:center;">
+<label id="error" style="color:#e60000;">Enter Promotion Name </label>
+<label id="err" style="color:#e60000;">Fill All Fields</label>
+</div>
+ 
             <div class="col-md-1"><button type="submit" id="prv" class="btn btn-default" style="height:35px;" title="Save Promotion"><i class="fa fa-floppy-o"></i></button></div>
            </div>
         </div>
@@ -517,13 +450,13 @@ if(isset($login_session))
 
 <div class="mt">				   
 <div id="editor" style="height:auto; border:1px solid #CCCCCC; border-radius:5px 5px 5px 5px; background-color:#ffffff;">	  
-<div id="save_div" class="pro_body">
-<div id="sortable">
+<div id="save_div" class="pro_body" >
+<div id="sortable" >
 	<div id="txtimg" class="textimgdiv" style="cursor: auto;margin-bottom: 40px;">
 		<div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div>
 		<span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span>
 		<div class="row" style="  width: 100%;margin: 5px;"><div class="edi" style="width: 56%;cursor: pointer;">
-			<div class="col-lg-12 nopadding" style="margin-left:22px; margin-top:16px;text-align:center;"><div class="editor edilen" id="editabl" onDblclick="editorInit(this.id);" title="Please double click to Edit">Your text goes here</div></div>
+			<div class="col-lg-12 nopadding" style="margin-left:22px; margin-top:16px;text-align:center;"><div class="editor edilen" id="editabl" onDblclick="editorInit(this.id);" title="Please double click to Edit"><p>Your text goes here</p></div></div>
 			</div><div class="drop"><span class="tool" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div>
 		</div>
 	</div>
@@ -534,8 +467,8 @@ if(isset($login_session))
   </div><!--mt div-->  
 </div><!-- col-md-8 -->
                          <div class="col-md-4">
-                           <div class="panel panel-default" style="height:550px;">
-                             <div class="panel-body">
+                           <div class="panel panel-default" style="height:565px;">
+                             <div class="panel-body" >
                                       <ul class="nav  nav-pills" style="background-color:#f2f2f2;">
     <li class="active"><a data-toggle="tab" href="#home" style="width:100px;"><center><i class="fa fa-picture-o"></i><br>Images</center></a></li>
    <li><a data-toggle="tab" href="#menu1" style="width:110px;" ><center><i class="fa fa-credit-card"></i><br>Banners</center></a></li>
@@ -577,7 +510,7 @@ if (in_array($ext, $supported_file))
 {
 echo "
 <form>
-<img class='file-preview-image' src='".$image."' style='margin-top:-1%;'>
+<img class='file-preview-image' src='".$image."' style='margin-top:-1px;'>
 <input type='text' id='ban".$i."' value='".$banner."' style='display:none;'>
 <input type='text' id='img".$i."' value='".$imgNames."' style='display:none;'>
 <input type='text' id='ext".$i."' value='".$img_types."' style='display:none;'>
@@ -598,25 +531,47 @@ else
 <hr>
 <div class="panel panel-default" style="height:60px;">
        <div class="panel-body">
-    
 <div id="queue"></div>
 <center>
-<input id="file_upload" name="file_upload" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
-	<br>
-	<script type="text/javascript">
-		<?php $timestamp = time();?>
-		$(document).ready(function() {
-			$('#file_upload').uploadify({
-				'formData'     : {
-					'timestamp' : '<?php echo $timestamp;?>',
-					'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
-				},
-				'swf'      : 'uploadify.swf',
-				'uploader' : 'uploadify.php'
-			});
-		});
-	</script>
-	</center>
+<div id="mulitplefileuploader" class="col-md-8">Upload</div>
+
+<div id="status"></div>
+
+
+<script>
+
+$(document).ready(function()
+{
+
+var settings = {
+	url: "upload.php",
+	method: "POST",
+	allowedTypes:"jpg,png,gif,doc,pdf,zip",
+	fileName: "myfile",
+	multiple: true,
+	onSuccess:function(files,data,xhr)
+	{
+		$("#status").html("<font color='green'>Upload is success</font>");
+		
+	},
+    afterUploadAll:function()
+    {
+       // alert("all images uploaded!!");
+        $('#frm').load(window.location.href+ ' #frm');
+		
+    },
+	onError: function(files,status,errMsg)
+	{		
+		$("#status").html("<font color='red'>Upload is Failed</font>");
+	}
+}
+$("#mulitplefileuploader").uploadFile(settings);
+
+});
+</script>
+
+
+</center>
 
        </div><!--end panel-body-->
      </div><!--end panel-default-->
@@ -683,23 +638,45 @@ if (in_array($ext, $supported_file)) {
 <hr>
 <div class="panel panel-default" style="height:60px;">
    <div class="panel-body">
-      <form>
 <div id="queue"></div><center>
-<input id="file_upload2" name="file_upload2" multiple="true" type="file" accept="image/jpeg,image/jpg,image/png,image/gif">
-	</form><br>
-	<script type="text/javascript">
-		<?php $timestamp = time();?>
-		$(document).ready(function() {
-			$('#file_upload2').uploadify({
-				'formData'     : {
-					'timestamp' : '<?php echo $timestamp;?>',
-					'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
-				},
-				'swf'      : 'uploadify.swf',
-				'uploader' : 'uploadify_banner.php'
-			});
-		});
-	</script></center>
+
+	<!--</form>-->
+<div id="mulitplefileuploader2" class="col-md-8">Upload</div>
+
+<div id="status"></div>
+
+<script>
+$(document).ready(function()
+{
+
+var settings = {
+	url: "upload_banner.php",
+	method: "POST",
+	allowedTypes:"jpg,png,gif,doc,pdf,zip",
+	fileName: "myfile",
+	multiple: true,
+	onSuccess:function(files,data,xhr)
+	{
+		$("#status").html("<font color='green'>Upload is success</font>");
+		
+	},
+    afterUploadAll:function()
+    {
+       // alert("all images uploaded!!");
+        $('#frm2').load(window.location.href+ ' #frm2');
+		
+    },
+	onError: function(files,status,errMsg)
+	{		
+		$("#status").html("<font color='red'>Upload is Failed</font>");
+	}
+}
+$("#mulitplefileuploader2").uploadFile(settings);
+
+});
+</script>
+	
+</center>
    </div>
 </div>
 
@@ -709,12 +686,12 @@ if (in_array($ext, $supported_file)) {
 <div class="panel panel-default" style="height:452px; overflow-y:scroll;">
   <div class="panel-body">
 	
-	<div class="col-md-12">
-
+<div class="col-md-12">
 <img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
-  <a id="1" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
-  <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal1">View</button></a>
+  <a  id="1" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
+  <!--<a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal1">View</button></a>-->
+<a href="#small-dialog" class="popup-with-zoom-anim" ><button class="btn btn-default" >View</button></a>
 </div><hr>
 <img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
@@ -728,14 +705,38 @@ if (in_array($ext, $supported_file)) {
 <div class="btn-group">
 	<a id="3" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
 	<a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal3">View</button></a>
+         
 </div><hr>
 	<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
 <div class="btn-group">
         <a id="4" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
          <a href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal4">View</button></a>
+</div><hr>
 </div>
+<div class="col-md-12">
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<div class="btn-group">
+  <a id="5" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
+  <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal5">View</button></a>
+</div><hr>
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<div class="btn-group">
+  <a id="6" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
+  <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal6">View</button></a>
+</div><hr>
 </div>
-    
+<div class="col-md-12">
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<div class="btn-group">
+  <a id="7" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
+  <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal7">View</button></a>
+</div><hr>
+<img src="images/compose.png" class="img-thumbnail" width="90px" height="90px">
+<div class="btn-group">
+  <a id="8" onclick="template(this.id);"><button class="btn btn-primary">Apply</button></a>
+  <a  href="#"><button class="btn btn-default" data-toggle="modal" data-target="#myModal8">View</button></a>
+</div>
+</div>   
   </div>
 </div>
 </div>
@@ -758,369 +759,16 @@ if (in_array($ext, $supported_file)) {
     </div>
     <!-- /#wrapper -->
 
-<!--end sidebar-->
-
-<!--script>
-function sendPromotion() {
-//var edit = encodeURIComponent(CKEDITOR.instances.editor.getData());
-//var Editor = edit.replace(/\u200/g,"");
-
-//var title=document.getElementById('pro_title').value;
-var edit=document.getElementById('save_div').innerHTML;
-var edi=encodeURIComponent(edit);
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-  document.getElementById('display').innerHTML = xhttp.responseText;
-    }
-  }
-  xhttp.open("POST", "save_promotion.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("Editor="+edi);
-} 
-</script-->
-<script type="text/javascript">
+<!--combinations js code was here-->
 
 
-$(document).ready(function(){
- 
-	         /*$("#txtEditor1").jqte();   
-	         $('#txtEditor2').jqte();
-	         $('#txtEditor3').jqte();
-                 $('#txtEditor4').jqte();
-                 $('#txtEditor5').jqte();
-                  $(".jqte_editor").focus();*/
-       //$('.jqte_toolbar').css('display','none');                          
-
-$(".jqte_editor").focus(); 
-       $("#myfiles").fileinput({
-				uploadUrl: "upload",
-				uploadAsync: true,
-				maxFileCount: 5
-	});
-        
-       $( "#sortable" ).sortable({   
-            placeholder: "ui-sortable-placeholder"  ,
-            cancel: '#drop',
-            cancel: '.row',
-            
-            
-        });  
-        
-        
-        $(".jqte_editor").click(function() {
-                $(this).focus();
-                //$('.jqte_toolbar').css('display','block');
-	});
-	
- $('#cancel').click(function(){
-         $( "#sortable" ).empty();
-         //$(".imgtextdiv").show();
- });       
-        	
-                
-        	$("#textimg").click(function(){
-var $lenOfEditors = $(".editor").length;
-$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-
-        		helper: 'clone',
-				$("#sortable").append('<div class="textimgdiv" style="cursor: auto;margin-bottom: 40px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="myFunction(this.id)" style="float:right;" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="edi" style="width: 56%;cursor: pointer; "><div class="col-lg-12 " style="margin-top:21px;margin-left:20px;text-align:center;"><div contenteditable="false" onDblclick="editorInit(this.id)" class="editor edilen" title="Please double click to Edit">Your text goes here</div></div></div><div class="drop"><span class="tool" style="display:none;"><a href="#"><i class="fa fa-trash-o" id="trash"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div></div></div>');
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-
-				/*$(".editor:last").jqte();                                
-                                $(".jqte_editor").focus(); */
-                                var $save = $(".saveme").length;
-				$(".saveme:last").attr("id","save_"+$save++);
-                                  
-                                //$('.editor').attr("id","edi_");
-
-                                 var $drp = $('.drop').length;
-				$('.drop:last').attr("id","drop_"+$drp++); 
-                   
-                                 $('.tool').click(function(){
-                                        $(this).parent().find('img').detach();        
-			         });
-                                 
-                                    var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img"+$img++); 
-                });
-      
-        	$("#imgtext").click(function(){
-				
-				 helper: 'clone',
-                                  
-                                  
-				$("#sortable").append('<div class="imgtextdiv" style="cursor:auto;margin: 30px 0px 40px 0px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="width: 100%;margin: 5px; margin-left:40px;"><div class="drop" style="margin-top: 13px;float:left;margin-left: 0px;"><span class="tool1" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash1"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div><div class="edi1" style="width: 56%;margin: 24px 0px 0px 58px;cursor: pointer" ><div class="col-md-12 nopadding"  style="margin-left:-60px;margin-top:-5px;text-align:center"><div contenteditable="false" onDblclick="editorInit(this.id)" class="editor edilen" title="Please double click to Edit">Your text goes here</div></div></div></div></div>');
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","txtEditor"+$lenOfEditors++);
-
-                                //$(".jqte_editor").focus(); 
-                                
-				$('.tool1').click(function(){
-                                        $(this).parent().find('img').detach(); 
-                                });
-                                
-  				
-                                
-                                var $drp = $(".drop").length;
-				$(".drop:last").attr("id","drop_"+$drp++);   
-                                
-                                  var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img_"+$img++);  
-			});	
-        	$("#textonly").click(function(){
-				 helper: 'clone',
-				
-				$("#sortable").append('<div class="textdiv" style="cursor:auto;margin: 20px 0px 20px 0px; margin-bottom: 45px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style=" width: 100%;margin: 5px;"><div class="edi3" style="margin-left: 150px;width: 98%;cursor: pointer"><div class="col-md-12" id="col-md-12edi" style="margin-left:-146px;text-align:center;"><div contenteditable="false" onDblclick="editorInit(this.id)" class="editor" title="Please double click to Edit" >Your text goes here</div></div></div></div></div>').show('slow');
-                                 var $drp = $(".drop").length;
-				$(".drop:last").attr("id","drop_"+$drp++);    
-                                
-                                   var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img"+$img++); 
-                            var $save = $(".saveme").length;
-				$(".saveme:last").attr("id","save_"+$save++);	         
-				 
-				var $lenOfEditors = $(".editor").length;
-				$(".editor:last").attr("id","editor"+$lenOfEditors++);
-                        });
-						
-        	$("#imgonly").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 100px;width: 72%;height: 240px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div></div></div>');
-                                 
-                                 $('.tool2').click(function(){
-                                        $(this).parent().find('img').detach();        
-			         });
-				 
-                                var $drp = $(".drop").length;
-				$(".drop:last").attr("id","drop_"+$drp++); 
-                                
-                                   var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img"+$img++);
-                        });
+                                                     <div id="small-dialog" class="mfp-hide">
+							<div class="pop_up">
+									 <img src="images/compose.png" width="100%" height="100%">
+						  			</div>
+								</div>
 
 
-                                 //image grid
-$("#imggrid").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 20px;width: 30%;height: 200px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><div class="col-md-12"><img class="file-preview-image ui-draggable" src="images/img.png" ></div></div><div class="drop" style="margin-left: 20px;width: 30%;height: 200px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><div class="col-md-12"><img class="file-preview-image ui-draggable" src="images/img.png" ></div></div><div class="drop" style="margin-left: 20px;width: 30%;height: 200px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><div class="col-md-12"><img class="file-preview-image ui-draggable" src="images/img.png" ></div></div></div></div>');
-                                 
-                                 $('.tool2').click(function(){
-                                        $(this).parent().find('img').detach();        
-			         });
-				 
-                                var $drp = $(".drop").length;
-				$(".drop:last").attr("id","drop_"+$drp++); 
-                                
-                                   var $img = $(".file-preview-image").length;
-                                        $(".file-preview-image:last").attr("id","img"+$img++);
-                        });
-						
-						//banner image
-						
-		$("#banner").click(function(){
-				$('#sortable').append('<div class="imgdiv" style="cursor: auto;margin: 20px 0px 20px 0px;padding-bottom: 29px;"><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" onclick="return myFunction(this.id)" style="float:right" ><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><div class="row" style="  width: 100%;margin: 5px;"><div class="drop" style="margin-left: 33px;width: 90%;height: 160px;"><span class="tool2" style="display:none;"><a href="#"> <i class="fa fa-trash-o" id="trash2"></i></a> </span><img class="file-preview-image ui-draggable" src="images/img.png"></div></div></div>');
-			
-                                 
-                                 $('.tool2').click(function(){
-                                        $(this).parent().find('img').detach();        
-			         });
-                        });
-						
-						
-						
-
-			
-        	$("#divider1").click(function(){
-				$('#sortable').append('<div class="divider" ><div class="dragdiv"><span class="drag"><i class="fa fa-arrows"></i>&nbsp;Drag </span></div><span ><button type="button" class="saveme" name="save1" style="float:right" onclick="return myFunction(this.id)"><a href="#" >SAVE</a></button></span><span class="close" ><i class="fa fa-trash-o"></i>&nbsp; Delete</span><hr width="97%" style="border: 2px; height: 1px; color: #333; background-color: #333; "></div>');	
-			
-                }); 
-			
-			$('.tool').click(function(){
-                                
-				$(this).parent().find('img').detach();        
-			});
-	         
-			$('.fa fa-trash-o').click(function(){
-                                
-				$(".drop").find('img').remove();	        
-			});
-
-                        $('.pro_tool').click(function(){
-		        
-				$('.promotion_banner_placeholder .file-preview-image').remove();
-                                $('.pro_tool').css('display','none');
-                                $('.promotion_banner_placeholder').append('<img class="banner_img" src="images/dragimg.png" width="575px">');
-			});
-                        
-         // trying preview of divs starts
-			$("#prv").click(function(){
-                                $('.dragdiv').hide();
-                                $('.close').hide();
-				$('.drop').css('border', 'none');
-				$('.drop1').css('border', 'none');
-				$('.drop2').css('border', 'none');
-                                $('.saveme').hide();
-                                $('#trash').hide();
-                                $('#trash1').hide();
-                                $('#trash2').hide();
-                                $('.editor').css('border', 'none');
-                                $('.toolbar').hide();
-                                
-                                $('.jqte').css('border','none');
-			   //var canvas = document.createElement('canvas');
-				html2canvas($(".pro_body"), {
-					onrendered: function(canvas) {
-						document.body.appendChild(canvas);
-						canvas.id     = "canvas";
-
-              
-					} 
-                                        
-				});
-			});
-         // trying preview of divs ends  
-            
-            
-});
-//$(".classy-editor").ClassyEdit();
-
-$('.editor').focus();
-	$('.close').livequery(function(){
-			$(this).click(function(){
-				$(this).parent().detach();
-				//console.log("adasd");
-
-				})
-	});
-        
-	$('.file-preview-image').livequery(function(){
-			$(this).draggable({
-				appendChild: 'body',
-                helper: 'clone',
-				drag: function( event, ui ){
-					ui.helper.addClass("draggable");
-      
-                                       
-				}
-					
-                        });
-          });
-		
-                
-          $('.drop ').livequery(function(){
-			$(this).droppable({
-	                       accept: '.file-preview-image',
-				drop: function (event, ui) { 
-                                        $(this).find('img').remove();
-					$(this).append($(ui.draggable).clone());
-                                        $('.tool').show();
-                                        $('.tool1').show();
-                                        $('.tool2').show();
-      
-                        
-                                        //alert($(this).find('img').attr('src'));
-				}										
-
-                       });
-        });
-
-	$('.file-preview-image').livequery(function(){
-			$(this).draggable({
-                        
-				appendChild: 'body',
- 
-                                helper: 'clone',
-				drag: function( event, ui ){
-					ui.helper.addClass("draggable");
-                                      
-                                        
-				}                                        
-					
-			});
-        });
-
-        $('.promotion_banner_placeholder').livequery(function(){
-                $(this).droppable({
-	            accept: '.file-preview-image',
-				drop: function (event, ui) { 
-                   $('.promotion_banner_placeholder img').remove();
-		    $(this).append($(ui.draggable).clone());
-		    $('.pro_tool').css('display','block');		
-				}	
-                     
-
-	        });
-	 
-        });
-
-		$( "#tabs" ).tabs();
-		$( "#dialog-link, #icons li" ).hover(
-			function() {
-				$( this ).addClass( "ui-state-hover" );
-			},
-			function() {
-				$( this ).removeClass( "ui-state-hover" );
-			}
-		);
-		
-		$( "#ch" ).click(
-			function() {
-		
-		$("#tabs-2").css("display","none");
-			}
-		);
-		$( "#ch2" ).click(function() {$("#tabs-2").css("margin-top","-550px");$("#tabs-2").css("display","block");}
-		);
-	
-	
-
-		
-
-		/*  crzyscript         $(window).load(function() { 
-		                $('.loader-item').fadeOut(); 
-		                    $('#pageloader').delay(350).fadeOut('slow');
-		                $('body').delay(350).css({'overflow-y':'visible'});
-                                 
-		            });
-		            //]]>*/ 
-	
-	
-        
-    $("#sv").attr("disabled", "disabled");
-    $("#prv").click(function(){
-        $("#sv").removeAttr("disabled");
-    });
-
-	 
-		            
-	</script>
-              <!--  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script> -->
-
-
-
-		
-        
-  <div class="container">
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-
-        <div class="modal-body">
-          <img src="images/compose.png" width="100%" height="100%">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
 
 
  <div class="container">
@@ -1189,23 +837,12 @@ $('.editor').focus();
     </div>
   </div>
 </div>
-
-
-
-
-<script src="js/jquery.uploadify.min.js" type="text/javascript"></script>
-<script src="js/jquery.uploadify.js" type="text/javascript"></script>
+<script src="js/combinations.js" type="text/javascript"></script>
+<!--<script src="js/jquery.uploadify.min.js" type="text/javascript"></script>
+<script src="js/jquery.uploadify.js" type="text/javascript"></script>-->
 <script type="text/javascript" src="js/spectrum.js"></script>
 <script type='text/javascript' src='js/docs.js'></script>
 <script type="text/javascript" src="js/prettify.js"></script>
-
-<script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
 </body>
 
 </html>

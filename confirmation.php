@@ -44,7 +44,7 @@ if($result2)
 
 echo "<script>
 alert('Your account has been activated');
-window.location.href='http://pyxymail.net/paid_login_form.php#tologin';
+window.location.href='http://pyxymail.net/paid_login_form1.php#tologin';
 </script>";
 
 // Delete information of this user from table "temp_members_db" that has this passkey 

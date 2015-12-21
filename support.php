@@ -15,15 +15,13 @@
 <link rel="stylesheet" href="css/templatemo-style.css">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link href="css1/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style1.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="js/jquery.js"></script>
-                <script type="text/javascript" src="js/login.js"></script>
+
      <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script src="js/smoothscroll.js"></script>
 
 <link href="css/style_about.css" rel="stylesheet" type="text/css" media="all" />		
+
 <link rel="shortcut icon" type="image/x-icon" href="favicon (12).ico" />
 <style>
 .active > a:hover
@@ -32,7 +30,7 @@
 }
 </style>
 </head>
-<body style="background-color:#f8f8f8;">
+<body style="background-color:#e2e2e2; overflow-x:hidden;">
 <!-- start navigation -->
 		<nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white;">
   <div class="container-fluid">
@@ -48,6 +46,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
        <ul class="nav navbar-nav" style="margin-left:20px;">
         <li  class="active1" style="margin-top:10px;" ><a href="features.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"><b>Features</b></a></li>
+
+
+
        
         <li style="margin-top:10px;"><a href="support.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;
     text-align: center;
@@ -80,13 +81,75 @@
   </div>
 </nav>
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 
 <!-- Hover User Details - END -->
 <div class="container">
+  <div class="col-md-12 ">
+        <h2 style="font-size: 21px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;"><b>Getting Started with Pyxymail</b></h2>
+        <p style="font-size: 15px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;">
+         Pyxymail is an email service provider (ESP), which helps marketers send bulk emails to clients, customers, and other interested parties. Our application is based on the three main tasks of email marketing: manage subscriber lists, build email campaigns, and review campaign reports. 
+
+In this article, you'll learn some basics about how to use Pyxymail and find resources that can help you as you work.</p>
+        
+        <hr>
+</div>
+    
+<div class="col-md-12 ">
+        <h3  style="font-size: 21px;line-height: 1.14285714em; margin-bottom: 1.14285714em; letter-spacing: -0.025em; font-style: italic;"><b>Sign Up for an Account</b></h3>
+        <p style="font-size: 15px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;">
+         When you create a Pyxymail account, you agree to comply with our Terms of Use and anti-spam regulations. To maintain a positive sending reputation and keep your account in good standing, it’s important that you remain in compliance with these policies.</p>
+
+ <p style="font-size: 18px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;">Below, you’ll learn how to create your account.</p>
+
+ <ul style="font-size: 18px; line-height: 1.7em; list-style-type:decimal;">
+
+<li>Navigate to Pyxymail homepage and click Sign Up Free. </li><br>
+<img src="images/login.png"><br><br>
+<li>On the Account Signup page, select Premiun Signup or Guest Signup then type  your Email, Username, and Password, and click signup button. 
+</li><br>
+<div class="row">
+<div class="col-md-6"><img src="images/signup.png" class="img-responsive"></div>
+<div class="col-md-6"><img src="images/premium.png" class="img-responsive"></div>
+</div>
+<br><br>
+<li>We’ll display a Thanks For Signing Up confirmation message. Check your inbox for the account activation email to complete your account setup. 
+</li>
+
+</ul><br>
+
   
-    <div class="row">
+
+      
+        <hr>
+</div>
+
+
+<div class="col-md-12 ">
+        <h3  style="font-size: 21px;line-height: 1.14285714em; margin-bottom: 1.14285714em; letter-spacing: -0.025em; font-style: italic;"><b>Login for an Account</b></h3>
+        <p style="font-size: 15px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;">
+         When you create a Pyxymail account, you agree to comply with our Terms of Use and anti-spam regulations. To maintain a positive sending reputation and keep your account in good standing, it’s important that you remain in compliance with these policies.</p>
+
+ <p style="font-size: 18px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;">Below, you’ll learn how to Login your account.</p>
+
+ <ul style="font-size: 18px; line-height: 1.7em; list-style-type:decimal;">
+
+<li>Navigate to Pyxymail homepage and click Login Free. </li><br>
+<img src="images/login.png"><br><br>
+<li>On the Account Login page, select Premiun Login or Guest Logintype then write Email,and Password and click Login button. 
+</li><br>
+<div class="row">
+<div class="col-md-6"><img src="images/guest_login.png" class="img-responsive"></div>
+<div class="col-md-6"><img src="images/premiun_login.png" class="img-responsive"></div>
+</div>
+<br><br>
+
+
+</ul>
+</div><hr>
+<div class="row" style="margin-top:60px;">
+
         <div class="col-md-4">            
             <div class="thumbnail">
                 <div class="caption">
@@ -96,7 +159,19 @@
                     <p><a href="sub_support1.php" class="btn btn-danger" rel="tooltip" >Click Here</a>
                     
                 </div>
-                <img src="images/images (4).jpg" alt="...">
+                <img src="images/cvsl1tpe8aex3wgp3kdl.jpg" alt="...">
+            </div>
+      </div>
+ <div class="col-md-4">            
+            <div class="thumbnail">
+                <div class="caption">
+                    
+                    <p style="margin-top:20px;"><b>Video Tutorials</b></p>
+<p><b>Prefer to watch instead of read? View these video tutorials.</b></p>
+                    <p><a href="sub_support3.php" class="btn btn-danger" rel="tooltip" >Click Here</a>
+                    
+                </div>
+                <img src="images/Do-emails-with-video-have-a-higher-open-rate.jpg" style="height:198px;"alt="...">
             </div>
       </div>
       
@@ -109,28 +184,19 @@
                     <p><a href="sub_support" class="btn  btn-danger" rel="tooltip" >Click Here</a>
                     
                 </div>
-                <img src="images/images (4).jpg" alt="...">
+               
+                <img src="images/featured-image-top-10-email-clients-of-2015.png"  style="height:198px;""alt="...">
             </div>
       </div>
 
-        <div class="col-md-4">            
-            <div class="thumbnail">
-                <div class="caption">
-                    
-                    <p style="margin-top:20px;"><b>Video Tutorials</b></p>
-<p><b>Prefer to watch instead of read? View these video tutorials.</b></p>
-                    <p><a href="sub_support3.php" class="btn btn-danger" rel="tooltip" >Click Here</a>
-                    
-                </div>
-                <img src="images/images (4).jpg" alt="...">
-            </div>
-      </div>
-
-              
+       
+    
         
-  </div>
-  
+  </div><br><br>
+ 
+   
 </div>
+
 <style>
 .thumbnail {
     position:relative;
@@ -165,17 +231,17 @@ $( document ).ready(function() {
     ); 
 });
 </script><!-- /.container -->
-<br><br><br><br><br>
+
 <!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
-						<li><a href="contactus1.php">Contact Us</a></li>
+						<li><a href="contactus1.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -184,15 +250,15 @@ $( document ).ready(function() {
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
 						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
-						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
 						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
