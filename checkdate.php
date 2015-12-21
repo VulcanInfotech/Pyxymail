@@ -36,7 +36,7 @@ mysql_query("insert into paidregistered_members(username,useremail,password,no_c
 mysql_query("delete from `registered_members` where email='$user_check'");				
  echo "<script>
 alert('Sorry..!!! Your Free Subscription is Expired..!Please Choose our Sign Up Plans.');
-window.location.href='paid_login_form.php#toregister';
+window.location.href='paid_login_form1.php#toregister';
 </script>";		
 			}
 			else
@@ -89,7 +89,7 @@ mysql_query("delete from `registered_members` where email='$user_check'");
 mysql_query("delete from `registered_members` where email='$user_check'  ");					
  echo "<script>
 alert('Sorry..!!! Your Free Subscription is Expired..!Please Choose our Sign Up Plans.');
-window.location.href='paid_login_form.php#toregister';
+window.location.href='paid_login_form1.php#toregister';
 </script>";		
 			}
 			else

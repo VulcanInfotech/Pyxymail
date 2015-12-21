@@ -63,8 +63,8 @@ height:300px;
 
 #frm img
  {
- width: 65%;
-height: 40%;
+ width: 60%;
+height: 45%;
 //border-radius: 10%;
 //border: 3px solid #CCC;
 //margin: 0 auto;
@@ -77,9 +77,9 @@ padding:5px;
 color: black;
 position: relative;
 //left: 198px;
-left: -52px;
+right:42px;
 //top: -109px;
-top:-51px;
+top:-53px;
 z-index:2;
 
   }
@@ -97,7 +97,7 @@ height:300px;
 #frm2 img
 {
  width: 90%;
-height: 30%;
+height: 40%;
 //border-radius: 10%;
 //border: 3px solid #CCC;
 //margin: 0 auto;
@@ -110,10 +110,11 @@ padding:5px;
 color: black;
 position: relative;
 //left: 198px;
-left: 104px;
+right:-107px;
 //top: -109px;
-top:-99px;
+top:-119px;
 z-index:2;
+
   }
   
  

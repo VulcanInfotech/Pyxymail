@@ -47,7 +47,7 @@ include 'session1.php';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+<a href="dashboard.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -90,7 +90,7 @@ if(isset($login_session))
 
 
 
-<div class="container" style="margin-top:95px;font-family: Arial,Helvetica,Verdana,sans-serif;">
+<div class="container" style="margin-top:110px;font-family: Arial,Helvetica,Verdana,sans-serif;">
 <div class="panel panel-default">
 <div class="panel-body">
 
@@ -101,8 +101,8 @@ if(isset($login_session))
         <!-- Project One -->
         <div class="row">
             <div class="col-md-2">
-                <a href="#">
-                    <img class="img-responsive" src="images/Dash_promo.png" height="50%" width="50%" alt="Create Promotions">
+                <a href="Promotion.php">
+                    <img class="img-responsive"  src="images/Dash_promo2.png" height="50%" width="50%" alt="Create Promotions">
                 </a>
             </div>
             
@@ -134,8 +134,8 @@ if(isset($login_session))
         <!-- Project One -->
         <div class="row">
             <div class="col-md-2">
-                <a href="#">
-                    <img class="img-responsive" src="images/Dash_campaign.png" height="50%" width="50%" alt="Create & Send Campaign">
+                <a href="campaign_dash.php">
+                    <img class="img-responsive" src="images/Dash_campaign2.png" height="50%" width="50%" alt="Create & Send Campaign">
                 </a>
             </div>
             
@@ -166,8 +166,8 @@ if(isset($login_session))
         <!-- Project One -->
         <div class="row">
             <div class="col-md-2">
-                <a href="#">
-                    <img class="img-responsive" src="images/Dash_audience.png" height="50%" width="50%" alt="Create Audience">
+                <a href="audience1.php">
+                    <img class="img-responsive" src="images/Dash_audience3.png" height="50%" width="50%" alt="Create Audience">
                 </a>
             </div>
            
@@ -199,8 +199,8 @@ if(isset($login_session))
         <!-- Project One -->
         <div class="row">
             <div class="col-md-2">
-                <a href="#">
-                    <img class="img-responsive" src="images/Dash_pricing.png" height="50%" width="50%"  alt="Pricing Plans">
+                <a href="pricing_signups.php">
+                    <img class="img-responsive" src="images/Dash_pricing2.png" height="50%" width="50%"  alt="Pricing Plans">
                 </a>
             </div>
            
@@ -221,15 +221,15 @@ if(isset($login_session))
     <!-- /.container -->
 
 </div></div>
-  </div>
+  </div><br><br>
 
 			<!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
 						<li><a href="contactus2.php" >Contact Us</a></li>
@@ -241,10 +241,10 @@ if(isset($login_session))
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->

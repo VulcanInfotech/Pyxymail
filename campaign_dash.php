@@ -77,7 +77,7 @@ window.open('http://pyxymail.net/promosent.php'
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+<a href="dashboard.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -164,14 +164,21 @@ if(isset($login_session))
                                $image=$row['Img'];
                                $pro_title=$row['pro_title'];
  $sql2="select * from promotion_sent where promo_id='$id' and User='$parentemail' order by date DESC";
-                             $query2=mysqli_query($conn,$sql2);
+                            $query2=mysqli_query($conn,$sql2);
+$countid=mysqli_num_rows($query2);
+if($ountid > 0)
+{
                              $row3=mysqli_fetch_assoc($query2);
+
                              $sent=$row3['email'];
                              $sent_date=$row3['date'];
 
-
- 
-                         
+}
+else
+{
+$sent_date='Not Yet Sent';
+}
+  $a='Not Yet Sent';                      
  echo '
     
 			  <tr>
@@ -191,13 +198,22 @@ if(isset($login_session))
 
 
  echo '<a href="delete_pro.php?del='.$ids.'" onclick="return del();" style="color:black; margin-top:2%;"><button class="btn btn-default" title="Delete Promotion"><i class="fa fa-trash"></i></button></a>';
-			echo ' </div> 
-		      </td>                                                           
-			<td  style="width:15%; margin-top:2%; text-align:center;"><a style=" text-decoration:none;">'.$sent_date.'</a></td>
-                        <td style="width:10%; margin-top:2%; text-align:center;" ><a target="popup" onclick="window.open("", "popup", width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10)" href="promosent.php?id='.$id.'" title="See Details"><i class="fa fa-eye"></i></a></td>
-	            </tr>
-	
-';	     
+			echo ' </div> 		      </td> 
+
+<td  style="width:15%; margin-top:2%; text-align:center;"><a style=" text-decoration:none;">$sent_date</a></td>';
+
+		 if($sent_date != $a)
+{
+
+                       echo' <td style="width:10%; margin-top:2%; text-align:center;" ><a target="popup" onclick="window.open("", "popup", width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10)" href="promosent.php?id='.$id.'" title="See Details"><i class="fa fa-eye"></i></a></td>
+	            </tr>';
+}
+else
+{
+echo '<td style="width:10%; margin-top:2%; text-align:center;" ><i class="fa fa-eye"></i></td>
+	            </tr>';
+}
+
 
                              $ids = $row['id'];
 			     $title = $row['promo_title'];
@@ -264,11 +280,19 @@ echo '<div class="container">
                                $pro_title=$row['pro_title'];
 $sql2="select * from promotion_sent where promo_id='$id' and User='$parentemail' order by date DESC";
                                                             $query2=mysqli_query($conn,$sql2);
+$countid=mysqli_num_rows($query2);
+if($countid > 0)
+{
                                                             $row3=mysqli_fetch_assoc($query2);
                                                             $sent=$row3['email'];
                                                             $sent_date=$row3['date'];
+}
+else
+{
+$sent_date='Not Yet Sent';
+}
 
-
+$a='Not Yet Sent';
  echo '
     
 			  <tr>
@@ -290,11 +314,21 @@ $sql2="select * from promotion_sent where promo_id='$id' and User='$parentemail'
  echo '<a href="delete_pro.php?del='.$ids.'" onclick="return del();" style="color:black; margin-top:2%;"><button class="btn btn-default" title="Delete Promotion"><i class="fa fa-trash"></i></button></a>';
 			echo ' </div> 
 		      </td>                                                           
-			<td  style="width:15%; margin-top:2%; text-align:center;"><a style=" text-decoration:none;">'.$sent_date.'</a></td>
-                        <td style="width:10%; margin-top:2%; text-align:center;" ><a target="popup" onclick="window.open("", "popup", width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10)" href="promosent.php?id='.$id.'" title="See Details"><i class="fa fa-eye"></i></a></td>
-	            </tr>
+			<td  style="width:15%; margin-top:2%; text-align:center;"><a style=" text-decoration:none;">'.$sent_date.'</a></td>';
+
+                       if($sent_date != $a)
+{
+
+                       echo' <td style="width:10%; margin-top:2%; text-align:center;" ><a target="popup" onclick="window.open("", "popup", width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10)" href="promosent.php?id='.$id.'" title="See Details"><i class="fa fa-eye"></i></a></td>
+	            </tr>';
+}
+else
+{
+echo '<td style="width:10%; margin-top:2%; text-align:center;" ><i class="fa fa-eye"></i></td>
+	            </tr>';
+}
 	
-';	     
+	     
                                                            
 //$content=$row['.Editor.'];
 

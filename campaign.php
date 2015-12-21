@@ -20,9 +20,16 @@
 <link rel="shortcut icon" type="image/x-icon" href="favicon (12).ico" />
     <link rel="icon" type="image/x-icon" href="favicon (12).ico" />		
 
- 
-
-
+<!--U css & js-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style_common_image.css" />
+<link rel="stylesheet" type="text/css" href="css/style1_image.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script src="js/modernizr.custom1.js"></script>
+<!--end U css & js-->
 
 
 
@@ -89,9 +96,9 @@ body {
     
     <!-- HTML code from Bootply.com editor -->
     
-    <body style=" background-color:#f8f8f8;overflow-x:hidden;" >
+    <body style=" background-color:#f8f8f8;overflow-x:hidden; font-family: Helvetica Neue,Arial,Helvetica,sans-serif;">
         
-       <nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white;">
+       <nav class="navbar navbar-inverse navbar-fixed-top"  style="background-color:white; border-color:white;">
   <div class="container-fluid">
     <div class="navbar-header" style="border-radius:none;">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -131,7 +138,7 @@ body {
       <ul class="nav navbar-nav navbar-right">
        <li style="margin-top:20px;"><a href="paid_signup_form1.php" class="btn btn-danger" role="button"style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;color:white;padding-top:7px; padding-bottom:7px; font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;">Sign Up</a></li>
 
-        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Log In</b></a></center></li>
+        <li style="margin-top:10px;"><center><a href="paid_login_form1.php" style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;position: relative;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a;padding: 20px 18px;display: inline-block; vertical-align: middle; -webkit-tap-highlight-color: transparent; box-sizing: border-box;"><b> Log In</b></a></center></li>
       </ul>
     </div>
   </div>
@@ -139,7 +146,7 @@ body {
 <br><br>
 
 <!--main-->
-<div class="" style="font-family: Arial,Helvetica,Verdana,sans-serif; ">
+<div class="">
 	<div class="row">
       <!--left-->
 
@@ -154,16 +161,8 @@ body {
       </div><!--/left-->
       
       <!--right-->
-      <div class="col-md-8 " style="margin-top:15px; ">
-        <!--h2 id="sec0">Getting Started with Pyxymail</h2>
-        <p style="font-size: 15px; line-height: 1.7em; font-family:Arial,Helvetica,Verdana,sans-serif;">
-         Pyxymail is an email service provider (ESP), which helps marketers send bulk emails to clients, customers, and other interested parties. Our application is based on the three main tasks of email marketing: manage subscriber lists, build email campaigns, and review campaign reports. 
+      <div class="col-md-8 " style="margin-top:15px; color:black;">
 
-In this article, you'll learn some basics about how to use Pyxymail and find resources that can help you as you work.</p>
-        
-        <hr>
-        
-        <br-->
         <h3 id="sec1"><i>Introduction</i></h3>
         <p style="font-size: 15px; line-height: 1.7em; " >
          There are a lot of names for the email you send with PyxyMail email, newsletter, we call each email message as a "campaign." Our Campaign Builder walks you through building a campaign, step by step.
@@ -173,43 +172,56 @@ We'll cover a few basics about Campaigns in this article, including what you nee
 
 
         <hr>
-        <br>
+       
         <h3 id="sec2"><i>Types of Campaign</i></h3>
         <p style="font-size: 15px; line-height: 1.7em; ">
-         The first thing you'll do in the Campaign Builder is choose what type of campaign you want to send. There are four campaign options, each with different, flexible settings, so you can choose the one that fits your needs.</p>
+         The first thing is to choose what type of campaign you want to send. There are four campaign options, each with different, flexible settings, so you can choose the one that fits your needs.</p>
 
 <div class="row">
-                  <div class="col-md-4">
-                    <div class="panel panel-default">
-                      <div class="panel-heading"><center><h3>Plain-Text</h3></center></div>
-                      <div class="panel-body">
-                         These are the simplest form of mass email you can send. As the title suggest, these campaigns contain only text and have no formatting options.
-                      </div><br><br>
+               <div class="col-md-4">          
+                       
+                 <div class="view view-first" style="box-shadow:1px 3px 5px #CCCCCC;">
+                   <h5>Plain-Text</h5>
+                   <img src="images/img1.png" height="100%" width="100%">
+
+                    <div class="mask">
+
+                        <p>&nbsp;</p><p>&nbsp;</p>
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal1">Read More</a>
                     </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="panel panel-default">
-                      <div class="panel-heading"><center><h3>Banner-Text</h3></center></div>
-                      <div class="panel-body">
-                          These allow you to automate your email marketing by combining banner from text with user-friendly PyxyMail templates. Like the other campaign types, you can control when these campaigns go out and who receives them.
-                      </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+               
+                <div class="view view-first" style="box-shadow:1px 3px 5px #CCCCCC;">
+                  <h5>Banner-Text</h5>
+                   <img src="images/img2.png" height="100%" width="100%">
+
+                    <div class="mask">
+                        
+                        <p>&nbsp;</p><p>&nbsp;</p>
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal2">Read More</a>
                     </div>
-                  </div>
-                  
-                  <div class="col-md-4">
-                    <div class="panel panel-default">
-                      <div class="panel-heading"><center><h3>Banner-Image-Text</h3></center></div>
-                      <div class="panel-body">
-                         These allow you to automate your email marketing by combining banner and image from text with user-friendly PyxyMail templates. Unlike the other campaigns type, you can have more options to decorate your campaign.
-                      </div><br>
+                </div>
+              </div>
+              <div class="col-md-4">
+                
+                <div class="view view-first" style="box-shadow:1px 3px 5px #CCCCCC;">
+                  <h5>Banner-Image-Text</h5>
+                   <img src="images/img3.png" height="100%" width="100%">
+
+                    <div class="mask">
+                        
+                        <p>&nbsp;</p><p>&nbsp;</p>
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal3">Read More</a>
                     </div>
-                  </div> 
-              	</div>
-              
-              	<hr>
+                </div>
+               </div>
+</div>
+
         
        
-        
+ <hr>       
         <h3 id="sec3"><i>Campaigns vs. Templates</i></h3>
         <p style="font-size: 15px; line-height: 1.7em; ">
           A campaign is what we call each email message you send to your subscribers. Templates are nothing but the HTML files that serve as the starting point for any campaign. The template you use determines the layout of your images and text. Essentially, it's a container for your content.</p>
@@ -217,8 +229,99 @@ We'll cover a few basics about Campaigns in this article, including what you nee
 The Template step of the Campaign Builder asks you to select a template for your campaign. There are lot of pre-designed templates to choose from, so if you aren't an HTML whiz, you'll still be able to create and send great-looking campaigns. Choose Drag and Drop templates, to make the process even easier.</p>            
               </p>
 
+<div class="container-fluid">
 
-        
+  <div class="row">
+    <div class="col-sm-6">
+         <h2 style="text-align:left;">Campaigns</h2>
+    </div>
+    
+    <div class="col-sm-6">
+        <h2 style="text-align:right;">Templates</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+         <div class="container"> 
+  <div class="progress" style="width:20%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-4">
+         abcdefghijklmnopqrstuvwxyz
+    </div>
+    <div class="col-sm-4">
+         <div class="container">
+  <div class="progress" style="width:20%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+<div class="row">
+    <div class="col-sm-4">
+         <div class="container"> 
+  <div class="progress" style="width:20%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-4">
+         abcdefghijklmnopqrstuvwxyz
+    </div>
+    <div class="col-sm-4">
+         <div class="container">
+  <div class="progress" style="width:20%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+<div class="row">
+    <div class="col-sm-4">
+         <div class="container"> 
+  <div class="progress" style="width:20%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="col-sm-4">
+         abcdefghijklmnopqrstuvwxyz
+    </div>
+    <div class="col-sm-4">
+         <div class="container">
+  <div class="progress" style="width:20%;">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+      40%
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+</div>
+
+
         <hr>
         <h3 id="sec4"><i>Example</i></h3>
         <div class="row">
@@ -287,29 +390,7 @@ The Template step of the Campaign Builder asks you to select a template for your
         </div>
         <!-- /.row -->
 
-        <hr>
-
-        <!-- Project Five -->
-        <!--div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Project Five</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-                <!--a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a-->
-            <!--/div>
-        </div>
-        <!-- /.row -->
-
-
-              	
-      		
-
-       
-       
+        <hr>	<script src="js/toucheffects.js"></script>
 
         </div><!--/right-->
 
@@ -317,8 +398,211 @@ The Template step of the Campaign Builder asks you to select a template for your
 </div><!--/container-->
 
 
-
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:blue;"><center>Plain-Text</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/1.png"><br><br>
+     <p style="color:Black;">These are the simplest form of mass email you can send. As the title suggest, these campaigns contain only text and have no formatting options.</p>
+    </div>
+  </div>
+</div>
+        </div>
         
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:blue;"><center>Banner-Text</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/2.png"><br><br>
+     <p style="color:Black;">These allow you to automate your email marketing by combining banner from text with user-friendly PyxyMail templates. Like the other campaign types, you can control when these campaigns go out and who receives them.</p>
+    </div>
+    
+  </div>
+</div>
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:blue;"><center>Banner-Image-Text</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/3.png"><br><br>
+     <p style="color:Black;">These allow you to automate your email marketing by combining banner and image from text with user-friendly PyxyMail templates. Unlike the other campaigns type, you can have more options to decorate your campaign.</p>
+    </div>
+
+  </div>
+</div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal4" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:Blue;"><center>Select Template</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/edit1.gif" height="100%" width="100%"><br><br>
+    <p style="color:Black;">Select Templates layout which is to be used to create your promotions.</p>
+    </div>
+
+  </div>
+</div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+   
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal5" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:Blue;"><center>Design</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/editor2.gif" height="100%" width="100%"><br><br>
+     <p style="color:Black;">Design your campaign! Design, is where you will actually design your campaign and add your content. Click anywhere on the template you've selected to bring up the editing pane and get to work! </p>
+    </div>
+
+  </div>
+</div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+             
+      
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal6" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:Blue;"><center>Campaign Options</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/edit3.gif" height="100%" width="100%"><br><br>
+     <p style="color:Black;">Perform any action on campaign such as, View Promotion,Edit Promotion, Send Promotion, Delete Promotion.</p>
+    </div>
+
+  </div>
+</div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+            
+  
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal7" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color:Blue;"><center>Send</center></h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12"><img src="images/edit3.gif" height="100%" width="100%"><br><br>
+     <p style="color:Black;">Send your promotion to anyone by adding contacts or by email lists easily.</p>
+    </div>
+  </div>
+</div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+          
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
@@ -379,68 +663,6 @@ $('a[href*=#]:not([href=#])').click(function() {
           ga('send', 'pageview');
         </script>
         
-        
-        <style>
-            .ad {
-              position: absolute;
-              bottom: 70px;
-              right: 48px;
-              z-index: 992;
-              background-color:#f3f3f3;
-              position: fixed;
-              width: 155px;
-              padding:1px;
-            }
-            
-            .ad-btn-hide {
-              position: absolute;
-              top: -10px;
-              left: -12px;
-              background: #fefefe;
-              background: rgba(240,240,240,0.9);
-              border: 0;
-              border-radius: 26px;
-              cursor: pointer;
-              padding: 2px;
-              height: 25px;
-              width: 25px;
-              font-size: 14px;
-              vertical-align:top;
-              outline: 0;
-            }
-            
-            .carbon-img {
-              float:left;
-              padding: 10px;
-            }
-            
-            .carbon-text {
-              color: #888;
-              display: inline-block;
-              font-family: Verdana;
-              font-size: 11px;
-              font-weight: 400;
-              height: 60px;
-              margin-left: 9px;
-              width: 142px;
-              padding-top: 10px;
-            }
-            
-            .carbon-text:hover {
-              color: #666;
-            }
-            
-            .carbon-poweredby {
-              color: #6A6A6A;
-              float: left;
-              font-family: Verdana;
-              font-size: 11px;
-              font-weight: 400;
-              margin-left: 10px;
-              margin-top: 13px;
-              text-align: center;
-            }
-        </style>
         
         
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>

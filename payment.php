@@ -271,7 +271,7 @@ font-family:initial ;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+<a href="dashboard.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -296,7 +296,7 @@ if(isset($login_session))
 }
 ?> 
 
-<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
+<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>My Account</b></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -324,13 +324,13 @@ $email=$_POST['email'];
 $nocontact=$_POST['nocontact'];
 $pricecontact=$_POST['pricecontact'];
 ?>	<section id="home" style="background:#efefef; margin-top:40px;" >
-		<div id="headerwrap">
+		<div id="headerwrap" >
 	    <div class="container">
 	    	<div class="wrap"  >
  	<div class="plans">
 	<div class="col-md-4">
 	</div>
-        <div class="col-md1" >
+        <div class="col-md1"style="margin-top:60px;" >
 			 <div class="pricing-table-grid">
 				<div class="plans_head" style="background: rgba(61, 61, 61, 0.81);">
 						<h3 style="font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#2ecc71;">Your Plan Details</h3>
@@ -408,7 +408,7 @@ if($count == 1)
       </div>
 	     </div>
 		    </div>
-			<br><br><br>
+			<br><br><br><br><br>
 		</section>
 		</form>
                         
@@ -442,11 +442,11 @@ if($count == 1)
 		
 		<!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
 						<li><a href="contactus2.php" >Contact Us</a></li>
@@ -458,10 +458,10 @@ if($count == 1)
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->

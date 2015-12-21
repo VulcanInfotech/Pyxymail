@@ -267,7 +267,7 @@ function validateAlpha1(){
 
 </script>
 </head>
-<body style="font-family: Arial,Helvetica,Verdana,sans-serif;">
+<body style="font-family: Arial,Helvetica,Verdana,sans-serif; overflow-x:hidden;">
 	<nav class="navbar navbar-inverse navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header" style="border-radius:none;">
@@ -318,7 +318,7 @@ function validateAlpha1(){
 <div class="row">  
 
                  
-                    <div class="col-md-5 col-md-offset-4"  style="margin-top:110px;">
+                    <div class="col-md-5 col-md-offset-4"  style="margin-top:140px;">
 				
                 <div  >
 
@@ -337,7 +337,7 @@ function validateAlpha1(){
   
                                 <p class="col-md-12"style="border-top: solid #ddd;"> <br>
                                     <label for="username" class="uname"  > Your email </label>
-                                    <input type="email" placeholder="mymail@mail.com"  id="username"  name="useremail" required/>
+                                    <input type="email" placeholder="mymail@mail.com"  id="useremail"  name="useremail" required/>
                                 </p>
                                 <p class="col-md-12"> 
                                     <label for="password" class="youpasswd" > Your password </label>
@@ -361,9 +361,9 @@ function validateAlpha1(){
                             </form>
 
 
-<a href="#toregister" class="to_register "><button class="btn" style="
+<a href="#toregister" class="to_register "><button class="btn btn-primary" style="
 	cursor: pointer;height:40px;   
-	background: #323f4d;//#2ecc71;#485b6e;//#ff9933;
+	//background: #323f4d;//#2ecc71;#485b6e;//#ff9933;
 	padding-top: -14px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
@@ -432,9 +432,9 @@ function validateAlpha1(){
                             </form>
 
 
-<a href="#tologin" class="to_register"><button class="btn col-md-5" style="
+<a href="#tologin" class="to_register"><button class="btn btn-primary col-md-5" style="
 	cursor: pointer;height:40px;  
-	background:#323f4d;// #485b6e;//#ff9933;
+	//background:#323f4d;// #485b6e;//#ff9933;
 	//padding-top: -14px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
@@ -544,14 +544,14 @@ function validateAlpha1(){
 <!--footer-->
   
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
-						<li><a href="contactus1.php">Contact Us</a></li>
+						<li><a href="contactus1.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -560,15 +560,15 @@ function validateAlpha1(){
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
 						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
-						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
 						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>

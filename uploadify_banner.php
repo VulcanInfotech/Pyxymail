@@ -6,9 +6,7 @@ $user=$paid_session;
 mkdir('uploads/'.$user.'/banner',0777,true);
 $targetFolder = "uploads/".$user."/banner/"; // Relative to the root
 
-$verifyToken = md5('unique_salt' . $_POST['timestamp']);
-
-if (!empty($_FILES) && $_POST['token'] == $verifyToken) 
+if (!empty($_FILES)) 
 {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
 	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $targetFolder;

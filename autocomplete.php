@@ -274,7 +274,7 @@ document.getElementById('search2').disabled = false;
        
    
 	</head>
-	<body>
+	<body style="overflow-x:hidden;">
 		<nav class="navbar navbar-inverse navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header" style="border-radius:none;">
@@ -312,10 +312,11 @@ if(isset($login_session))
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-         <li style="margin-top:10px;"><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?></b>
+         <li style="margin-top:10px;"><center><b  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;"><?php include 'session1.php';  echo $paid_user;  echo $login_session;?>,&nbsp;
+<a href="logout.php" style="color:green;">Logout</a></b>
 
-<a href="logout.php"><b style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;">Logout</b></a>
- <!--i class="fa fa-sign-out fa-1x"></i--></li>
+ <!--i class="fa fa-sign-out fa-1x"></i--></center></li>
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
         
       </ul>
     </div>
@@ -331,7 +332,7 @@ if(isset($login_session))
   <div class="">
 <div class="container"  >
     <div class="row">
-       <div class="col-md-7 col-sm-6 col-xs-12" >
+       <div class="col-md-7 col-sm-6 col-xs-12" style="margin-top:30px;" >
 
             <div class="well well-sm"style="float:center; box-shadow:2px 2px 2px 2px gray; margin-top:40px;" >
                 <form class="form-horizontal" name="list" action="" method="POST"  >
@@ -624,9 +625,9 @@ $Body  = "" ;
 ob_start();
 
 echo   "<center><h3> ".$title. " </h3></center>";
-echo  "<center><img src='http://pyxymail.net/version4/$image'><br></center>";
+echo  "<center><img src='http://pyxymail.net/$image'><br></center>";
 echo  '<img src="http://pyxymail.net/emailtracker.php?to='.$to.' & from='.$from.'"  />';
-echo  "<center><a href='http://pyxymail.net/version4/unsubscribe.php?from=$from&id=$id'>unsubscribe</a></center>";
+echo  "<center><a href='http://pyxymail.net/unsubscribe.php?from=$from&id=$id'>unsubscribe</a></center>";
 
 $body .= ob_get_contents();
 ob_end_clean();
@@ -703,8 +704,8 @@ $idw=$row2['id'];
 
 </div><!-- /.box content -->
 
-</div> <!-- /inner -->
-         </div> <!-- /.content-wrapper -->
+</div> <br><br><!-- /inner -->
+         </div><!-- /.content-wrapper -->
 
 		
 		
@@ -725,11 +726,11 @@ $idw=$row2['id'];
 		
 		<!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
 						<li><a href="contactus2.php" >Contact Us</a></li>
@@ -741,10 +742,10 @@ $idw=$row2['id'];
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="http://w3layouts.com/">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
@@ -760,8 +761,13 @@ $idw=$row2['id'];
 		</div>
 	</div>
 	<!-- Footer Ends Here -->
-	<!-- <script src="js/bootstrap.js"></script>-->
 	
+		 <script src="js/bootstrap.js"></script>
+	<script>
+	$('.carousel').carousel({
+	  interval: 3500
+	})
+	</script>
 		
 		
         

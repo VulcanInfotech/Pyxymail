@@ -32,14 +32,176 @@ include 'session1.php';
 
 
 
-<!--End Modal-->
-<!--for dropdown-->
- 
-<!--End dropdown-->
+<!--U Css & Js-->
 
-<!--for refresh-->
- 
- 
+    <style type="text/css">
+      body, html {
+          //height: auto;
+          margin-top: 8px;
+          margin-left: -13%;
+          //overflow:hidden;
+          font-family: helvetica;
+          font-weight: 100;
+      }
+      .container {
+          position: relative;
+          //height: 100%;
+          width: 100%;
+          left: -30px;
+          -webkit-transition:  left 0.4s ease-in-out;
+          -moz-transition:  left 0.4s ease-in-out;
+          -ms-transition:  left 0.4s ease-in-out;
+          -o-transition:  left 0.4s ease-in-out;
+          transition:  left 0.4s ease-in-out;
+      }
+      .container.open-sidebar {
+          left: 240px;
+      }
+      
+      .swipe-area {
+          position: absolute;
+          width: 50px;
+          left: 10;
+          top: 0;
+          height: 100%;
+          //background: #f3f3f3;
+          z-index: 0;
+      }
+      #sidebar {
+          background: #34495e;
+          position: absolute;
+          width: 300px;
+          height: 100%;
+          left: -160px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+      }
+      #sidebar ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+      }
+      #sidebar ul li {
+          margin: 0;
+      }
+      #sidebar ul li a {
+          padding: 15px 20px;
+          font-size: 16px;
+          font-weight: 100;
+          //color: white;
+          text-decoration: none;
+          display: block;
+          //border-bottom: 1px solid #C9223D;
+          -webkit-transition:  background 0.3s ease-in-out;
+          -moz-transition:  background 0.3s ease-in-out;
+          -ms-transition:  background 0.3s ease-in-out;
+          -o-transition:  background 0.3s ease-in-out;
+          transition:  background 0.3s ease-in-out;
+      }
+      #sidebar ul li:hover a {
+          //background: #C9223D;
+      }
+      .main-content {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          position: relative;
+      }
+      .main-content .content{
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+      padding-left: 60px;
+      width: 100%;
+      }
+      .main-content .content h1{
+          font-weight: 100;
+      }
+      .main-content .content p{
+          width: 100%;
+          line-height: 160%;
+      }
+      .main-content #sidebar-toggle {
+          background: #34495e;
+          border-radius: 3px;
+          display: block;
+          position: relative;
+          padding: 10px 7px;
+          float: left;
+          margin-left:8%;
+      }
+      .main-content #sidebar-toggle .bar{
+           display: block;
+          width: 18px;
+          margin-bottom: 3px;
+          height: 2px;
+          background-color: #fff;
+          border-radius: 1px;   
+      }
+      .main-content #sidebar-toggle .bar:last-child{
+           margin-bottom: 0;   
+      }
+    </style>
+    <script type="text/javascript">
+      $(window).load(function(){
+        $("[data-toggle]").click(function() {
+          var toggle_el = $(this).data("toggle");
+          $(toggle_el).toggleClass("open-sidebar");
+        });
+         $(".swipe-area").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="right") {
+                           $(".container").addClass("open-sidebar");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="left") {
+                           $(".container").removeClass("open-sidebar");
+                           return false;
+                      }
+                  }
+          }); 
+      });
+      
+    </script>
+$(function () {			
+                    $('a[data-toggle="collapse"]').on('click',function(){
+				
+				var objectID=$(this).attr('href');
+				
+				if($(objectID).hasClass('in'))
+				{
+                                    $(objectID).collapse('hide');
+				}
+				
+				else{
+                                    $(objectID).collapse('show');
+				}
+                    });
+                    
+                    
+                    $('#expandAll').on('click',function(){
+                        
+                        $('a[data-toggle="collapse"]').each(function(){
+                            var objectID=$(this).attr('href');
+                            if($(objectID).hasClass('in')===false)
+                            {
+                                 $(objectID).collapse('show');
+                            }
+                        });
+                    });
+                    
+                    $('#collapseAll').on('click',function(){
+                        
+                        $('a[data-toggle="collapse"]').each(function(){
+                            var objectID=$(this).attr('href');
+                            $(objectID).collapse('hide');
+                        });
+                    });
+                    
+		});
+<!--end U css & js--> 
 <style>
 body {
     background-color:#f2f2f2;
@@ -147,8 +309,6 @@ padding:9px;
 
 
 
-<style type="text/css">
-
 .paging-nav {
   text-align: right;
   padding-top: 2px;
@@ -210,7 +370,7 @@ $(function() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+<a href="dashboard.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -251,11 +411,92 @@ if(isset($login_session))
 </nav>
 		<!-- end navigation -->
 
-<div class="container-fluid" >
-  <div class="row">
-<div class="container" style=" margin-top:12%;">
+<!--HelpBar-->
+<div class="container">
+      <div id="sidebar">
+          
+         
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="">
+                                Collapsible Group Item #1
+                              </a>
+                            </h4>
 
-<div class="col-md-8 col-md-offset-2">
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                            dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                            moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                            wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                            vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                            synth nesciunt you probably haven't heard of them accusamus labore sustainable
+                            VHS.</div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="">
+                                Collapsible Group Item #2
+                              </a>
+                            </h4>
+
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                            dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                            moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                            wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                            vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                            synth nesciunt you probably haven't heard of them accusamus labore sustainable
+                            VHS.</div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                         <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="">
+                                Collapsible Group Item #3
+                              </a>
+                            </h4>
+
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                            dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+                            moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
+                            wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                            vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic
+                            synth nesciunt you probably haven't heard of them accusamus labore sustainable
+                            VHS.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!--end sidebar-->
+      <div class="main-content">
+          <div class="swipe-area"></div>
+          <a href="#" data-toggle=".container" id="sidebar-toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </a>
+          <div class="content">
+              <div class="container-fluid" >
+  <div class="row" style=" margin-top:2%;">
+
+
+<div class="col-md-9 col-md-offset-2">
 
     
     	<div class="row">
@@ -310,6 +551,160 @@ $("#savedata").hide();
     });
 });
 </script>
+
+
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+function validatechk()
+{
+var chks = document.getElementsByName('chkbox[]');
+        var hasChecked = false;
+        for (var i = 0; i < chks.length; i++)
+        {
+            if (chks[i].checked)
+            {
+$('#btnApprovepo').css("visibility","visible");
+                $('#btndelete').css("visibility","visible");
+            break;
+            }
+            else
+            {
+            $('#btnApprovepo').css("visibility","hidden");
+                $('#btndelete').css("visibility","hidden");
+            }
+        }
+        
+
+}
+
+function validatechk1()
+{
+var chks = document.getElementsByName('chkbox1[]');
+        var hasChecked = false;
+        for (var i = 0; i < chks.length; i++)
+        {
+            if (chks[i].checked)
+            {
+$('#btnApprovepo1').css("visibility","visible");
+                $('#btndelete1').css("visibility","visible");
+            break;
+            }
+            else
+            {
+            $('#btnApprovepo1').css("visibility","hidden");
+                $('#btndelete1').css("visibility","hidden");
+            }
+        }
+        
+
+}
+function validatetext()
+{
+           
+       
+                $('#btnApprovepo').css("visibility","visible");
+                $('#btndelete').css("visibility","hidden");
+            
+           
+ }
+
+function validatetext1()
+{
+           
+       
+                $('#btnApprovepo1').css("visibility","visible");
+                $('#btndelete1').css("visibility","hidden");
+            
+           
+ }
+        
+function validateemail(c)
+{
+           
+       
+                $('#btnApprovepo').css("visibility","visible");
+                $('#btndelete').css("visibility","hidden");
+            
+           
+        }
+        
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+  $('#btnApprovepo').css("visibility","hidden");
+ $('#btndelete').css("visibility","hidden");
+$('#btnApprovepo1').css("visibility","hidden");
+ $('#btndelete1').css("visibility","hidden");
+
+      
+  /*$('#draft').click(function()
+        {
+            if($(this).is(':checked'))
+             {
+                $('#btnApprovepo').css("visibility","visible");
+                $('#btndelete').css("visibility","visible");
+             }
+            else
+             {
+                $('#btnApprovepo').css("visibility","hidden");
+                $('#btndelete').css("visibility","hidden");
+            }
+        });*/
+
+ $("#selecctall").click(function()
+        {
+            if($(this).is(':checked'))
+             {
+                $('#btnApprovepo').css("visibility","visible");
+                $('#btndelete').css("visibility","visible");
+             }
+            else
+             {
+                $('#btnApprovepo').css("visibility","hidden");
+                $('#btndelete').css("visibility","hidden");
+            }
+        });
+
+$("#selecctall1").click(function()
+        {
+            if($(this).is(':checked'))
+             {
+                $('#btnApprovepo1').css("visibility","visible");
+                $('#btndelete1').css("visibility","visible");
+             }
+            else
+             {
+                $('#btnApprovepo1').css("visibility","hidden");
+                $('#btndelete1').css("visibility","hidden");
+            }
+        });
+
+
+
+ $("#btnApprovepo").click(function()
+        {
+            
+                $('#btnApprovepo').css("visibility","hidden");
+                $('#btndelete').css("visibility","hidden");
+             
+        });
+
+
+$("#btndelete").click(function()
+        {
+            
+                $('#btnApprovepo').css("visibility","hidden");
+                $('#btndelete').css("visibility","hidden");
+             
+        });
+
+
+    });
+</script>
+
+
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
@@ -322,7 +717,7 @@ $("#savedata").hide();
 									<div class="form-group">
                                                                                 <input type="email" class="form-control" tabindex="2" name="eemail" id="eemail" placeholder="Enter email" required style="text-align:center;">
 										
-									</div>
+				 					</div>
 									
 									<div class="form-group">
 										<div class="row">
@@ -390,10 +785,11 @@ else
   
 
 echo "<div id='datamy'>";
+//echo"<i class='fa fa-trash fa-2x col-md-offset-11' id='btndelete' ></i>";
 echo "<table id='example1' class='table table-bordered table-striped table-res['>";
          echo " <thead>";
     echo "<tr>";
-              echo "<th width='10px'><center><input type='checkbox' id='selecctall'></center></th>";
+              echo "<th width='10px'><center><input type='checkbox' id='selecctall' style='margin-left:21px;'></center></th>";
               echo "<th><center>Name</center></th>";
               echo "<th><center>Email</center></th>";
              
@@ -407,16 +803,20 @@ echo "<table id='example1' class='table table-bordered table-striped table-res['
                                              $chkbox='chkboxx'.$countervar;
 
                      echo "<tr >";
-       echo "<td><center><input type='checkbox'  class='checkbox1' name='chkbox[]'  value='".$audadd['id']."'></center></td>";
-
+       echo "<td><center><input type='checkbox'  id='draft'  class='checkbox1' name='chkbox[]'  value='".$audadd['id']."' onclick='validatechk()'></center></td>";
+           echo "<td style='width:50%;text-align:center;'><div contenteditable='true' onclick='validatetext()' id='audname'>".$audadd['Name']."</div><input type='hidden' name='".$namech."'  value='".$audadd['Name']."'></td> ";
            
                  
-		?><td style="  width:50%;text-align:center;"><?php echo $audadd['Name'];?></td>
-                                                                       
-                          <?php  echo "<input type='hidden' name='".$idname."' value='".$audadd['id']."'>";
-                                                                                         
-                                                     ?><td style=" width:50%; text-align:center;" ><?php echo $audadd['Email'];?></td>                                    
-        
+		              echo "<input type='hidden' name='".$idname."' value='".$audadd['id']."' id='audid'>";
+                                        
+echo "<td style='width:50%; text-align:center;'><div contenteditable='true' id='audemail'>".$audadd['Email']."</div></td>";
+echo "<input type='hidden' name='".$emailch."' value='".$audadd['Email']."'>";
+
+?>
+
+                                                 
+                                                                                        
+       
                   		
                      <?php echo "</tr>";
                       
@@ -436,10 +836,10 @@ echo "<br>";
 						echo "<div class='row'>";
 						echo "<div class='col-sm-4 col-md-offset-2'>";
    							  
-echo "<input  type='submit' tabindex='4' class='form-control btn btn-default 'style='background-color:#485b6e;color:white;font-weight:bold;' id='updatebtn' value='Update'/>";
+echo "<input  type='submit' tabindex='4' class='form-control btn btn-default 'style='background-color:#485b6e;color:white;font-weight:bold;' id='btnApprovepo' value='Update'/>";
 						 echo "</div>";	
                                                  echo "<div class='col-sm-4 '>";		
-                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-default'style='background-color:#485b6e;color:white;font-weight:bold;' name='delete' id='delete' value='Delete' onClick=\"javascript: submitForm1('deletecontact.php');\"/>";
+                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-default'style='background-color:#485b6e;color:white;font-weight:bold;' name='delete' id='btndelete' value='Delete' onClick=\"javascript: submitForm1('deletecontact.php');\"/>";
                                                    echo "</div>";
                                                  echo "</div>";
                                                  echo "</div>";
@@ -449,8 +849,6 @@ echo "<input  type='submit' tabindex='4' class='form-control btn btn-default 'st
 
 echo "</div>";
 			
-echo "<div id='show_search'>";
-echo "</div>";
 echo "</form>";
 }                  
                                                                                                                                  
@@ -532,7 +930,8 @@ function SaveData(name,email)
 document.getElementById("show_status").innerHTML = "";
              document.getElementById("show_status").innerHTML = xhttp.responseText;
              document.getElementById('ffname').value = "";
-             document.getElementById('eemail').value = "";
+   
+          document.getElementById('eemail').value = "";
              //$("#datamy").load(location.href + " #datamy");
 location.reload();
 
@@ -688,6 +1087,8 @@ location.reload();
 /*$(document).ready(function(){
     $("#list-form").on('submit',function(event){
     event.preventDefault();
+
+
         
         data = $(this).serialize();
 
@@ -745,7 +1146,7 @@ else
 							echo "<table id='example2' class='table table-bordered table-striped'>";
          echo " <thead>";
     echo "<tr>";
-              echo "<th width='10px'><center><input type='checkbox' id='selecctall1'></center></th>";
+              echo "<th width='10px'><center><input type='checkbox' id='selecctall1' style='margin-left:21px;'></center></th>";
               echo "<th><center>List Name</center></th>";
                echo "<th><center>Edit</center></th>";
              
@@ -761,19 +1162,19 @@ else
 $modalno='modal'.$countervar;
 
                      echo "<tr>";
-                           echo "<td><center><input type='checkbox' class='checkbox11' name='chkbox1[]'  value='".$row['id']."'></center></td>";
+                           echo "<td><center><input type='checkbox' class='checkbox11' name='chkbox1[]' onclick='validatechk1()' value='".$row['id']."'></center></td>";
+                           echo "<td style='width:50%;  text-align:center;'><font size='2'><input type='text' size='9' onclick='validatetext1()' name='".$listnm."' class='form-control' value='".$row['lname']."'></font></td>";
                                                                                         
-		?><td style="width:50%;  text-align:center;""><?php echo $row['lname'];?></td><?php
+		?>
+<?php
 
                                                                                         
-                                                                                        echo "<input type='hidden' name='".$idname1."' value='".$row['id']."'>";
-
-                                                                                         
-                                                 echo "<input type='hidden' name='".$listnm."' value='".$row['lname']."' id='". $idname1 ."'>";
+               echo "<input type='hidden' name='".$idname1."' value='".$row['id']."'>";
+               echo "<input type='hidden' name='".$listnm."' value='".$row['lname']."' id='". $idname1 ."'>";
                                      
         
                      
-                      echo "<td><center> <a href='dash2.php?listname=$row[lname]'>Edit</a></center></td>";
+                      echo "<td><center> <a href='dash2.php?listname=$row[lname]' style='color: #2952a3;'>Edit</a></center></td>";
 
                       echo "</tr>";
 
@@ -787,11 +1188,11 @@ $modalno='modal'.$countervar;
 echo "<div class='form-group'>";
 						echo "<div class='row'>";
 						echo "<div class='col-sm-4 col-md-offset-2'>";
-						echo "<input  type='submit' tabindex='4' class='form-control btn btn-default'style='background-color:#485b6e;color:white;font-weight:bold;' value='Update'/>";	  
+						echo "<input  type='submit' tabindex='4' class='form-control btn btn-default' id='btnApprovepo1'style='background-color:#485b6e;color:white;font-weight:bold;' value='Update'/>";	  
 
 						 echo "</div>";	
                                                  echo "<div class='col-sm-4'>";		
-                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-default' name='delete1' id='delete' value='Delete' onClick=\"javascript: submitForm('deletelist.php');\"/>";
+                                                 echo "<input   type='button' tabindex='4' class='form-control btn btn-default'id='btndelete1' name='delete1'  style='background-color:#485b6e;color:white;font-weight:bold;' value='Delete' onClick=\"javascript: submitForm('deletelist.php');\"/>";
                                                  
                                                    echo "</div>";
                                                  echo "</div>";
@@ -842,7 +1243,7 @@ document.getElementById("datamy1").innerHTML = "";
 
 $(document).ready(function(){
     $('#selecctall').change(function(event) {  //on click 
-        if(this.checked) { // check select status
+        if(this.checked) { // check select status 
             $('.checkbox1').each(function() { //loop through each checkbox
                 this.checked = true;  //select all checkboxes with class "checkbox1"               
             });
@@ -893,7 +1294,7 @@ $(document).ready(function(){
                         
                         if(msg=="deleted")
        {
-       
+           
        location.reload();
        
        }else{
@@ -1362,7 +1763,7 @@ print "</table>";
         
       </div>
       
-    </div>
+    </div>  </div>  </div>
 <script>
 function showList(str) {
 document.getElementById("listname").innerHTML=str;
@@ -1372,48 +1773,19 @@ document.getElementById("Txtlistname").value=str;
 
 
 
-				<!-- Footer Starts Here -->
-	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
-			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
-			
-				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
-                                               
-						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
-						<li><a href="contactus2.php" >Contact Us</a></li>
-						
-					</ul>
-						
-						
-
-				 </div>
-				
-				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
-				</div>
-				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
-                                               <!--div class="text1">
-                                                <P style="color:#3bc492"><B>FOLLOWS :<B></p>
-                                                 </div-->
-						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
-						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			
-                                           
-		</div>
-	</div>
-	
-
-
 
 
 <!--Pagination-->
+
+
+          </div><!--end content-->
+      </div>
+    </div>
+<!-- end HelpBar-->
+
+
+
+				
 
 
 <script src="sunny/plugins/jQuery/jQuery-2.1.4.min.js"></script>

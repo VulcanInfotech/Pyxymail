@@ -354,14 +354,14 @@ color:#2ecc71;
 		 <div class="col-md1" >
 			 <div class="pricing-table-grid">
 				<div class="plans_head"  style="background: rgba(61, 61, 61, 0.81);">
-						<h3 style="font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#2ecc71;">Customize </h3>
+						<h3 style="font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#2ecc71;">Custom </h3>
 <h6 style="color:white;">Great for small business</h6>
 				</div>
 				<ul style="background: white;">
 
 					
 <li><div id="txtHint" style="color: black;"><h4 class="m_4"  style="color: rgba(61, 61, 61, 0.81);font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;">$14</h4></div></li>
-					<li> <span ><form action="paidsession.php" method="GET" style="  ">
+					<li> <span><form action="paidsession.php" method="GET" style="  ">
 <h5 style="margin-left:70px; margin-top:-15px;color:black;font-family: Arial,Helvetica,Verdana,sans-serif; ">Others Plans <select name="numcontact" onchange="showPrice(this.value)" style="box-sizing:content-box; border-radius:5px; height:32px;color:black;">
 <option value="2">1,000 contacts</option>
 <option value="3">2,000 contacts</option>
@@ -409,14 +409,14 @@ color:#2ecc71;
 		
 		<!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new.php"  >About</a></li>
-						<li><a href="contactus1.php">Contact Us</a></li>
+						<li><a href="contactus1.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -425,15 +425,15 @@ color:#2ecc71;
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
 						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
-						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
 						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>

@@ -275,7 +275,7 @@ font-family:initial ;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+<a href="dashboard.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -363,7 +363,7 @@ if(isset($login_session))
 		 <div class="col-md1" >
 			 <div class="pricing-table-grid">
 				<div class="plans_head"  style="background: rgba(61, 61, 61, 0.81);">
-						<h3 style="font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#2ecc71;">Customize </h3>
+						<h3 style="font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;color:#2ecc71;">Custom </h3>
 <h6 style="color:white;">Great for small business</h6>
 				</div>
 				<ul style="background: white;">
@@ -383,7 +383,7 @@ if(isset($login_session))
 <option value="10">9,000 contacts</option>
 
 </select> </h5>  
-</form></span></li>
+</span></li>
 					<!--li><span style="color: black;">More options</span></li-->
 					<li><span style="color: black;">Customize Features</span></li>
 <li ><span style="color: black;" > ∞ emails</span></li>
@@ -421,11 +421,11 @@ if(isset($login_session))
 		
 		<!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
 						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
 						<li><a href="contactus2.php" >Contact Us</a></li>
@@ -437,10 +437,10 @@ if(isset($login_session))
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->

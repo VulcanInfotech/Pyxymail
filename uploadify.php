@@ -1,8 +1,17 @@
 <?php
 include 'session1.php';  
 
+/*if(isset($login_session))
+{
+$user=$user_check; 
+}
+else
+{
+$user=$user_check1;
+}*/
 $user=$paid_session;
 // Define a destination
+
 mkdir('uploads/'.$user,0777,true);
 $targetFolder = 'uploads/'.$user."/"; // Relative to the root
 
@@ -21,10 +30,12 @@ if (!empty($_FILES) && $_POST['token'] == $verifyToken)
 	{
 		move_uploaded_file($tempFile,$targetFile);
 		echo '1';
+               
 	}
 	else
 	{
 		echo 'Invalid file type.';
 	}
 }
+
 ?>

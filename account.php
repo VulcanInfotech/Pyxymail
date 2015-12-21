@@ -26,6 +26,7 @@ include 'session1.php';
 <link rel="stylesheet" href="css/templatemo-style.css">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
+
 <link href="css1/style.css" rel="stylesheet" type="text/css" media="all" />
      <link href="css/main.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
@@ -113,7 +114,7 @@ document.getElementById('pay').style.display = "none";
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-<a href="index.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
+<a href="dashboard.php" class="navbar-brand"><img src="images/pyxymail31.png"></a>
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
@@ -138,7 +139,7 @@ if(isset($login_session))
 }
 ?> 
 
-<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>Myaccount</b></a></li>
+<li style="margin-top:10px;"><a href="account.php"  style="font-family: Helvetica Neue,Arial,Helvetica,sans-serif;font-size: 12px;font-weight: bold;line-height: 1.75;letter-spacing: 0.04em;color: #3a3a3a; text-align: center;height: 62px;line-height: 62px;padding: 0 28px;"> &nbsp;&nbsp;&nbsp;&nbsp;<b>My Account</b></a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -170,12 +171,7 @@ if(isset($login_session))
                                         if(isset($paid_session))
                                         { 
                                            $sql1=" select * from personalInfo where email='$user_check1'";
-                                        }
-                                        elseif(isset($login_session))
-                                        { 
-                                            $sql1=" select * from personalInfo where email='$user_check'";
-                                        }
-                                            $result1=mysqli_query($conn,$sql1);  
+ $result1=mysqli_query($conn,$sql1);  
                                             while($row1=mysqli_fetch_assoc($result1))
                                             {
                                                 $fname1=$row1['first_name'];
@@ -183,9 +179,39 @@ if(isset($login_session))
                                                 $comp1=$row1['comp'];
                                                 $addr1=$row1['addr'];
                                             }
+                                           $sql2="select no_contact,price_contact from paidregistered_members where useremail='$user_check1'";
+                                            $result2=mysqli_query($conn,$sql2);  
+                                            while($row2=mysqli_fetch_assoc($result2))
+                                            {
+                                                $remain_contact=$row2['no_contact'];
+                                                $plan=$row2['price_contact'];
+                                                
+                                            }
+                                          $sql3="select usedcontact from used_contact where User='$user_check1'";
+                                          $result3=mysqli_query($conn,$sql3);  
+                                            while($row3=mysqli_fetch_assoc($result3))
+                                            {
+                                                $usedcontact=$row3['usedcontact'];
+                                                
+                                            }
+                                           
+                                        }
+                                        elseif(isset($login_session))
+                                        { 
+                                            $sql1=" select * from personalInfo where email='$user_check'";
+ $result1=mysqli_query($conn,$sql1);  
+                                            while($row1=mysqli_fetch_assoc($result1))
+                                            {
+                                                $fname1=$row1['first_name'];
+                                                $lname1=$row1['last_name'];
+                                                $comp1=$row1['comp'];
+                                                $addr1=$row1['addr'];
+                                            }
+                                        }
+                                           
                                        ?>	
                     <fieldset>
-                        <legend class="text-center header"><b style="font-family:"Lato" >My Account</b> &nbsp;&nbsp;&nbsp;<i class="fa fa-pencil"></i> <br></legend><br>
+                        <legend class="text-center header"  style="margin-bottom:0px;border-bottom:none;"><b style="font-family:"Lato";  >My Account</b> &nbsp;&nbsp;&nbsp;<i class="fa fa-pencil"></i> </legend><hr>
 
 
                         <div class="form-group">
@@ -233,6 +259,24 @@ if(isset($login_session))
                               <input id="user_postal_address" name="addr" size="30" type="text" placeholder="Permanent Address" value="<?php echo $addr1;?>" class="form-control">
                             </div>
                         </div>
+ <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money fa-2x" style="color:#6b7784;"></i></span>
+                            <div class="col-md-7">
+                              <input id="user_postal_address" name="addr" size="40" type="text" placeholder="Current Purchased Plan" value="Current Plan: $<?php echo $plan;?>" class="form-control">
+                            </div>
+                        </div>
+<div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone fa-2x" style="color:#6b7784;"></i></span>
+                            <div class="col-md-7">
+                              <input id="user_postal_address" name="addr" size="40" type="text" placeholder="Remaining Contacts" value="Remaining Contacts: <?php echo $remain_contact;?>" class="form-control">
+                            </div>
+                        </div>
+<div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone fa-2x" style="color:#6b7784;"></i></span>
+                            <div class="col-md-7">
+                              <input id="user_postal_address" name="addr" size="30" type="text" placeholder="Used Number Of Contact" value="Used Contact: <?php echo $usedcontact;?>" class="form-control">
+                            </div>
+                        </div>
 
                         
 
@@ -257,14 +301,14 @@ if(isset($login_session))
 
 <!-- Footer Starts Here -->
 	<div class="footer" id="footer"  >
-		<div class="container" style="padding-right:0;margin-right:0;margin-left:auto;">
+		<div class="container" >
 			<!--<a href="index.html"><img src="images/logo.png" /></a>-->
 			
 				<div class="col-md-4 footer-row-column">
-                                      <ul class="social" style="padding:0px;">
+                                      <ul class="social" style="padding-left:50px;"  >
                                                
-						<li style="margin-top:25px;"><a href="about_new1.php"  style="color:white;">About</a></li>
-						<li><a href="contactus2.php" style="color:white;">Contact Us</a></li>
+						<li style="margin-top:25px;"><a href="about_new1.php"  >About</a></li>
+						<li><a href="contactus2.php" >Contact Us</a></li>
 						
 					</ul>
 						
@@ -273,16 +317,16 @@ if(isset($login_session))
 				 </div>
 				
 				<div class="col-md-4 footer-row-column">
-					 <p  style="margin-top:25px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
+					 <p  style="margin-top:25px;padding-left:50px;" class="copyright" >2015 &copy; <a href="#">PyxyMail</a></p>
 				</div>
 				<div class="col-md-4 footer-row-column">
-					<ul class="social" style="padding:0px;">
+					<ul class="social" style="padding-left:50px;" >
                                                <!--div class="text1">
                                                 <P style="color:#3bc492"><B>FOLLOWS :<B></p>
                                                  </div-->
-						<li style="margin-top:25px;"><i class="fa fa-facebook-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-twitter-square fa-2x" style="color:white;"></i></li>
-						<li style="margin-top:25px;" ><i class="fa fa-google-plus-square fa-2x" style="color:white;"></i></li>
+						<li style="margin-top:25px;"><a href="#"><i class="fa fa-facebook-square fa-2x" ></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+						<li style="margin-top:25px;" ><a href="#"><i class="fa fa-google-plus-square fa-2x" ></i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>
